@@ -207,8 +207,48 @@ def product_except_self(nums):
     # Step 4: Return the final result list
     return result
 
-# Example
-nums = [1, 2, 3, 4]
-print(f"Input nums: {nums}\n")
-final_output = product_except_self(nums)
-print(f"\nFinal Output: {final_output}") # Output: [24, 12, 8, 6]
+# # Example
+# nums = [1, 2, 3, 4]
+# print(f"Input nums: {nums}\n")
+# final_output = product_except_self(nums)
+# print(f"\nFinal Output: {final_output}") # Output: [24, 12, 8, 6]
+
+
+def climb_stairs(n):
+    if n <= 1:
+      return 1 # Base cases
+
+    dp = [0] * (n + 1) # initialize an array to store result for sub problems
+    
+    dp[0] = 1 # base case: there is only 1 way to reach step 0
+    dp[1] = 1 # base case: there is only 1 way to reach step 1
+    print(f"dp array: {dp}")
+    for i in range(2, n + 1):
+      print(f"i: {i}", "dp[i-1]: ", dp[i - 1], "dp[i-2]: ", dp[i - 2])
+      dp[i] = dp[i - 1] + dp[i - 2] # calculate number of ways to reach current step from previous two steps.
+
+    return dp[n] # number of ways to reach n is stored at last position in dp array
+
+# Example Usage:
+
+# n4 = 4
+# result4 = climb_stairs(n4)
+# print(f"Input: n = {n4}, Output: {result4}") # Output: Input: n = 4, Output: 5
+def coin_change(coins, amount):
+
+    dp = [float('inf')] * (amount + 1) # Initialize dp array with infinity
+    print(f"dp array: {dp}")
+    dp[0] = 0  # Base case: 0 coins needed to make amount 0
+
+    for i in range(1, amount + 1): # Loop for all values from 1 to amount
+        for coin in coins: # loop over all coins
+            if coin <= i:
+                dp[i] = min(dp[i], dp[i - coin] + 1) # update current value of dp[i] if using coin results in less number of coins
+
+    return dp[amount] if dp[amount] != float('inf') else -1 # return dp[amount] or -1 depending on whether result is present or not
+
+# Example Usage:
+coins1 = [1, 2, 5]
+amount1 = 11
+result1 = coin_change(coins1, amount1)
+print(f"Input: coins = {coins1}, amount = {amount1}, Output: {result1}")  # Output: Input: coins = [1, 2, 5], amount = 11, Output: 3
