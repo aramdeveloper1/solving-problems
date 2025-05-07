@@ -248,7 +248,176 @@ def coin_change(coins, amount):
     return dp[amount] if dp[amount] != float('inf') else -1 # return dp[amount] or -1 depending on whether result is present or not
 
 # Example Usage:
-coins1 = [1, 2, 5]
-amount1 = 11
-result1 = coin_change(coins1, amount1)
-print(f"Input: coins = {coins1}, amount = {amount1}, Output: {result1}")  # Output: Input: coins = [1, 2, 5], amount = 11, Output: 3
+# coins1 = [1, 2, 5]
+# amount1 = 11
+# result1 = coin_change(coins1, amount1)
+# print(f"Input: coins = {coins1}, amount = {amount1}, Output: {result1}")  # Output: Input: coins = [1, 2, 5], amount = 11, Output: 3
+def longest_increasing_subsequence(nums):
+    """
+    Calculates the length of the longest increasing subsequence using dynamic programming.
+    """
+    n = len(nums)
+    if n == 0:
+      return 0 # base condition
+
+    dp = [1] * n  # Initialize dp array with 1s (every element by itself is of length 1)
+
+    for i in range(1, n): # loop through nums
+        for j in range(i): # loop through previous values
+            if nums[i] > nums[j]:
+                print(f"i: {i}", "j: ", j, "nums[i]: ", nums[i], "nums[j]: ", nums[j])
+                print(f"dp[i]: {dp[i]}", "dp[j]: ", dp[j])
+                dp[i] = max(dp[i], dp[j] + 1) # update current value from previous value
+                print(f"dp[i]: {dp}")
+    return max(dp) # return the maximum value in dp array
+
+# Example Usage:
+# nums1 = [10, 9, 2, 5, 3, 7, 101, 18]
+# result1 = longest_increasing_subsequence(nums1)
+# print(f"Input: nums = {nums1}, Output: {result1}") # Output: Input: nums = [10, 9, 2, 5, 3, 7, 101, 18], Output: 4
+def house_robber(nums):
+    """
+    Calculates the maximum amount of money that can be robbed without alerting police, using dynamic programming.
+    """
+    n = len(nums)
+    if n == 0:
+        return 0 # base case
+    if n == 1:
+        return nums[0] # base case
+    if n == 2:
+        return max(nums[0], nums[1]) # base case
+
+    dp = [0] * n # initialize dp array
+    
+    dp[0] = nums[0] # for first house
+    dp[1] = max(nums[0], nums[1]) # base case for 1st and 2nd house
+    print(f"dp array: {dp}")
+    for i in range(2, n):
+        print(f"i: {i}", "dp[i-1]: ", dp[i - 1], "nums[i]: ", nums[i], "dp[i-2]: ", dp[i - 2])
+        dp[i] = max(dp[i - 1], nums[i] + dp[i - 2]) # calculation of dp array
+        print(f"dp[i]: {dp[i]}")
+        print(f"dp array: {dp}")
+    return dp[n - 1] # last value in dp array will have max money robbed
+
+# Example Usage:
+# nums1 = [1, 2, 3, 1]
+# result1 = house_robber(nums1)
+# print(f"Input: nums = {nums1}, Output: {result1}")  # Output: Input: nums = [1, 2, 3, 1], Output: 4
+
+# nums2 = [2, 7, 9, 3, 1]
+# result2 = house_robber(nums2)
+# print(f"Input: nums = {nums2}, Output: {result2}") #Output: Input: nums = [2, 7, 9, 3, 1], Output: 12
+
+# nums3 = [2, 1]
+# result3 = house_robber(nums3)
+# print(f"Input: nums = {nums3}, Output: {result3}") # Output: Input: nums = [2, 1], Output: 2
+
+# nums4 = [2]
+# result4 = house_robber(nums4)
+# print(f"Input: nums = {nums4}, Output: {result4}")  # Output: Input: nums = [2], Output: 2
+
+# nums5 = []
+# result5 = house_robber(nums5)
+# print(f"Input: nums = {nums5}, Output: {result5}")  # Output: Input: nums = [], Output: 0
+class ListNode:
+    """Represents a node in a singly linked list."""
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def remove_nth_from_end(head, n):
+    dummy = ListNode(0) #dummy node to handle base cases
+    dummy.next = head
+    slow = dummy
+    fast = dummy
+
+    for _ in range(n): #advance the fast pointer to n steps
+      fast = fast.next
+
+    while fast and fast.next:
+        slow = slow.next #move slow pointer
+        fast = fast.next #move fast pointer
+
+    slow.next = slow.next.next # remove the node
+    return dummy.next # return the modified linked list head
+
+# Helper function to create a linked list from a list
+def create_linked_list(lst):
+    if not lst:
+        return None
+    head = ListNode(lst[0])
+    current = head
+    for i in range(1, len(lst)):
+        current.next = ListNode(lst[i])
+        current = current.next
+    return head
+
+# Helper function to print linked list
+def print_linked_list(head):
+    current = head
+    while current:
+        print(current.val, end=" -> ")
+        current = current.next
+    print("None")
+
+
+# Example Usage:
+list1 = [1, 2, 3, 4, 5]
+head1 = create_linked_list(list1)
+# print("Original list:")
+# print_linked_list(head1)
+# modified_head1 = remove_nth_from_end(head1, 2)
+# print("Modified list:")
+# print_linked_list(modified_head1)
+# Output:
+# Original list:
+# 1 -> 2 -> 3 -> 4 -> 5 -> None
+# Modified list:
+# 1 -> 2 ->
+
+def evaluate_rpn(tokens):
+    """
+    Evaluates an RPN expression.
+    """
+    stack = [] # initialize the stack
+    for token in tokens:
+        if token in ["+", "-", "*", "/"]:
+            print(f"token: {token}, stack: {stack}")
+            second_operand = stack.pop() # pop second operand
+            first_operand = stack.pop() # pop first operand
+            print(f"first_operand: {first_operand}, second_operand: {second_operand}, token: {token}, stack: {stack}")
+            if token == "+":
+                stack.append(first_operand + second_operand)
+                print(f"stack after +: {stack}")
+            elif token == "-":
+                 stack.append(first_operand - second_operand)
+            elif token == "*":
+                 stack.append(first_operand * second_operand)
+                 print(f"stack after *: {stack}")
+            elif token == "/":
+              stack.append(int(first_operand / second_operand)) # use int to handle int divison, as requested in question
+        else:
+            stack.append(int(token))  # push the number in stack
+    return stack[0] # return the final result
+
+# Example Usage:
+# tokens1 = ["2", "1", "+", "4", "*"]
+# result1 = evaluate_rpn(tokens1)
+# print(f"Input: tokens = {tokens1}, Output: {result1}") # Output: Input: tokens = ['2', '1', '+', '3', '*'], Output: 9
+# def evaluate_2(tokens):
+#     stack =[]
+#     for token in tokens:
+#         if token in ["+", "-", "*", "/"]:
+#             second = stack.pop()
+#             first = stack.pop()
+#             if token == "+":
+#                 stack.append(first + second)
+#             elif token == "-":
+#                 stack.append(first - second)
+#             elif token == "*":
+#                 stack.append(first * second)
+#             elif token == "/":
+#                 stack.append(int(first / second))
+#         else:
+#             stack.append(int(token))
+#     return stack[0]
