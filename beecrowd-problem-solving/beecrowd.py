@@ -88,3 +88,78 @@
 # print(f"{distance:.4f}")
 
 # # beecrowd | 1016
+# Distance Between Two Points
+# Step 1: Get the input
+# The input is a single integer value.
+# desired_distance_km = int(input())
+
+# # Step 2: Perform the calculation
+# # For every kilometer of distance Y needs to gain, it takes 2 minutes.
+# time_taken_minutes = desired_distance_km * 2
+
+# # Step 3: Print the output
+# # We need to print the integer result followed by " minutos".
+# # An f-string is a good way to format this.
+# print(f"{time_taken_minutes} minutos")
+
+# beecrowd | 1017
+# Consumption of Fuel
+# Step 1: Get the input values
+# The first input is the total time spent in hours.
+# The second input is the distance travelled in kilometers.
+# total_time_hours = int(input())
+# distance_travelled_km = float(input())
+# distance = total_time_hours * distance_travelled_km
+# # Step 2: Perform the calculation
+# # The fuel consumption is the distance travelled divided by the total time spent.
+# litters_per_km = distance / 12
+# print(f"{litters_per_km:.3f}")
+
+
+# beecrowd | 1018
+# Banknotes
+# Read the integer value
+
+
+# Read the integer value
+N = int(input())
+
+# Print the read value (as per output requirement)
+# print(N)
+
+# # List of possible banknote denominations, from largest to smallest
+# banknote_values = [100, 50, 25, 10, 5, 2, 1]
+
+# # Keep track of the amount we still need to decompose
+# amount_remaining = N 
+
+# # Iterate through each banknote denomination
+# for value in banknote_values:
+#     # Calculate how many notes of the current 'value' can be used
+#     # Integer division (//) gives the whole number of notes
+#     count = amount_remaining // value
+    
+#     # Print the result for this banknote value in the specified format
+#     # The format string R$ {value},00 is literal for the value part.
+#     print(f"{count} nota(s) de R$ {value},00")
+    
+#     # Update the amount remaining
+#     # The modulo operator (%) gives the remainder after division
+#     amount_remaining = amount_remaining % value
+#     print(f"amount_remaining: {amount_remaining}")
+#     # Alternatively: amount_remaining = amount_remaining - (count * value)
+
+
+# beecrowd | 1019
+# Time Conversion
+# Read the input string
+# seconds = int(input("write a number: "))
+# # seconds = int(input())
+# print(f"seconds: {seconds}")
+# # Calculate the hours, minutes and seconds
+# hours = seconds // 3600
+# minutes = (seconds % 3600) // 60
+# remaining_seconds = seconds % 60
+
+# # Print the result in the specified format
+# print(f"{hours}:{minutes}:{remaining_seconds}")
