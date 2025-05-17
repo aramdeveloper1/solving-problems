@@ -470,3 +470,250 @@
 # # # Print the result
 # print(f"Time played: {duration} hours")
 
+# Beecrowd | 1047
+# Time Conversion
+# Read the four integer inputs
+# line = input().split()
+# initial_hour = int(line[0])
+# initial_minute = int(line[1])
+# final_hour = int(line[2])
+# final_minute = int(line[3])
+
+# # Alternatively, using map:
+# # initial_hour, initial_minute, final_hour, final_minute = map(int, input().split())
+
+# # Convert start and end times to total minutes from 00:00
+# start_total_minutes = initial_hour * 60 + initial_minute
+# end_total_minutes = final_hour * 60 + final_minute
+
+# duration_in_minutes = 0
+
+# if start_total_minutes == end_total_minutes:
+#     # This covers the case where start and end times are identical (e.g., 7:07 to 7:07)
+#     # The problem states this means 24 hours.
+#     duration_in_minutes = 24 * 60
+# elif start_total_minutes < end_total_minutes:
+#     # Game ends on the same day
+#     duration_in_minutes = end_total_minutes - start_total_minutes
+# else: # start_total_minutes > end_total_minutes (game crosses midnight)
+#     # Add 24 hours worth of minutes to the end time and then subtract start time
+#     duration_in_minutes = (end_total_minutes + 24 * 60) - start_total_minutes
+
+# # Convert the total duration from minutes back to hours and minutes
+# final_duration_hours = duration_in_minutes // 60
+# final_duration_minutes = duration_in_minutes % 60
+
+# # Print the result
+# print(f"O JOGO DUROU {final_duration_hours} HORA(S) E {final_duration_minutes} MINUTO(S)")
+
+# beecrowd | 1048
+
+# ============================== 
+# Read the employee's salary
+# current_salary = float(input())
+
+# readjustment_rate_percent = 0
+
+# if current_salary >= 0 and current_salary <= 400.00:
+#     readjustment_rate_percent = 15
+# elif current_salary <= 800.00: # Implicitly > 400.00
+#     readjustment_rate_percent = 12
+# elif current_salary <= 1200.00: # Implicitly > 800.00
+#     readjustment_rate_percent = 10
+# elif current_salary <= 2000.00: # Implicitly > 1200.00
+#     readjustment_rate_percent = 7
+# else: # Implicitly current_salary > 2000.00
+#     readjustment_rate_percent = 4
+
+# # Calculate the money earned and the new salary
+# money_earned = current_salary * (readjustment_rate_percent / 100.0)
+# new_salary = current_salary + money_earned
+
+# Print the results
+# Use .2f for formatting to two decimal places for monetary values.
+# The percentage is printed as an integer.
+# print(f"Novo salario: {new_salary:.2f}")
+# print(f"Reajuste ganho: {money_earned:.2f}")
+# print(f"Em percentual: {readjustment_rate_percent} %")
+
+
+# beecrowd | 1049
+# # Animal
+# animal1 = input("enter a animal 1: ")
+# animal2 = input("enter a animal 2: ")
+# animal3 = input("enter a animal 3: ")
+# if animal1 == "vertebrado":
+#     if animal2 == "ave":
+#         if animal3 == "carnivoro":
+#             print("aguia")
+#         elif animal3 == "onivoro":
+#             print("pomba")
+#     elif animal2 == "mamifero":
+#         if animal3 == "onivoro":
+#             print("homem")
+#         elif animal3 == "herbivoro":
+#             print("vaca")
+# elif animal1 == "invertebrado":
+#     if animal2 == "inseto":
+#         if animal3 == "hematofago":
+#             print("pulga")
+#         elif animal3 == "herbivoro":
+#             print("lagarta")
+#     elif animal2 == "anelideo":
+#         if animal3 == "hematofago":
+#             print("sanguessuga")
+#         elif animal3 == "onivoro":
+#             print("minhoca")
+# beecrowd | 1050
+# # DDD
+# ddd = int(input())
+
+# if ddd == 61:
+#     print("Brasilia")
+# elif ddd == 71:
+#     print("Salvador")
+# elif ddd == 11:
+#     print("Sao Paulo")
+# elif ddd == 21:
+#     print("Rio de Janeiro")
+# elif ddd == 32:
+#     print("Juiz de Fora")
+# elif ddd == 19:
+#     print("Campinas")
+# elif ddd == 27:
+#     print("Vitoria")
+# elif ddd == 31:
+#     print("Belo Horizonte")
+# else:
+#     print("DDD nao cadastrado")
+
+# beecrowd | 1051
+# # Income Tax
+# salary = float(input())
+# # tax = 0.0
+# if salary <= 2000.00 and salary >= 0:
+#     print("Isento")
+# elif salary > 2000.00 and salary <= 3000.00:
+#     tax = (salary - 2000.00) * 0.08
+#     print(f"R$ {tax:.2f}")
+# elif salary > 3000.00 and salary <= 4500.00:
+#     tax = (salary - 3000.00) * 0.08 + 100.00
+#     print(f"R$ {tax:.2f}")
+# elif salary > 4500.00:
+#     tax = (salary - 4500.00) * 0.28 + 100.00 + 120.00
+#     print(f"R$ {tax:.2f}")
+# else:
+#      print("Isento")
+
+# beecrowd | 1052
+# # Month
+# month = int(input())
+# months ={
+#     1: "January",
+#     2: "February",
+#     3: "March",
+#     4: "April",
+#     5: "May",
+#     6: "June",
+#     7: "July",
+#     8: "August",
+#     9: "September",
+#     10: "October",
+#     11: "November",
+#     12: "December"
+# }
+# if month in months:
+#     print(months[month])
+# else:
+#     print("Invalid month")
+
+
+# beecrowd | 1059
+# # # Even Numbers
+# for i in range(101):
+#     if i % 2 == 0:
+#         print(i)
+
+# beecrowd | 1060
+# # Positive Numbers
+# num = map(float, input("enter a number: ").split())
+# positive_count = 0
+# for i in num:
+#     if i > 0:
+#         positive_count += 1
+# print(f"{positive_count} valores positivos")
+
+# Initialize a counter for positive numbers
+# positive_count = 0
+
+# # Loop 6 times because we need to read 6 numbers
+# for _ in range(6): # The underscore '_' is used when the loop variable itself isn't needed
+#     # Read a line of input (which will be a string)
+#     # Convert it to a float to handle both integers and decimals
+#     number = float(input()) 
+    
+#     # Check if the number is positive
+#     if number > 0:
+#         positive_count = positive_count + 1 # Increment the counter
+
+# # Print the final count
+# print(f"{positive_count} valores positivos")
+
+# beecrowd | 1061
+# # Event Time  
+# --- Read Start Information ---
+# start_day_line = input() # "Dia dd"
+# start_day = int(start_day_line.split()[1]) # Get the 'dd' part
+
+# start_time_line = input() # "hh : mm : ss"
+# parts_start_time = start_time_line.split(" : ")
+# start_hour = int(parts_start_time[0])
+# start_minute = int(parts_start_time[1])
+# start_second = int(parts_start_time[2])
+
+# # --- Read End Information ---
+# end_day_line = input() # "Dia dd"
+# end_day = int(end_day_line.split()[1])
+
+# end_time_line = input() # "hh : mm : ss"
+# parts_end_time = end_time_line.split(" : ")
+# end_hour = int(parts_end_time[0])
+# end_minute = int(parts_end_time[1])
+# end_second = int(parts_end_time[2])
+
+# # --- Define time constants in seconds ---
+# SECONDS_PER_MINUTE = 60
+# SECONDS_PER_HOUR = 60 * SECONDS_PER_MINUTE
+# SECONDS_PER_DAY = 24 * SECONDS_PER_HOUR
+
+# # --- Convert start and end to total seconds from a reference point ---
+# # (e.g., start of Day 1 of April, 00:00:00)
+# # The problem says "within April month", so day 1 is our reference.
+# start_total_seconds = (start_day - 1) * SECONDS_PER_DAY + \
+#                       start_hour * SECONDS_PER_HOUR + \
+#                       start_minute * SECONDS_PER_MINUTE + \
+#                       start_second
+
+# end_total_seconds = (end_day - 1) * SECONDS_PER_DAY + \
+#                     end_hour * SECONDS_PER_HOUR + \
+#                     end_minute * SECONDS_PER_MINUTE + \
+#                     end_second
+
+# # --- Calculate duration in seconds ---
+# duration_seconds = end_total_seconds - start_total_seconds
+
+# # --- Convert duration back to days, hours, minutes, seconds ---
+# d_duration = duration_seconds // SECONDS_PER_DAY
+# remainder_seconds = duration_seconds % SECONDS_PER_DAY
+
+# h_duration = remainder_seconds // SECONDS_PER_HOUR
+# remainder_seconds = remainder_seconds % SECONDS_PER_HOUR
+
+# m_duration = remainder_seconds // SECONDS_PER_MINUTE
+# s_duration = remainder_seconds % SECONDS_PER_MINUTE
+
+# # --- Print the output ---
+# print(f"{d_duration} dia(s)")
+# print(f"{h_duration} hora(s)")
+# print(f"{m_duration} minuto(s)")
+# print(f"{s_duration} segundo(s)")
