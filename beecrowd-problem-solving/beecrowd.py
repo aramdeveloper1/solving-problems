@@ -717,3 +717,158 @@
 # print(f"{h_duration} hora(s)")
 # print(f"{m_duration} minuto(s)")
 # print(f"{s_duration} segundo(s)")
+
+
+
+
+# beecrowd | 1064
+# # # Positive and Average
+# positive_count = 0
+# positive_Sum = 0
+# for i in range(6):
+#     num = float(input())
+#     if num >0:
+#         print(f"num: {num}")
+#         positive_count +=1
+#         positive_Sum += num
+# average = positive_Sum / positive_count
+# print(f"{positive_count} valores positivos and average: {average:.1f}")
+
+# beecrowd | 1065
+# # Even Numbers
+# Initialize a counter for even numbers
+# even_count = 0
+
+# # Loop 5 times because we need to read 5 integer numbers
+# for _ in range(5):
+#     # Read a line of input and convert it to an integer
+#     number = int(input()) 
+    
+#     # Check if the number is even
+#     if number % 2 == 0:
+#         even_count += 1 # Increment the counter
+
+# # Print the final count
+# print(f"{even_count} valores pares")
+
+
+# beecrowd | 
+# # Even and Odd
+# Initialize counters for even, odd, positive, and negative numbers
+# # even_count = 0
+# X = int(input())
+
+# # Iterate from 1 to X (inclusive)
+# for number in range(1, X + 1): # range(start, stop) goes up to stop-1, so X+1 for stop
+#     # Check if the number is odd
+#     if number % 2 != 0: # or number % 2 == 1 for positive odds
+#         print(number)
+
+# beecrowd | 1070
+# # Six Odd Numbers
+# X = int(input())
+
+# starting_odd_number = 0
+
+# # Determine the first odd number in the sequence
+# if X % 2 != 0:  # If X is odd
+#     starting_odd_number = X
+# else:  # If X is even
+#     starting_odd_number = X + 1
+
+# # Print 6 consecutive odd numbers
+# current_number_to_print = starting_odd_number
+# for _ in range(6): # We need to print exactly 6 numbers
+#     print(current_number_to_print)
+#     current_number_to_print += 2 # Move to the next odd number
+
+# beecrowd | 1071
+# # Sum of Consecutive Odd Numbers
+# Read the two integer inputs
+# A,B = map(int,input().split())
+# A = min(A,B)
+# B = max(A,B)
+# sum_of_consecutive_odds = 0
+# for i in range(A+1, B):
+#     if i % 2 != 0:
+#         print(i)
+#         sum_of_consecutive_odds += i
+# print(sum_of_consecutive_odds)
+
+# beecrowd | 1072
+# # Interval 2
+# Read the number of integers to be processed
+# N = int(input())
+# count_in_interval = 0
+# for _ in range(N):
+#      value = int(input())
+#      if 10 <= value <= 20:
+#          count_in_interval += 1
+# print(f"{count_in_interval} in")
+# print(f"{N - count_in_interval} out")
+
+
+
+# Beecrowd | 1073
+# # Even Square
+# Read the integer input
+# N = int(input())
+# for i in range(1, N + 1):
+#     if i % 2 == 0:
+#         print(f"{i} the square of {i**2}")
+
+
+# beecrowd | 1074
+# # Even or Odd
+# Read the number of integers to be processed
+# N = int(input())
+# for _ in range(N):
+#     number = int(input())
+#     if number == 0:
+#         print("NULL")
+#     elif number % 2 == 0 and number > 0:
+#         print("EVEN POSITIVE")
+#     elif number % 2 == 0 and number < 0:
+#         print("EVEN NEGATIVE")
+#     elif number % 2 != 0 and number > 0:
+#         print("ODD POSITIVE")
+#     elif number % 2 != 0 and number < 0:
+#         print("ODD NEGATIVE")
+
+# N = int(input()) # Number of test cases
+
+# for _ in range(N):
+#     X = int(input()) # Read the integer for the current test case
+    
+#     if X == 0:
+#         print("NULL")
+#     else:
+#         # Determine if X is EVEN or ODD
+#         if X % 2 == 0:
+#             parity_part = "EVEN"
+#         else:
+#             parity_part = "ODD"
+            
+#         # Determine if X is POSITIVE or NEGATIVE
+#         if X > 0:
+#             sign_part = "POSITIVE"
+#         else: # X must be < 0 since X != 0
+#             sign_part = "NEGATIVE"
+            
+#         print(f"{parity_part} {sign_part}")
+
+# beecrowd | 1075
+# # Remainder 2
+# N = int(input('enter a number: '))
+# # Iterate from 1 up to 10000 (inclusive)
+# # range(start, stop) goes up to stop-1, so we use 10001 for the stop value.
+# for i in range(1, 40):
+#     if i % N == 2:
+#         print(i)
+
+# beecrowd | 1078
+# # Multiplication Table
+# n = int(input("enter a number: "))
+# for i in range(2,10):
+#     s = n * i
+#     print(f"{i} x {n} = {s}")
