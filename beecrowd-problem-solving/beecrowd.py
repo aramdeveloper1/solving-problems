@@ -872,3 +872,312 @@
 # for i in range(2,10):
 #     s = n * i
 #     print(f"{i} x {n} = {s}")
+
+
+
+# beecrowd | 1079
+# # Weighted Average
+# n = int(input("enter a number: "))
+# for i in range(n):
+#     a,b,c = map(float,input().split())
+#     weighted_average =(a * 2 + b *3 + c * 5)
+#     weighted_average /= 10
+#     print(f"{weighted_average:.1f}")
+
+# beecrowd | 1080
+# n = int(input("enter a number: "))
+# max_value = 0
+# for i in range(n):
+#     current_number = int(input())
+#     if current_number > max_value:
+#         max_value = current_number
+#         print(f"max_value: {max_value}")
+# print(max_value)
+# Read the first number to initialize
+# highest_value = int(input())
+# position_of_highest = 1 # The first number is at position 1
+
+# # Loop 99 more times to read the remaining numbers (from 2nd to 100th)
+# # The current_position will range from 2 to 100
+# for current_position in range(2, 101): # range(2, 101) gives 2, 3, ..., 100
+#     current_number = int(input())
+    
+#     if current_number > highest_value:
+#         highest_value = current_number
+#         position_of_highest = current_position
+
+# # Print the results
+# print(highest_value)
+# print(position_of_highest)
+
+
+# beecrowd | 1081
+# Experiment
+
+# n = int(input("enter a number: "))
+# animal_a = 0
+# animal_b = 0
+# animal_c = 0
+
+# for i in range(n):
+#     animal = input("enter a animal: ")
+#     quantity = int(input("enter a quantity: "))
+#     if animal == "c":
+#         animal_a += quantity
+#     elif animal == "r":
+#         animal_b += quantity
+#     elif animal == "s":
+#         animal_c += quantity
+#     else:
+#         print("Invalid animal type")
+#         continue
+
+# print(f"Total number of cats: {animal_a}")
+# print(f"Total number of rats: {animal_b}")
+# print(f"Total number of frogs: {animal_c}")
+# print(f"Total number of animals: {animal_a + animal_b + animal_c}")
+# print(f"Percentage of cats: {animal_a / (animal_a + animal_b + animal_c) * 100:.2f} %")
+# print(f"Percentage of rats: {animal_b / (animal_a + animal_b + animal_c) * 100:.2f} %")
+# print(f"Percentage of frogs: {animal_c / (animal_a + animal_b + animal_c) * 100:.2f} %")
+
+# beecrowd | 1095
+# # Sequence I
+# j = 0
+# for i in range(1, 80, 3):
+#     print(f"I={i} J={60 - j}")
+#     j +=5
+
+# i =1
+# j = 60
+# while j >= 0:
+#     print(f"I={i} J={j}")
+#     i += 3
+#     j -= 5
+
+# beecrowd | 1096
+# # Sequence II
+# Outer loop for I: values are 1, 3, 5, 7, 9
+# range(start, stop, step)
+# for i_val in range(1, 10, 2): # Generates 1, 3, 5, 7, 9
+#     # Inner loop for J: values are 7, 6, 5
+#     # range(start, stop, step) where stop is exclusive
+#     for j_val in range(7, 4, -1): # Generates 7, 6, 5
+#         print(f"I={i_val} J={j_val}")
+
+# beecrowd | 1097
+# # Sequence III
+
+# # Outer loop for I: values are 1, 3, 5, 7, 9
+# # range(start, stop, step)
+# for i_val in range(1, 10, 2): # Generates 1, 3, 5, 7, 9
+    
+#     # Determine the starting J value for the current i_val
+#     j_start = i_val + 6
+    
+#     # Inner loop for J: J takes 3 values: j_start, j_start-1, j_start-2
+#     # We can loop 3 times or use a range that counts down
+#     for k in range(3): # k will be 0, 1, 2
+#         j_val = j_start - k
+#         print(f"I={i_val} J={j_val}")
+
+# # Alternative for inner loop:
+# # for i_val in range(1, 10, 2):
+# #     j_start = i_val + 6
+# #     for j_val in range(j_start, j_start - 3, -1): # Generates j_start, j_start-1, j_start-2
+# #         print(f"I={i_val} J={j_val}")
+
+# beecrowd | 1098
+# # Sequence IV
+# i = 0.0
+# j = 1.0
+# # Outer loop for I: values are 0.0, 0.2, 0.4, ..., 2.0
+# # range(start, stop, step)
+# my attempt
+
+# for i in range(0, 2.0, 0.2):
+#     for j in range(1, 4):
+#         print(f"I={i:.1f} J={j + i:.1f}")
+
+
+# for step in range(11):  # From 0 to 10 inclusive → 11 steps of 0.2
+#     i = step * 0.2
+#     for j in range(1, 4):
+#         print(f"I={i:.1f} J={i + j:.1f}")
+
+
+# import decimal # For more precise arithmetic if needed, but let's try without first
+
+# # Outer loop for I's progression
+# # i_counter goes from 0 to 10.
+# # I = i_counter / 5.0  (which is i_counter * 0.2)
+# for i_counter in range(11): # 0, 1, ..., 10
+#     i_float = i_counter / 5.0 
+#     # Example: i_counter=0 -> i_float=0.0
+#     #          i_counter=1 -> i_float=0.2
+#     #          i_counter=5 -> i_float=1.0
+#     #          i_counter=10 -> i_float=2.0
+
+#     # Inner loop for J's progression (J = I+1, I+2, I+3)
+#     for j_offset in range(1, 4): # j_offset will be 1, 2, 3
+#         j_float = i_float + j_offset
+        
+#         # Format I for printing
+#         # float.is_integer() is a good way to check if a float has no fractional part
+#         if i_float.is_integer():
+#             i_str = str(int(i_float))
+#         else:
+#             i_str = f"{i_float:.1f}" # Or str(round(i_float, 1)) but .1f is better for formatting
+
+#         # Format J for printing
+#         if j_float.is_integer():
+#             j_str = str(int(j_float))
+#         else:
+#             j_str = f"{j_float:.1f}"
+
+#         print(f"I={i_str} J={j_str}")
+
+
+# beecrowd | 1099
+# # Sum of Consecutive Odd Numbers II
+# my attempt
+# n = int(input("enter a number: "))
+# a,b = map(int,input("enter a and b ").split())
+# sum_of_consecutive_odds = 0
+# for i in range(n):
+#     if a % 2 != 0 and b % 2 != 0:
+#         print(f"a and b are odd: {a, b}")
+#         sum_of_consecutive_odds += a + b
+#         print(f"sum_of_consecutive_odds: {sum_of_consecutive_odds}")
+#         a += 1
+#         b -= 1
+#     else:
+#         print("a and b are not odd")
+# print(sum_of_consecutive_odds)
+
+
+# N = int(input()) # Read the number of test cases
+
+# for _ in range(N):
+#     # Read X and Y for the current test case
+#     # Assume X and Y are space-separated on a single line
+#     line_values = input().split()
+#     X = int(line_values[0])
+#     Y = int(line_values[1])
+    
+#     # Alternative using map:
+#     # X, Y = map(int, input().split())
+
+#     # Determine the smaller and larger values to define the range
+#     lower_bound = min(X, Y)
+#     upper_bound = max(X, Y)
+
+#     current_sum_of_odds = 0
+
+#     # Iterate through numbers strictly between lower_bound and upper_bound
+#     # range(start, stop) goes from start up to stop-1.
+#     # We need to iterate from lower_bound + 1 up to (but not including) upper_bound.
+#     for number in range(lower_bound + 1, upper_bound):
+#         # Check if the number is odd
+#         if number % 2 != 0: # Python's % handles negative numbers correctly for this
+#             current_sum_of_odds += number
+
+#     # Print the sum for the current test case
+#     print(current_sum_of_odds)
+
+
+# beecrowd | 1101
+# # Sequence of Numbers and Sum
+
+# Input Sample	Output Sample
+# 5 2
+# 6 3
+# 5 0
+
+# 2 3 4 5 Sum=14
+# 3 4 5 6 Sum=18
+# my attempt
+# n = int(input("enter a number: "))
+# sum = 0
+# a,b = map(int, input("enter a and b: ").split())
+# start = min(a, b)
+# end = max(a, b)
+# for i in range(start, end+1):
+#     sum += i
+#     print(i, end=" ")
+# print(f"Sum={sum}")
+
+# while True:
+#     try:
+#         # Read M and N from a single line, space-separated
+#         line_values = input().split()
+#         M = int(line_values[0])
+#         N = int(line_values[1])
+#     except EOFError:
+#         # This handles the case where input might end abruptly without the M<=0/N<=0 terminator.
+#         # For Beecrowd, the problem usually guarantees the M<=0/N<=0 terminator.
+#         break
+#     except (ValueError, IndexError):
+#         # This handles cases like empty lines or lines not containing two integers.
+#         # Again, may not be strictly necessary if Beecrowd inputs are always well-formed
+#         # until the M<=0 or N<=0 condition.
+#         break # Or continue if you want to try reading next line
+
+#     # Check the primary termination condition
+#     if M <= 0 or N <= 0:
+#         break
+
+#     # Determine the smaller and larger values
+#     if M < N:
+#         min_val = M
+#         max_val = N
+#     else:
+#         min_val = N
+#         max_val = M
+        
+#     current_sum = 0
+#     sequence_parts = [] # To store numbers as strings for the sequence output
+
+#     # Iterate from min_val to max_val (inclusive)
+#     for i in range(min_val, max_val + 1):
+#         sequence_parts.append(str(i)) # Add the number (as a string) to the list
+#         current_sum += i             # Add the number to the sum
+        
+#     # Join the sequence parts with spaces to form the sequence string
+#     sequence_str = " ".join(sequence_parts)
+    
+#     # Print the sequence and the sum in the required format
+    # print(f"{sequence_str} Sum={current_sum}")
+
+
+# beecrowd | 1113
+# #Ascending and Descending
+# my attempt
+# a, b = map(int, input("enter a and b: ").split())
+# if a < b :
+#     print("CRESCENTE")
+# else:
+#     print("DECRESCENTE")
+
+# while True:
+#     try:
+#         # Read X and Y from a single line, space-separated
+#         line_values = input().split()
+#         X = int(line_values[0])
+#         Y = int(line_values[1])
+#     except EOFError: 
+#         # Handle potential end of input if not terminated by X==Y
+#         # Though problem specifies X==Y as the terminator.
+#         break
+#     except (ValueError, IndexError):
+#         # Handle malformed lines, if necessary
+#         break 
+
+#     # Check termination condition
+#     if X == Y:
+#         break
+
+#     # Determine order and print
+#     if X < Y:
+#         print("Crescente")
+#     else: # X > Y, because X == Y was handled by the break
+#         print("Decrescente")
