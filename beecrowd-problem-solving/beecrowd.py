@@ -1181,3 +1181,210 @@
 #         print("Crescente")
 #     else: # X > Y, because X == Y was handled by the break
 #         print("Decrescente")
+
+# beecrowd | 1114
+# # Password
+# # my attempt
+# while True:
+#     password = int(input("write password"))
+#     if password == 2002:
+#         print("Acesso Permitido")
+#         break
+#     else:
+#         print("Senha Invalida")
+
+
+# while True:
+#     try:
+#         attempted_password = int(input("write password: "))
+#     except EOFError:
+#         break
+#     if attempted_password == 2002:
+#         print("Acesso Permitido")
+#         break
+#     else:
+#         print("Senha Invalida")
+
+
+# beecrowd | 1115
+# # Quadrant
+# my Attempt
+# while True:
+#     x,y = map(float, input("enter x and y: ").split())
+#     if x == 0.0 and y == 0.0:
+#         break
+#     elif x > 0.0 and y >0.0:
+#         print("Q1")
+#     elif x < 0.0 and y >0.0:
+#         print("Q2")
+#     elif x < 0.0 and y < 0.0:
+#         print("Q3")
+#     elif x > 0.0 and y < 0.0:
+#         print("Q4")
+
+# while True:
+#     try:
+#         # Read X and Y from a single line, space-separated
+#         line_values = input().split()
+#         X = int(line_values[0])
+#         Y = int(line_values[1])
+#     except EOFError:
+#         # Handle potential end of input if not terminated by X/Y==0
+#         break
+#     except (ValueError, IndexError):
+#         # Handle malformed lines, if necessary (e.g., empty line at end)
+#         # For this problem, X=0 or Y=0 is the defined terminator.
+#         break 
+
+#     # Check termination condition
+#     if X == 0 or Y == 0:
+#         break
+
+#     # Determine and print the quadrant
+#     if X > 0 and Y > 0:
+#         print("primeiro")
+#     elif X < 0 and Y > 0:
+#         print("segundo")
+#     elif X < 0 and Y < 0:
+#         print("terceiro")
+#     elif X > 0 and Y < 0: # Could also be just 'else:' here
+#         print("quarto")
+
+# beecrowd | 1116
+# # Divided x by y
+
+# while True:
+#     x,y = map(int, input().split())
+#     if y == 0:
+#         print("divisao impossivel")
+#         break
+#     else:
+#         result = x / y
+#         print(f"{result:.1f}")
+# #     # Check termination condition
+
+# N = int(input()) # Read the number of test cases
+
+# for _ in range(N):
+#     # Read X and Y for the current test case
+#     # Assume X and Y are space-separated on a single line
+#     line_values = input().split()
+#     X = int(line_values[0])
+#     Y = int(line_values[1])
+    
+#     # Alternative using map:
+#     # X, Y = map(int, input().split())
+
+#     # Check if the divisor Y is zero
+#     if Y == 0:
+#         print("divisao impossivel")
+#     else:
+#         # Perform float division
+#         result = X / Y # In Python 3, this is float division
+#         # result = float(X) / Y # Also works, more explicit
+        
+#         # Print the result formatted to one decimal place
+#         print(f"{result:.1f}")
+
+# beecrowd | 1117
+# # Valid Score
+# my attempt
+# while True:
+#     a,b = map(float, input("enter a and b: ").split())
+#     if a < 0 or a > 10:
+#         print("nota invalida")
+#         continue
+#     if b < 0 or b > 10:
+#         print("nota invalida")
+#         continue
+#     average = (a+b) / 2
+#     print(f"media = {average:.2f}")
+#     break
+
+# valid_scores_count = 0
+# sum_of_valid_scores = 0.0
+
+# while valid_scores_count < 2:
+#     try:
+#         score = float(input())
+#     except EOFError:
+#         # Should not happen if problem guarantees enough input to get 2 valid scores
+#         break
+#     except ValueError:
+#         # Handle non-float input if necessary, though problem implies float inputs
+#         print("nota invalida") # Treat malformed input as invalid
+#         continue
+
+#     if 0 <= score <= 10:
+#         sum_of_valid_scores += score
+#         valid_scores_count += 1
+#     else:
+#         print("nota invalida")
+
+# # After the loop, we are guaranteed to have 2 valid scores
+# average = sum_of_valid_scores / 2.0
+# print(f"media = {average:.2f}")
+
+# beecrowd | 1118
+# # Valid Score II
+
+# valid_score = 0
+# sum = 0.0
+# while valid_score < 2:
+#     a = int(input("enter a number: "))
+#     if a < 0 or a > 10:
+#         print("nota invalida")
+#     else:
+#         valid_score += sum
+#         valid_score+=1
+
+# result = sum / 2.0
+# if valid_score == 2:
+#     print("media = {:.2f}".format(result))
+# print(f"media = {result:.2f}")
+
+
+while True: # Main loop for new calculations
+    valid_scores_collected = 0
+    sum_of_valid_scores = 0.0
+
+    # Loop to get two valid scores
+    while valid_scores_collected < 2:
+        try:
+            score = float(input())
+        except EOFError: # Should not happen with specified termination
+            exit() # Or break all loops
+        except ValueError: # Handle non-float input
+            print("nota invalida")
+            continue
+            
+        if 0 <= score <= 10:
+            sum_of_valid_scores += score
+            valid_scores_collected += 1
+        else:
+            print("nota invalida")
+            
+    # Calculate and print the average for the two valid scores
+    average = sum_of_valid_scores / 2.0
+    print(f"media = {average:.2f}")
+
+    # Loop to get a valid option for "novo calculo"
+    while True:
+        print("novo calculo (1-sim 2-nao)")
+        try:
+            option_x = int(input())
+        except EOFError:
+            exit()
+        except ValueError:
+            # If input is not an integer, it's an invalid option, loop continues by default
+            # No specific error message for malformed option, just re-prompt.
+            continue 
+            
+        if option_x == 1 or option_x == 2:
+            break # Valid option received, exit option loop
+        # If option is not 1 or 2, this option loop continues, re-printing the prompt
+            
+    # Check if the main program should terminate
+    if option_x == 2:
+        break # Exit the main 'while True' loop for calculations
+    # If option_x == 1, the main loop continues for a new set of scores
