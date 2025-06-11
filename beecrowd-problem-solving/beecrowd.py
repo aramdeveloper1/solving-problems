@@ -1344,47 +1344,427 @@
 # print(f"media = {result:.2f}")
 
 
-while True: # Main loop for new calculations
-    valid_scores_collected = 0
-    sum_of_valid_scores = 0.0
+# while True: # Main loop for new calculations
+#     valid_scores_collected = 0
+#     sum_of_valid_scores = 0.0
 
-    # Loop to get two valid scores
-    while valid_scores_collected < 2:
-        try:
-            score = float(input())
-        except EOFError: # Should not happen with specified termination
-            exit() # Or break all loops
-        except ValueError: # Handle non-float input
-            print("nota invalida")
-            continue
+#     # Loop to get two valid scores
+#     while valid_scores_collected < 2:
+#         try:
+#             score = float(input())
+#         except EOFError: # Should not happen with specified termination
+#             exit() # Or break all loops
+#         except ValueError: # Handle non-float input
+#             print("nota invalida")
+#             continue
             
-        if 0 <= score <= 10:
-            sum_of_valid_scores += score
-            valid_scores_collected += 1
-        else:
-            print("nota invalida")
+#         if 0 <= score <= 10:
+#             sum_of_valid_scores += score
+#             valid_scores_collected += 1
+#         else:
+#             print("nota invalida")
             
-    # Calculate and print the average for the two valid scores
-    average = sum_of_valid_scores / 2.0
-    print(f"media = {average:.2f}")
+#     # Calculate and print the average for the two valid scores
+#     average = sum_of_valid_scores / 2.0
+#     print(f"media = {average:.2f}")
 
-    # Loop to get a valid option for "novo calculo"
-    while True:
-        print("novo calculo (1-sim 2-nao)")
-        try:
-            option_x = int(input())
-        except EOFError:
-            exit()
-        except ValueError:
-            # If input is not an integer, it's an invalid option, loop continues by default
-            # No specific error message for malformed option, just re-prompt.
-            continue 
+#     # Loop to get a valid option for "novo calculo"
+#     while True:
+#         print("novo calculo (1-sim 2-nao)")
+#         try:
+#             option_x = int(input())
+#         except EOFError:
+#             exit()
+#         except ValueError:
+#             # If input is not an integer, it's an invalid option, loop continues by default
+#             # No specific error message for malformed option, just re-prompt.
+#             continue 
             
-        if option_x == 1 or option_x == 2:
-            break # Valid option received, exit option loop
-        # If option is not 1 or 2, this option loop continues, re-printing the prompt
+#         if option_x == 1 or option_x == 2:
+#             break # Valid option received, exit option loop
+#         # If option is not 1 or 2, this option loop continues, re-printing the prompt
             
-    # Check if the main program should terminate
-    if option_x == 2:
-        break # Exit the main 'while True' loop for calculations
-    # If option_x == 1, the main loop continues for a new set of scores
+#     # Check if the main program should terminate
+#     if option_x == 2:
+#         break # Exit the main 'while True' loop for calculations
+#     # If option_x == 1, the main loop continues for a new set of scores
+
+# beecrowd | 1131
+# # Grenais
+
+# my attempt
+# grenais_count = 0
+# win_inter = 0
+# win_gremio = 0
+# draws = 0
+
+# while True:
+#     try:
+#         inter, gremio = map(int,input("enter the scores: ").split())
+#     except EOFError:
+#         break
+#     except (ValueError, IndexError):
+#         print("Invalid input, please enter two integers.")
+#         continue
+#     grenais_count += 1
+#     if inter > gremio:
+#         win_inter += 1
+#     elif gremio > inter:
+#         win_gremio += 1
+#     else:
+#         draws += 1
+
+#     print("Novo grenal (1-sim 2-nao)")
+    
+
+#     print(f"{grenais_count} grenais")
+#     print(f"Inter: {win_inter}")
+#     print(f"Gremio: {win_gremio}")
+#     print(f"Empates: {draws}")
+#     print(f"Inter venceu {win_inter} grenais.")
+#     print(f"Gremio venceu {win_gremio} grenais.")
+#     print(f"Empates: {draws}")
+    
+# Initialize statistics counters
+# grenais_count = 0
+# inter_wins = 0
+# gremio_wins = 0
+# draws = 0
+
+# while True:
+#     # Read goals for Inter and Gremio
+#     # Assume they are space-separated on one line
+#     try:
+#         goals_input = input().split()
+#         gols_inter = int(goals_input[0])
+#         gols_gremio = int(goals_input[1])
+#     except EOFError: # Should not happen based on problem structure
+#         break
+#     except (ValueError, IndexError): # For malformed goal input
+#         # This case is unlikely for Beecrowd if format is fixed.
+#         # If it happened, we might want to break or re-prompt, but problem implies clean input for goals.
+#         continue 
+
+#     # Update total Grenais
+#     grenais_count += 1
+
+#     # Determine winner and update stats
+#     if gols_inter > gols_gremio:
+#         inter_wins += 1
+#     elif gols_gremio > gols_inter:
+#         gremio_wins += 1
+#     else: # It's a draw
+#         draws += 1
+
+#     # Ask if user wants another Grenal
+#     print("Novo grenal (1-sim 2-nao)")
+#     try:
+#         option = int(input())
+#     except EOFError: # If input ends unexpectedly
+#         break
+#     except ValueError: # If option is not an int
+#         # Problem usually assumes valid 1 or 2. If not, could loop for valid option.
+#         # For simplicity here, if option is malformed, we might just break.
+#         # Or more robustly, loop until option is 1 or 2.
+#         # For this problem, likely assume option input is clean.
+#         break 
+
+
+#     if option == 2:
+#         break # Exit the main while loop
+#     # If option == 1, the loop continues
+
+# # After the loop, print the final statistics
+# print(f"{grenais_count} grenais")
+# print(f"Inter:{inter_wins}")
+# print(f"Gremio:{gremio_wins}")
+# print(f"Empates:{draws}")
+
+# if inter_wins > gremio_wins:
+#     print("Inter venceu mais")
+# elif gremio_wins > inter_wins:
+#     print("Gremio venceu mais")
+# else:
+#     print("Nao houve vencedor")
+
+
+# while True:
+#     summation = 0
+#     try:
+#         x, y = map(int, input("enter x and y: ").split())   
+#     except EOFError:
+#         break
+#     except ValueError:
+#         print("Invalid input, please enter two integers.")
+#         continue
+# you used while and and which is wrong becouse it would stop and terminate the loop
+# you should use for to have a range between x and y
+
+# #     while x % 13 != 0 and y % 13 != 0:
+#         if x % 13 == 0:
+#             print(f"{x} is a multiple of 13")
+#         if y % 13 == 0:
+#             print(f"{y} is a multiple of 13")
+#         summation += x + y
+#         print(f"Summation: {summation}")
+#         x += 1
+#         y -= 1
+        
+
+# while True:
+#     try:
+#         x, y = map(int, input("Enter x and y: ").split())
+#     except EOFError:
+#         break
+#     except ValueError:
+#         print("Invalid input, please enter two integers.")
+#         continue
+
+#     # Ensure x is less than y
+#     if x > y:
+#         x, y = y, x
+
+#     summation = 0
+#     for num in range(x, y + 1):
+#         if num % 13 != 0:
+#             print(f"{num} is not a multiple of 13")
+#             summation += num
+#             print("Summation: ", summation)
+
+#     print(f"Summation: {summation}")
+
+
+# beecrowd | 1132
+# # Multiples of 5 to equal 3 and 2
+
+# x,y = map(int, input("enter x and y: ").split())
+# # Ensure x is less than y
+# x = min(x, y)
+# y = max(x, y)
+# for i in range(x,y+1):
+#     if i % 5 == 2 or i % 5 == 3:
+#         print(i)
+
+# Read the two integer values
+# X = int(input())
+# Y = int(input())
+
+# # Determine the smaller and larger values to define the range
+# lower_bound = min(X, Y)
+# upper_bound = max(X, Y)
+
+# # Iterate through numbers strictly between lower_bound and upper_bound,
+# # in ascending order.
+# # range(start, stop) goes from start up to stop-1.
+# # We need to iterate from lower_bound + 1 up to (but not including) upper_bound.
+# for number in range(lower_bound + 1, upper_bound):
+#     remainder = number % 5
+#     if remainder == 2 or remainder == 3:
+#         print(number)
+
+
+# beecrowd | 1134
+# # Type of Fuel
+# N = int(input()) # Read the number of lines
+
+# current_start_number = 1
+
+# for _ in range(N): # Loop N times for N lines of output
+#     # The three numbers for the current line
+#     num1 = current_start_number
+#     num2 = current_start_number + 1
+#     num3 = current_start_number + 2
+    
+#     # Print the line in the required format
+#     print(f"{num1} {num2} {num3} PUM")
+    
+#     # Update current_start_number for the next line
+#     # We printed 3 numbers, and PUM takes the place of the 4th.
+#     # So, the next sequence starts 4 numbers after the current_start_number.
+#     current_start_number += 4 
+
+
+
+# beecrowd | 1135
+# # PUM
+# Initialize counters for each fuel type
+# count_alcohol = 0
+# count_gasoline = 0
+# count_diesel = 0
+
+# while True:
+#     try:
+#         code = int(input())
+#     except EOFError:
+#         # In case input stream ends before code 4, though problem implies code 4 will terminate
+#         break
+#     except ValueError:
+#         # If input is not an integer, problem says "integer and positive values"
+#         # but an invalid code (like a letter) might cause ValueError.
+#         # The problem implies we just re-request if outside 1-4.
+#         # So, if it's not an int, it's effectively an invalid code.
+#         continue # Skips to the next iteration to read a new code
+
+#     if code == 1:
+#         count_alcohol += 1
+#     elif code == 2:
+#         count_gasoline += 1
+#     elif code == 3:
+#         count_diesel += 1
+#     elif code == 4:
+#         break # Exit the loop when code 4 is entered
+#     # No 'else' needed here: if code is not 1, 2, 3, or 4,
+#     # we just loop again to get the next input, as per "a new code must be requested".
+
+# # After the loop terminates (due to code 4)
+# print("MUITO OBRIGADO")
+# print(f"Alcool: {count_alcohol}")
+# print(f"Gasolina: {count_gasoline}")
+# print(f"Diesel: {count_diesel}")
+
+# N = int(input()) # Read the number of lines
+
+# current_start_number = 1
+
+# for _ in range(N): # Loop N times for N lines of output
+#     # The three numbers for the current line
+#     num1 = current_start_number
+#     num2 = current_start_number + 1
+#     num3 = current_start_number + 2
+    
+#     # Print the line in the required format
+#     print(f"{num1} {num2} {num3} PUM")
+    
+#     # Update current_start_number for the next line
+#     # We printed 3 numbers, and PUM takes the place of the 4th.
+#     # So, the next sequence starts 4 numbers after the current_start_number.
+#     current_start_number += 4 
+
+# beecrowd | 1143
+# Squared and Cubic
+# n = int(input("enter a number: "))
+# for i in range(1, n +1):
+#     square = i ** 2
+#     cube = i **3
+#     print(f"{i} {square} {cube}")
+
+# N = int(input()) # Read the number of lines
+
+# # Loop from 1 to N (inclusive)
+# # range(1, N + 1) will generate numbers 1, 2, ..., N
+# for i in range(1, N + 1):
+#     square = i * i   # or i**2
+#     cube = i * i * i # or i**3 or square * i
+    
+#     # Print the number, its square, and its cube, separated by spaces
+#     print(f"{i} {square} {cube}")
+
+# beecrowd | 1144
+# Logical Sequence
+
+# N = int(input()) # Read the integer N
+
+# # Loop from 1 to N (inclusive)
+# # range(1, N + 1) will generate numbers 1, 2, ..., N
+# for i in range(1, N + 1):
+#     # Calculate square and cube for the current i
+#     i_square = i * i   # or i**2
+#     i_cube = i * i * i # or i**3
+    
+#     # Print the first line for the current i
+#     print(f"{i} {i_square} {i_cube}")
+    
+#     # Print the second line for the current i
+#     # It uses i, i_square + 1, and i_cube + 1
+#     print(f"{i} {i_square + 1} {i_cube + 1}")
+
+# beecrowd | 1145
+# Logical Sequence II
+
+# Read X and Y from a single line, space-separated
+# line_input = input().split()
+# X = int(line_input[0])
+# Y = int(line_input[1])
+
+# # Alternative using map:
+# # X, Y = map(int, input().split())
+
+# current_line_elements = []
+
+# for i in range(1, Y + 1): # Loop from 1 to Y inclusive
+#     current_line_elements.append(str(i)) # Add number as string
+
+#     # Check if the line is full (X elements) OR if it's the very last number (i == Y)
+#     if len(current_line_elements) == X or i == Y:
+#         print(" ".join(current_line_elements)) # Print elements joined by space
+#         current_line_elements = [] # Reset for the next line
+
+
+# X, Y = map(int, input().split())
+
+# for i in range(1, Y + 1):
+#     if i % X == 0:
+       
+#         print(i)
+#     else:
+#         print(i, end=' ')
+
+
+
+
+
+# beecrowd | 1145
+# Logical Sequence II
+# while True:
+#     try:
+#         X = int(input())
+#     except EOFError: # Should not happen given X=0 is terminator
+#         break
+#     except ValueError: # If input is not an int
+#         # Problem implies integer inputs. If X=0 is terminator, invalid format before that is unlikely.
+#         break 
+
+#     if X == 0:
+#         break # Terminate if X is 0
+
+#     # Build the sequence for the current X
+#     sequence_parts = []
+#     for i in range(1, X + 1): # Loop from 1 to X inclusive
+#         sequence_parts.append(str(i))
+#         print(sequence_parts)
+#     # Join the parts with a space and print
+#     # This inherently handles the no trailing space issue.
+#     print(" ".join(sequence_parts))
+    
+
+
+
+# Read all integer values from the single input line
+# input().split() creates a list of strings.
+# map(int, ...) converts each string to an integer.
+# list(...) converts the map object to a list.
+all_input_numbers = list(map(int, input().split()))
+
+A = all_input_numbers[0]
+N = 0 # Initialize N
+
+# Find the first positive N from the second element onwards
+# We iterate starting from index 1 of all_input_numbers
+for i in range(1, len(all_input_numbers)):
+    potential_N = all_input_numbers[i]
+    print("potential_N", potential_N)
+    if potential_N > 0:
+        N = potential_N
+        break # Found the valid N, exit this loop
+
+# Calculate the sum of N consecutive integers starting from A
+total_sum = 0
+for i in range(N): # This will loop N times, with i from 0 to N-1
+    print("i",i)
+    term = A + i
+    print("term",term)
+    total_sum += term
+    print("total_sum",total_sum)
+
+# Print the sum
+print(total_sum)
