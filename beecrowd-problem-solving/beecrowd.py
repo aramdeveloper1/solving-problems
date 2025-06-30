@@ -1741,30 +1741,86 @@
 
 # Read all integer values from the single input line
 # input().split() creates a list of strings.
-# map(int, ...) converts each string to an integer.
-# list(...) converts the map object to a list.
-all_input_numbers = list(map(int, input().split()))
+# # map(int, ...) converts each string to an integer.
+# # list(...) converts the map object to a list.
+# all_input_numbers = list(map(int, input().split()))
 
-A = all_input_numbers[0]
-N = 0 # Initialize N
+# A = all_input_numbers[0]
+# N = 0 # Initialize N
 
-# Find the first positive N from the second element onwards
-# We iterate starting from index 1 of all_input_numbers
-for i in range(1, len(all_input_numbers)):
-    potential_N = all_input_numbers[i]
-    print("potential_N", potential_N)
-    if potential_N > 0:
-        N = potential_N
-        break # Found the valid N, exit this loop
+# # Find the first positive N from the second element onwards
+# # We iterate starting from index 1 of all_input_numbers
+# for i in range(1, len(all_input_numbers)):
+#     potential_N = all_input_numbers[i]
+#     print("potential_N", potential_N)
+#     if potential_N > 0:
+#         N = potential_N
+#         break # Found the valid N, exit this loop
 
-# Calculate the sum of N consecutive integers starting from A
-total_sum = 0
-for i in range(N): # This will loop N times, with i from 0 to N-1
-    print("i",i)
-    term = A + i
-    print("term",term)
-    total_sum += term
-    print("total_sum",total_sum)
+# # Calculate the sum of N consecutive integers starting from A
+# total_sum = 0
+# for i in range(N): # This will loop N times, with i from 0 to N-1
+#     print("i",i)
+#     term = A + i
+#     print("term",term)
+#     total_sum += term
+#     print("total_sum",total_sum)
 
-# Print the sum
-print(total_sum)
+# # Print the sum
+# print(total_sum)
+
+# Read the entire line of space-separated numbers
+# and convert them into a list of integers.
+# all_input_numbers = list(map(int, input().split()))
+# print(all_input_numbers)
+# # The first number in the list is always A.
+# A = all_input_numbers[0]
+
+# # Initialize N. We will find its value in the loop.
+# N = 0
+
+# # Loop through the rest of the list to find the first positive N.
+# # We start iterating from the second element (index 1).
+# for i in range(1, len(all_input_numbers)):
+#     potential_N = all_input_numbers[i]
+#     print("potential_N", potential_N)
+#     if potential_N > 0:
+#         N = potential_N
+#         break # Exit the loop as soon as we find a valid N
+
+# # Now that we have A and a valid N, calculate the sum.
+# total_sum = 0
+# for i in range(N): # This loop runs N times, with 'i' from 0 to N-1
+#     # The term to add in each step is A + i
+#     term = A + i
+#     print("term", term)
+#     total_sum += term
+#     print("total_sum", total_sum)
+
+# # Print the final calculated sum.
+# print(total_sum)
+
+# beecrowd | 1150
+# Exceeding Z
+
+x = int(input("x :"))
+while True:
+    z = int(input("z :"))
+    if z > x:
+        break
+    
+# print(f"Z is greater than X: {z} > {x}")
+
+total = 0
+count = 0
+current = x
+while total <= z:
+    total += current
+    print("total ", total)
+    current += 1
+    print("current ", current)
+    count += 1
+    print("count ", count)
+
+print(count)
+    
