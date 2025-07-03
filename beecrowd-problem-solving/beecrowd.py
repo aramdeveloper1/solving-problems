@@ -1803,24 +1803,129 @@
 # beecrowd | 1150
 # Exceeding Z
 
-x = int(input("x :"))
-while True:
-    z = int(input("z :"))
-    if z > x:
-        break
+# x = int(input("x :"))
+# while True:
+#     z = int(input("z :"))
+#     if z > x:
+#         break
     
-# print(f"Z is greater than X: {z} > {x}")
+# # print(f"Z is greater than X: {z} > {x}")
 
-total = 0
-count = 0
-current = x
-while total <= z:
-    total += current
-    print("total ", total)
-    current += 1
-    print("current ", current)
-    count += 1
-    print("count ", count)
+# total = 0
+# count = 0
+# current = x
+# while total <= z:
+#     total += current
+#     print("total ", total)
+#     current += 1
+#     print("current ", current)
+#     count += 1
+#     print("count ", count)
 
-print(count)
+# print(count)
+# S = 0.0 # Initialize S as a float
+
+# # Initialize the numerator and denominator for the first term
+# numerator = 1.0
+# denominator = 1.0
+
+# # The numerator sequence is 1, 3, 5, ..., 39
+# # We can loop using the numerator as the control variable
+# while numerator <= 39:
+#     term = numerator / denominator
+#     S += term
     
+#     # Update for the next term in the sequence
+#     numerator += 2
+#     denominator *= 2
+
+# # Print the final sum formatted to 2 decimal places
+# print(f"{S:.2f}")
+# division = int(input("write "))
+# for i in range(1, division + 1):
+#     if 6 % i == 0:
+#         print(i)
+# beecrowd | 1158
+# Sum of Consecutive Odd Numbers III
+# my version which was wrong
+# X = int(input())
+# Y = int(input())
+# arr_consecutive = []
+# suma = 0
+# for i in range(X, Y + 1):
+#     if i % 2 != 0:
+#         suma += i
+#         arr_consecutive.append(i)
+#         if sum(arr_consecutive) == Y:
+#             break
+# print(suma," ", arr_consecutive )
+
+# T = int(input())
+
+# for _ in range(T):
+#     X, Y = map(int, input().split())
+#     if X % 2 == 0:
+#         print("x if is even ",X)
+#         X += 1  # make X odd if it's even
+
+#     total = 0
+#     for i in range(Y):
+#         print("i", i)
+#         total += X + 2 * i  # add next Y odd numbers
+#         print("total", total)
+#     print(total)
+
+# N = int(input())
+
+# for _ in range(N):
+#     X, Y = map(int, input().split())
+
+#     start_number = 0
+#     if X % 2 == 0:
+#         start_number = X + 1
+#     else:
+#         start_number = X
+        
+#     current_sum = 0
+#     current_odd = start_number
+#     for _ in range(Y):
+#         current_sum += current_odd
+#         current_odd += 2
+        
+#     print(current_sum)
+
+
+
+# Sum of Consecutive Even Numbers	 1159		
+# x = int(input("Enter a number: "))
+# if x % 2 == 0:
+#     print("x is even")
+# else:
+#     x +=1
+
+# attempt = x
+# summation = 0
+# for _ in range(attempt):
+#     summation += x
+#     x += 2
+
+# print(summation)
+
+# while True:
+#     X = int(input())
+#     if X == 0:
+#         break
+
+#     start_even = 0
+#     if X % 2 == 0:
+#         start_even = X
+#     else:
+#         start_even = X + 1
+        
+#     current_sum = 0
+#     current_even = start_even
+#     for _ in range(5):
+#         current_sum += current_even
+#         current_even += 2
+        
+#     print(current_sum)
