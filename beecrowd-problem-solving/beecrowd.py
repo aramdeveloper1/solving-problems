@@ -1929,3 +1929,202 @@
 #         current_even += 2
         
 #     print(current_sum)
+
+# beecrowd | 1151
+# Easy Fibonacci
+
+# a = 0
+# b = 1
+# n = int(input("Enter a number: "))
+
+# for i in range(n):
+#     print("aaaa",a)
+#     result = a + b
+#     print("result, ", result)
+#     a = b
+#     print("a, ", a)
+#     b = result
+#     print("b",b)
+
+# print("**** ,",result)
+
+# Fibonacci sum: F0 + F1 + F2 + F3 + F4
+# a = 0
+# b = 1
+# fib_sum = 0
+# for i in range(5):
+#     fib_sum += a
+#     a, b = b, a + b
+# print("Sum of first 5 Fibonacci numbers:", fib_sum)
+# N = int(input())
+
+# # Handle edge cases first
+# if N == 1:
+#     print("0")
+# elif N == 2:
+#     print("0 1")
+# else: # N > 2
+#     # Start with the first two numbers
+#     fib_list = [0, 1]
+    
+#     # We already have 2 numbers, so we need to generate N-2 more.
+#     for _ in range(N - 2):
+#         # The next number is the sum of the last two in the list
+#         next_fib = fib_list[-1] + fib_list[-2]
+#         fib_list.append(next_fib)
+        
+#     # Convert all numbers to strings and join them for printing
+#     print(" ".join(map(str, fib_list)))
+# Read the integer N, which is the number of Fibonacci numbers to generate.
+# N = int(input())
+
+# # Initialize the first two Fibonacci numbers.
+# # We'll use 'a' and 'b' to keep track of the two previous numbers.
+# a, b = 0, 1
+
+# # Create a list to store the sequence of numbers we generate.
+# # This makes it easy to print with correct spacing at the end.
+# fib_sequence = []
+
+# # Loop N times to generate N numbers.
+# for _ in range(N):
+#     # Add the current number ('a') to our sequence list.
+#     fib_sequence.append(a)
+    
+#     # Update the numbers for the next iteration.
+#     # The new 'a' becomes the old 'b', and the new 'b' becomes the sum (a+b).
+#     # This is a classic, elegant way to advance the Fibonacci sequence.
+#     a, b = b, a + b
+
+# # Convert all the integer numbers in our list to strings.
+# # The .join() method requires a list of strings.
+# fib_sequence_as_strings = [str(num) for num in fib_sequence]
+
+# # Join the list of strings with a space separator and print the result.
+# # This automatically handles the "no trailing space" requirement.
+# print(" ".join(fib_sequence_as_strings))
+
+# beecrowd | 1153
+# Simple Factorial
+# s = 1
+# n = int(input("Enter a number: "))
+# for i in range(1,n):
+#     s*=i
+# print("result , ",s)
+# Read the integer N
+# N = int(input())
+
+# # Initialize the result for multiplication to 1.
+# # This is crucial, as starting with 0 would always result in 0.
+# factorial_result = 1
+
+# # Loop from 1 to N (inclusive) to multiply all numbers in the range.
+# # range(1, N + 1) generates the sequence of numbers 1, 2, 3, ..., N.
+# for i in range(1, N + 1):
+#     # In each step, multiply the current result by the loop number.
+#     factorial_result = factorial_result * i
+    
+#     # A more concise way to write this is:
+#     # factorial_result *= i
+
+# # After the loop has finished, print the final calculated factorial.
+# print(factorial_result)
+
+# beecrowd | 1160
+# Population Increase
+
+# X, Y, Z = map(int, input().split())
+# # X is the initial population of the first city
+
+# beecrowd | 1173
+# Array fill I
+# N = int(input())
+# array = [0] * 10
+# print("array ", array)
+# array[0] = N
+
+# for i in range(1, 10):
+#     array[i] = array[i - 1] * 2
+#     print(f"array[{i}] = {array[i]}")
+# for i in range(10):
+#     print(f"X[{i}] = {array[i]}")
+
+
+# # Read the initial integer value from the input.
+# V = int(input())
+
+# # This variable will hold the value for the current position in the array.
+# # It's initialized with the input value V, which is the value for N[0].
+# current_value = V
+
+# # We need to generate and print 10 values for the array N[0] to N[9].
+# # A for loop iterating 10 times is perfect for this.
+# # The variable 'i' will represent the array index, from 0 to 9.
+# for i in range(10):
+#     # Print the value for the current position 'i' in the required format.
+#     print(f"N[{i}] = {current_value}")
+    
+#     # Calculate the value for the next position by doubling the current one.
+#     # This prepares the variable for the next iteration of the loop.
+#     current_value = current_value * 2
+#     # A more concise way to write this is:
+#     # current_value *= 2
+
+
+# beecrowd | 1174
+# Array Selection I
+# new_arr = []
+# for i in range(10):
+#     X = int(input())
+#     new_arr.append(X)
+#     print(f"X[{i}] = {X}")
+
+# # Initialize an empty list to store the array elements
+# A = []
+
+# # Step 1: Read all 20 numbers into the list
+# for _ in range(20):
+#     try:
+#         # Read a number, convert to float, and append to the list
+#         number = float(input())
+#         A.append(number)
+#     except (ValueError, EOFError):
+#         # Handle potential errors, e.g., break if input ends unexpectedly
+#         break
+
+# # Step 2: Iterate through the list and print elements that meet the condition
+# for i in range(len(A)): # Use len(A) in case input ended early
+#     # Check if the number at position i is less than or equal to 10
+#     if A[i] <= 10:
+#         # Print the index and the value formatted to one decimal place
+#         print(f"A[{i}] = {A[i]:.1f}")
+
+
+
+# beecrowd | 1175
+# Array change I
+
+# A=[]
+# for i in range(5):
+#     A.append(int(input("new num: ")))
+# for j in range(-1,-6,-1):
+#     print(f"A[{j}] = {A[j]}")
+# Initialize an empty list
+# N = []
+
+# # Step 1: Read all 20 numbers into the list
+# for _ in range(20):
+#     num = int(input())
+#     N.append(num)
+
+# # Step 2: Reverse the list in-place
+# # Loop from the start to the middle of the list.
+# # For a list of 20, we loop for i = 0 to 9.
+# for i in range(10): # range(10) gives 0, 1, ..., 9
+#     # Python has a very elegant way to swap two variables
+#     # N[i] becomes N[19-i] and N[19-i] becomes N[i] simultaneously
+#     N[i], N[19 - i] = N[19 - i], N[i]
+
+# # Step 3: Print the modified list
+# for i in range(20):
+#     print(f"N[{i}] = {N[i]}")
