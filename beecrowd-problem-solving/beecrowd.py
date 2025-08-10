@@ -2128,3 +2128,147 @@
 # # Step 3: Print the modified list
 # for i in range(20):
 #     print(f"N[{i}] = {N[i]}")
+
+
+# beecrowd | 1176
+# Fibonacci Array
+# Read number of test cases
+# T = int(input("Enter the number of test cases: "))
+
+# # Precompute Fibonacci sequence up to Fib(60)
+# fib = [0, 1]  # first two numbers
+# for i in range(2, 10):
+#     fib.append(fib[i-1] + fib[i-2])
+#     print(f"Fib({i}) = {fib[i]}")
+
+# # Process each test case
+# for _ in range(T):
+#     N = int(input("enter a number: "))
+#     print(f"******* Fib({N}) = {fib[N]}")
+
+
+# beecrowd | 1177
+# Array Fill II
+
+
+# # Read the integer T, which determines the length of the repeating cycle.
+# T = int(input())
+
+# # We need to generate and print 1000 lines for the array N[0] to N[999].
+# # A for loop iterating from 0 to 999 is the perfect tool for this.
+# # The variable 'i' will represent the array index.
+# for i in range(10):
+#     # The value at position 'i' is determined by the remainder of i divided by T.
+#     # This creates the repeating cycle of 0, 1, 2, ..., T-1.
+#     value = i % T
+    
+#     # Print the output for the current position in the required format.
+#     print(f"N[{i}] = {value}")
+    
+# # beecrowd | 1178
+# # Array Fill III
+# # new_array = []
+# # result = 1000
+
+# # for i in range(10):
+# #     result = result // 2
+# #     new_array.append(result)
+# #     print(f"A[{i}] = {result:.4f}")
+
+
+# X = float(input("Enter a number: "))
+
+# N = [0.0] * 100
+# N[0] = X
+
+# for i in range(1, 20):
+#     N[i] = N[i - 1] / 2
+
+# for i in range(100):
+#     print(f"N[{i}] = {N[i]:.4f}")
+
+# beecrowd | 1179
+# Array IV
+
+# par = []
+# impar = []
+
+# def print_array(arr, name):
+#     for i, val in enumerate(arr):
+#         print(f"{name}[{i}] = {val}")
+
+# for _ in range(15):
+#     num = int(input())
+    
+#     if num % 2 == 0:
+#         par.append(num)
+#         if len(par) == 5:
+#             print_array(par, "par")
+#             par.clear()
+#     else:
+#         impar.append(num)
+#         if len(impar) == 5:
+#             print_array(impar, "impar")
+#             impar.clear()
+
+# # Print remaining odd numbers first
+# if len(impar) > 0:
+#     print_array(impar, "impar")
+
+# # Then print remaining even numbers
+# if len(par) > 0:
+#     print_array(par, "par")
+# Helper function to print the contents of a list in the required format.
+# It takes the name of the list (as a string) and the list itself.
+# def print_list_contents(name, lst):
+#     for i in range(len(lst)):
+#         print(f"{name}[{i}] = {lst[i]}")
+
+# # Initialize the two lists that will act as 5-element buffers.
+# par = []
+# impar = []
+
+# # Loop 15 times to read all the integer inputs.
+# for _ in range(15):
+#     try:
+#         num = int(input("Enter an integer: "))
+#     except (ValueError, EOFError):
+#         # This handles potential errors, though not expected by the problem spec.
+#         continue
+
+#     # Check if the number is even or odd and append to the correct list.
+#     if num % 2 == 0:
+#         par.append(num)
+#     else:
+#         impar.append(num)
+        
+#     # Check if the 'par' list is full. If so, print and clear it.
+#     if len(par) == 5:
+#         print_list_contents("par", par)
+#         par = [] # Reset the list (buffer is now empty)
+        
+#     # Check if the 'impar' list is full. If so, print and clear it.
+#     if len(impar) == 5:
+#         print_list_contents("impar", impar)
+#         impar = [] # Reset the list (buffer is now empty)
+
+# # After the loop finishes, there might be leftover numbers in the lists.
+# # Print the remaining items as specified by the problem: odd first, then even.
+# print_list_contents("impar", impar)
+# print_list_contents("par", par)
+
+
+# lowest number and position
+
+# N = int(input("Enter the number of elements: "))
+# new_array = []
+# for i in range(N):
+#     num = int(input())
+#     new_array.append(num)
+
+# # Find the lowest number and its position
+# lowest = min(new_array)
+# position = new_array.index(lowest)
+
+# print(f"Lowest number: {lowest}")
+# print(f"Position: {position}")
