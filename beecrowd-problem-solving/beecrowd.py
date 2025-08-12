@@ -2272,3 +2272,117 @@
 
 # print(f"Lowest number: {lowest}")
 # print(f"Position: {position}")
+# def maskEmail(email):
+#     # Split the email into local and domain parts
+#     local, domain = email.split("@")
+#     # Mask the local part
+#     masked_local = local[0] + "*****" + local[-1]
+#     # Return the masked email
+#     return masked_local + "@" + domain
+# print(maskEmail("aramkhasro75@gmail.com "))
+
+
+# Line in Array
+# 1181
+# L = int(input("Enter the line index: "))              # Line index
+# T = input("Enter the operation type (S for sum, M for mean): ").strip()           # Operation type
+# M = []                        # Matrix
+
+# # Reading the 12x12 matrix
+# for i in range(3):
+#     row = []
+#     for j in range(3):
+#         row.append(float(input("Enter value for M[{}][{}]: ".format(i, j))))
+#     M.append(row)
+# print("M ", M)
+
+# # Select the row L
+# line_values = M[L]
+
+# # Compute result
+# if T == 'S':
+#     result = sum(line_values)
+# elif T == 'M':
+#     result = sum(line_values) / 12
+
+# # Output with 1 decimal place
+# print(f"{result:.1f}")
+# beecrowd | 1182
+# Column in Array
+# column = int(input("Enter the column index: "))
+# T = input("Enter the operation type (S for sum, M for mean): ").strip()           # Operation type
+# M= []
+# for i in range(4):
+#     row = []
+#     for j in range(4):
+#         row.append(float(input("Enter value for M[{}][{}]: ".format(i, j))))
+#     M.append(row)
+# print("M ", M)
+# column_values = []
+# for i in range(len(M)):
+#     column_values.append(M[i][column])
+
+# if T == "S":
+#     sum_column = sum(column_values)
+#     print(f"Sum of column {column}: {sum_column}")
+# elif T == "M":
+#     mean_column = sum(column_values) / len(column_values) if column_values else 0
+#     print(f"Mean of column {column}: {mean_column:.1f}")
+# beecrowd | 1182
+# Column in Array
+
+# C = int(input())                 # Column index (0-11)
+# T = input().strip()               # 'S' or 'M'
+
+# M = []
+# for i in range(12):
+#     row = []
+#     for j in range(12):
+#         row.append(float(input()))
+#     M.append(row)
+
+# # Get all elements from column C (long form)
+# column_values = []
+# for i in range(len(M)):
+#     value = M[i][C]
+#     column_values.append(value)
+
+# # Calculate result
+# if T == 'S':
+#     result = sum(column_values)
+# elif T == 'M':
+#     result = sum(column_values) / len(column_values)
+
+# print(f"{result:.1f}")
+
+
+
+# # above digonal
+#             # Line index (0-11)
+# T = input().strip()               # 'S' or 'M'
+# M = []
+# for i in range(3):
+#     row = []
+#     for j in range(3):
+#         row.append(float(input("Enter value for M[{}][{}]: ".format(i, j))))
+#     M.append(row)
+# print("M ",M)
+# # Get all elements from column C (long form)
+# total = 0.0
+# count = 0
+
+# for i in range(len(M)):
+#     for j in range(len(M)):
+#         if j>i:
+#             print("M[i][j] ",M[i][j])
+#             total += M[i][j]
+#             count += 1
+
+# # Calculate result
+# # Output
+# if T == 'S':
+#     result = total
+# elif T == 'M':
+#     result = total / count
+
+# print(f"{result:.1f}")
