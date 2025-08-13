@@ -2368,21 +2368,267 @@
 #     M.append(row)
 # print("M ",M)
 # # Get all elements from column C (long form)
+        # total = 0.0
+        # count = 0
+
+        # for i in range(len(M)):
+        #     for j in range(len(M)):
+        #         if j>i:
+        #             print("M[i][j] ",M[i][j])
+        #             total += M[i][j]
+        #             count += 1
+
+        # # Calculate result
+        # # Output
+        # if T == 'S':
+        #     result = total
+        # elif T == 'M':
+        #     result = total / count
+
+        # print(f"{result:.1f}")
+
+
+# above secondary diagonal
+# beecrowd | 1185
+# Above the Secondary Diagonal
+
+# O = input().strip()  # Operation: 'S' or 'M'
+
+# M = []
+# for i in range(12):
+#     row = []
+#     for j in range(12):
+#         row.append(float(input()))
+#     M.append(row)
+
 # total = 0.0
 # count = 0
 
-# for i in range(len(M)):
-#     for j in range(len(M)):
-#         if j>i:
-#             print("M[i][j] ",M[i][j])
+# for i in range(12):
+#     for j in range(12):
+#         if i + j < 11:  # Above secondary diagonal
 #             total += M[i][j]
 #             count += 1
 
-# # Calculate result
-# # Output
-# if T == 'S':
+# if O == 'S':
 #     result = total
-# elif T == 'M':
+# else:  # O == 'M'
 #     result = total / count
 
 # print(f"{result:.1f}")
+
+
+# beecrowd | 1186
+# Below the Secondary Diagonal
+
+# O = input().strip()  # 'S' or 'M'
+
+# M = []
+# for i in range(12):
+#     row = []
+#     for j in range(12):
+#         row.append(float(input()))
+#     M.append(row)
+
+# total = 0.0
+# count = 0
+
+# for i in range(12):
+#     for j in range(12):
+#         if i + j > 11:  # Below secondary diagonal
+#             total += M[i][j]
+#             count += 1
+
+# if O == 'S':
+#     result = total
+# else:  # O == 'M'
+#     result = total / count
+
+# print(f"{result:.1f}")
+
+
+
+
+
+
+
+
+
+
+# beecrowd | 1187
+# Top Area
+# my attempt
+# O = input().strip()  # 'S' or 'M'
+
+# M = []
+# for i in range(4):
+#     row = []
+#     for j in range(4):
+#         row.append(float(input()))
+#     M.append(row)
+# print("M ",M)
+# total = 0.0
+# count = 0
+
+# for i in range(2):
+#     for j in range(i,4-i):
+#         total += M[i][j]
+#         print(f"M[{i}][{j}] = {M[i][j]}")
+#         print(f"total = {total}")
+#         count += 1
+
+# if O == 'S':
+#     result = total
+# else:  # O == 'M'
+#     result = total / count
+
+# print(f"{result:.1f}")
+# beecrowd | 1187
+# Top Area
+
+# O = input().strip()  # 'S' or 'M'
+# M = []
+# for i in range(4):
+#     row = []
+#     for j in range(4):
+#         row.append(float(input()))
+#     M.append(row)
+# print("M ",M)
+# total = 0.0
+# count = 0
+
+# for i in range(4):
+#     for j in range(4):
+#         if j > i and i + j < 3:  # Top area condition
+#             total += M[i][j]
+#             print(f"M[{i}][{j}] = {M[i][j]}")
+#             print(f"total = {total}")
+#             count += 1
+
+# if O == 'S':
+#     result = total
+# else:  # O == 'M'
+#     result = total / count
+
+# print(f"{result:.1f}")
+
+
+# |         | **j=0** | **j=1** | **j=2** | **j=3** | **j=4** |
+# | ------- | ------- | ------- | ------- | ------- | ------- |
+# | **i=0** | (0,0)   | (0,1)   | (0,2)   | (0,3)   | (0,4)   |
+# | **i=1** | (1,0)   | (1,1)   | (1,2)   | (1,3)   | (1,4)   |
+# | **i=2** | (2,0)   | (2,1)   | (2,2)   | (2,3)   | (2,4)   |
+# | **i=3** | (3,0)   | (3,1)   | (3,2)   | (3,3)   | (3,4)   |
+# | **i=4** | (4,0)   | (4,1)   | (4,2)   | (4,3)   | (4,4)   |
+
+# Inferior Area
+# beecrowd | 1187
+# Top Area
+
+# O = input().strip()  # 'S' or 'M'
+# M = []
+# for i in range(4):
+#     row = []
+#     for j in range(4):
+#         row.append(float(input()))
+#     M.append(row)
+# print("M ",M)
+# total = 0.0
+# count = 0
+
+# for i in range(4):
+#     for j in range(4):
+#         if i > j and i + j > 3:  # Top area condition
+#             total += M[i][j]
+#             print(f"M[{i}][{j}] = {M[i][j]}")
+#             print(f"total = {total}")
+#             count += 1
+
+# if O == 'S':
+#     result = total
+# else:  # O == 'M'
+#     result = total / count
+
+# print(f"{result:.1f}")
+
+
+
+# # left area
+# O = input().strip()  # 'S' or 'M'
+# M = []
+# for i in range(5):
+#     row = []
+#     for j in range(5):
+#         row.append(float(input("enter a number: ")))
+#     M.append(row)
+# print("M ",M)
+
+# total = 0.0
+# count = 0
+
+# for i in range(5):
+#     for j in range(5):
+#         if i > j and  j < 4 -i:  # Top area condition
+#             total += M[i][j]
+#             print(f"M[{i}][{j}] = {M[i][j]}")
+#             print(f"total = {total}")
+#             count += 1
+
+# if O == 'S':
+#     result = total
+# else:  # O == 'M'
+#     result = total / count
+
+# print(f"{result:.1f}")
+
+# right area 
+
+# O = input().strip()  # 'S' or 'M'
+# M = []
+# for i in range(5):
+#     row = []
+#     for j in range(5):
+#         row.append(float(input("enter a number: ")))
+#     M.append(row)
+# print("M ",M)
+
+# total = 0.0
+# count = 0
+
+# for i in range(5):
+#     for j in range(5):
+#         if i < j and  i < 4 -j:  # Top area condition
+#             total += M[i][j]
+#             print(f"M[{i}][{j}] = {M[i][j]}")
+#             print(f"total = {total}")
+#             count += 1
+
+# if O == 'S':
+#     result = total
+# else:  # O == 'M'
+#     result = total / count
+
+# print(f"{result:.1f}")
+
+# O = input().strip()
+# M = [[float(input()) for _ in range(12)] for _ in range(12)]
+
+# total = 0.0
+# count = 0
+
+# for i in range(12):
+#     for j in range(12):
+#         if j > i and j > 11 - i:
+#             total += M[i][j]
+#             count += 1
+
+# if O == 'S':
+#     print(f"{total:.1f}")
+# else:  # 'M'
+#     print(f"{total / count:.1f}")
+
+
+
+# beecrowd | 1435
+# Square Matrix I
+
