@@ -2632,3 +2632,71 @@
 # beecrowd | 1435
 # Square Matrix I
 
+# while True:
+#     N = int(input("Enter N: "))
+#     if N == 0:
+#         break
+    
+#     M = [[0] * N for _ in range(N)]
+#     print("<Matrix> ", M)
+#     for i in range(N):
+#         for j in range(N):
+#             # distance from top, bottom, left, right edges
+#             top = i
+#             print("Top: ", top)
+#             left = j
+#             print("Left: ", left)
+#             bottom = N - 1 - i
+#             print("Bottom: ", bottom)
+#             right = N - 1 - j
+#             print("Right: ", right)
+            
+#             # layer number is min distance + 1
+#             M[i][j] = min(top, left, bottom, right) + 1
+#             print(f"M[{i}][{j}] ",min(top, left, bottom, right) + 1)
+#     # printing in required format
+#     for row in M:
+#         print(" ".join(f"{num:3d}" for num in row))
+#     print()
+
+
+
+# while True:
+#     M = []
+#     N = int(input("Enter N: "))
+#     for i in range(N):
+#         row = []
+#         for j in range(N):
+#             row.append(abs(i-j) + 1)
+#         M.append(row)
+#     for row in M:
+#         print(" ".join(f"{num:3d}" for num in row))
+#     print()
+
+
+
+while True:
+    try:
+        # Read N. The loop will break when input() raises an EOFError.
+        N = int(input())
+    except EOFError:
+        break # Exit the loop at the end of the file
+
+    # Outer loop for rows (i)
+    for i in range(N):
+        current_row = [] # A list to build the parts of the row
+        # Inner loop for columns (j)
+        for j in range(N):
+            # Apply the rules to determine the value
+            if i == j:
+                # Main diagonal
+                current_row.append('1')
+            elif (i + j) == (N - 1):
+                # Secondary diagonal
+                current_row.append('2')
+            else:
+                # Everything else
+                current_row.append('3')
+        
+        # Join the parts of the row into a single string and print
+        print("".join(current_row))
