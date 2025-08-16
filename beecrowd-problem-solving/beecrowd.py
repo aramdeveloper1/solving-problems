@@ -2675,28 +2675,128 @@
 
 
 
-while True:
-    try:
-        # Read N. The loop will break when input() raises an EOFError.
-        N = int(input())
-    except EOFError:
-        break # Exit the loop at the end of the file
+# while True:
+#     try:
+#         # Read N. The loop will break when input() raises an EOFError.
+#         N = int(input())
+#     except EOFError:
+#         break # Exit the loop at the end of the file
 
-    # Outer loop for rows (i)
-    for i in range(N):
-        current_row = [] # A list to build the parts of the row
-        # Inner loop for columns (j)
-        for j in range(N):
-            # Apply the rules to determine the value
-            if i == j:
-                # Main diagonal
-                current_row.append('1')
-            elif (i + j) == (N - 1):
-                # Secondary diagonal
-                current_row.append('2')
-            else:
-                # Everything else
-                current_row.append('3')
+#     # Outer loop for rows (i)
+#     for i in range(N):
+#         current_row = [] # A list to build the parts of the row
+#         # Inner loop for columns (j)
+#         for j in range(N):
+#             # Apply the rules to determine the value
+#             if i == j:
+#                 # Main diagonal
+#                 current_row.append('1')
+#             elif (i + j) == (N - 1):
+#                 # Secondary diagonal
+#                 current_row.append('2')
+#             else:
+#                 # Everything else
+#                 current_row.append('3')
         
-        # Join the parts of the row into a single string and print
-        print("".join(current_row))
+#         # Join the parts of the row into a single string and print
+#         print("".join(current_row))
+
+
+# import math
+# while True:
+#     values = input().split()
+#     A = int(values[0])
+#     if A == 0:  # stop condition
+#         break
+#     B = int(values[1])
+#     C = int(values[2])
+#     print("A, B, C: ", A, B, C)
+#     house_area = A * B
+#     print("House Area: ", house_area)
+#     land_area = (house_area * 100) / C
+#     print("Land Area: ", land_area)
+#     side = int(math.sqrt(land_area))  # truncate
+#     print(side)
+# while True:
+#     values = int(input())
+#     if values == 0:
+#         print("there would be no a world cup")
+#     else:
+#         print("there would be a world cup")
+
+
+
+# import sys
+
+# for line in sys.stdin:  # read until EOF
+#     n = int(line.strip())
+#     if n == 0:
+#         print("vai ter copa!")
+#     else:
+#         print("vai ter duas!")
+
+
+# beecrowd | 1589
+# Bob Conduit
+# N = int(input())
+# for i in range(N):
+#     a, b = map(int, input().split())
+#     area = a + b
+
+
+#
+# t = int(input())  # number of test cases
+# for _ in range(t):
+#     r1, r2 = map(int, input().split())
+#     print(r1 + r2)
+
+
+
+# beecrowd | 1759
+# Ho Ho Ho
+# t = int(input())
+# st = ""
+# for i in range(t):
+#     st+="HO "
+#     print(st, "!")
+
+# words = ["apple", "banana", "cherry"]
+# result = ", ".join(words)  # join with comma and space
+# print(result)
+
+
+
+
+
+
+# # beecrowd the race of slugs 1789
+# t = int(input(" test cases: "))
+# result = 0
+# for i in range(t):
+#     level = int(input("level: "))
+#     result += level
+# print("result: ", result)
+# result = result / t
+# print("average: ", result)
+# if result < 10:
+#     print("you are in level 1")
+# elif result < 20 and result >= 10:
+#     print("you are in level 2")
+# else:
+#     print("you are in level 3")
+
+
+import sys
+
+for line in sys.stdin:  # read until EOF
+    L = int(line.strip("write L "))
+    print("L ", L)
+    speed = list(map(int, sys.stdin.readline().split()))
+    print("Speed: ", speed)
+    fastest = max(speed)
+    if fastest < 10:
+        print(1)
+    elif fastest < 20:
+        print(2)
+    else:
+        print(3)
