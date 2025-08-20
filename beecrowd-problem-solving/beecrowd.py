@@ -2786,17 +2786,331 @@
 #     print("you are in level 3")
 
 
-import sys
+# import sys
 
-for line in sys.stdin:  # read until EOF
-    L = int(line.strip("write L "))
-    print("L ", L)
-    speed = list(map(int, sys.stdin.readline().split()))
-    print("Speed: ", speed)
-    fastest = max(speed)
-    if fastest < 10:
-        print(1)
-    elif fastest < 20:
-        print(2)
-    else:
-        print(3)
+# for line in sys.stdin:  # read until EOF
+#     L = int(line.strip("write L "))
+#     print("L ", L)
+#     speed = list(map(int, sys.stdin.readline().split()))
+#     print("Speed: ", speed)
+#     fastest = max(speed)
+#     if fastest < 10:
+#         print(1)
+#     elif fastest < 20:
+#         print(2)
+#     else:
+#         print(3)
+
+
+
+
+
+
+
+# beecrowd | 1827
+# Square Array IV
+
+# Input Sample	Output Sample
+# 5
+# 11
+
+# 20003
+# 01110
+# 01410
+# 01110
+# 30002
+
+# 20000000003
+# 02000000030
+# 00200000300
+# 00011111000
+# 00011111000
+# 00011411000
+# 00011111000
+# 00011111000
+# 00300000200
+# 03000000020
+# 30000000002
+
+# import sys
+
+# for line in sys.stdin:
+#     n = int(line.strip())
+
+#     # step 1: make matrix of 0's
+#     matrix = []
+#     for i in range(n):
+#         row = []
+#         for j in range(n):
+#             row.append(0)
+#         matrix.append(row)
+
+#     # step 2: inner square with 1's
+#     start = n // 3
+#     end = n - start
+#     i = start
+#     while i < end:
+#         j = start
+#         while j < end:
+#             matrix[i][j] = 1
+#             j += 1
+#         i += 1
+
+#     # step 3: main diagonal with 2's
+#     i = 0
+#     while i < n:
+#         matrix[i][i] = 2
+#         i += 1
+
+#     # step 4: secondary diagonal with 3's
+#     i = 0
+#     while i < n:
+#         j = n - 1 - i
+#         matrix[i][j] = 3
+#         i += 1
+
+#     # step 5: center = 4
+#     center = n // 2
+#     matrix[center][center] = 4
+
+#     # step 6: print
+#     i = 0
+#     while i < n:
+#         row_as_string = ""
+#         j = 0
+#         while j < n:
+#             row_as_string += str(matrix[i][j])
+#             j += 1
+#         print(row_as_string)
+#         i += 1
+#     print()
+
+
+
+# beecrowd | 1828
+# Bazinga!
+
+# beecrowd 1873 - Pedra, Papel, Tesoura, Lagarto, Spock
+# import sys
+
+# # Winning relationships (Sheldon beats Raj if (Sheldon, Raj) is in this set)
+# win_cases = {
+#     ("tesoura", "papel"),
+#     ("papel", "pedra"),
+#     ("pedra", "lagarto"),
+#     ("lagarto", "Spock"),
+#     ("Spock", "tesoura"),
+#     ("tesoura", "lagarto"),
+#     ("lagarto", "papel"),
+#     ("papel", "Spock"),
+#     ("Spock", "pedra"),
+#     ("pedra", "tesoura"),
+# }
+
+# T = int(sys.stdin.readline().strip())
+
+# for case in range(1, T + 1):
+#     sheldon, raj = sys.stdin.readline().split()
+#     print(f"{sheldon} , {raj}")
+
+#     if sheldon == raj:
+#         result = "De novo!"
+#     elif (sheldon, raj) in win_cases:
+#         result = "Bazinga!"
+#     else:
+#         result = "Raj trapaceou!"
+
+#     print(f"Caso #{case}: {result}")
+# import sys 
+# win_cases  = {
+#     ("bard","maqas"),
+#     ("bard","asn"),
+#     ("bard","hawa")
+# }
+# T = int(input())
+# for case in range(1, T + 1):
+#     sheldon, raj = sys.stdin.readline().split()
+#     if sheldon == raj:
+#         result = "de novo"
+#     elif (sheldon, raj) in win_cases:
+#         result = "bazinga"
+#     else:
+#         result = "raj trapaceou"
+#     print(f"caso #{case}: {result}")
+
+    # # Winning relationships (Sheldon beats Raj if (Sheldon, Raj) is in this set)
+    # win_cases = {
+    #     ("tesoura", "papel"),
+    #     ("papel", "pedra"),
+    #     ("pedra", "lagarto"),
+    #     ("lagarto", "Spock"),
+    #     ("Spock", "tesoura"),
+    #     ("tesoura", "lagarto"),
+    #     ("lagarto", "papel"),
+    #     ("papel", "Spock"),
+    #     ("Spock", "pedra"),
+    #     ("pedra", "tesoura"),
+    # }
+
+    # T = int(input())
+    # for case in range(1, T + 1):
+    # sheldon, raj = input().split()
+    # print(f"{sheldon} , {raj}")
+    # if sheldon == raj:
+    #     result = "De novo!"
+    # elif (sheldon, raj) in win_cases:
+    #     result = "Bazinga!"
+    # else:
+    #     result = "Raj trapaceou!"
+    # print(f"Caso #{case}: {result}")
+
+
+# beecrowd | 1837
+# Preface
+
+# a = b × q + r
+# Input Samples	|   Output Samples
+# 7 3	            2 1
+# this is not accepted if we have negative number
+# T = int(input("Enter number of test cases: "))
+# for i in range(T):
+#     a, b = map(int, input("Enter values for a and b: ").split())
+#     q = a // b
+#     r = a % b
+#     print(f"{q} {r}")
+
+
+# try:
+#     a, b = map(int, input().split())
+# except (ValueError, EOFError):
+#     # Handle end of file or bad input
+#     exit()
+
+# # Python's default operators behave differently for negative divisors.
+# # For a positive divisor `b`, Python's `//` and `%` already follow Euclidean rules.
+# # For a negative divisor `b`, they do not, `r` will be negative.
+# # So we only need to correct for the case where b is negative.
+
+# q = 0
+# r = 0
+
+# if b < 0:
+    # We need to find q, r such that a = b*q + r and 0 <= r < abs(b)
+    # Let's use a formula that works for both positive and negative `a`
+    # We search for the correct q. The standard quotient is a/b.
+    # The Euclidean quotient `q` is either floor(a/b) or ceil(a/b).
+    # Let's test them. A simpler way is to find a correct `r` first.
+    
+    # abs_b = abs(b)
+    # r = a % abs_b
+    # This formula above is not quite right for negative `a`.
+    # Let's stick to the correction method. It's the most reliable.
+    
+#     q_initial = a // b
+#     print("**** q_initial ", q_initial)
+#     r_initial = a % b
+#     print("**** r_initial ", r_initial)
+    
+#     if r_initial < 0:
+#         r = r_initial + abs(b)
+#         print("r r_initial < 0", r)
+#         q = q_initial + 1 # Because b is negative
+#         print("q ", q)
+#     else: # This happens if a is a perfect multiple of b
+#         r = r_initial
+#         print("r r_initial > 0", r)
+#         q = q_initial
+#         print("q initial", q)
+# else: # b > 0 (b cannot be 0 as per Euclidean Division Theorem)
+#     # Python's operators work correctly for positive divisors
+#     q = a // b
+#     r = a % b
+    
+# print(f"{q} {r}")
+
+# A, B, C = map(int, input().split())
+# print(A, B, C)
+# if A > B and B <= C:
+#     print(":)")
+# elif A < B and B >= C:
+#     print(":(")
+# elif A < B and B < C:
+#     # strictly increasing twice
+#     if (C - B) >= (B - A):
+#         print(":)")
+#     else:
+#         print(":(")
+# elif A > B and B > C:
+#     # strictly decreasing twice
+#     if (B - C) < (A - B):
+#         print(":)")
+#     else:
+#         print(":(")
+# else:
+#     # A == B
+#     if C > B:
+#         print(":)")
+#     else:
+#         print(":(")
+# import sys 
+# dash = 0
+# arstrick = 0
+# for i in sys.stdin.readline():
+#     if i == "-":
+#         dash += 1
+#     elif i == "*":
+#         arstrick += 1
+#         print("arstrick:", arstrick)
+#     else:
+#         print("write again")
+
+# import sys
+# total = 0
+# scream = 0
+# for line in sys.stdin:
+#     s = line.strip()
+#     print("s:", s)
+#     if not s:
+#         continue
+#     if s == "cow cow":
+#         scream+=1
+#         total = 0
+#         if scream == 3:
+#             break
+#     else:
+#         bits = s.replace("*", "1").replace("-", "0")
+#         print("bits:", bits)
+#         total += int(bits, 2)
+#         print("total:", total)
+
+
+# bits = "10100101"
+# total = 0
+# total += int(bits, 2)
+# print(total)  # Output: 169
+
+
+# solution A
+# N = int(input().strip())
+# print("N ", N)
+# T = list(map(int, input().split()))
+# print("T ", T)
+# best_index = 1
+# best_value = T[0]
+# for i in range(2, N + 1):  # i goes 2..N (1-based)
+#     if T[i-1] < best_value:
+#         best_value = T[i-1]
+#         best_index = i
+#         print("best_index: ", best_index)
+#         print("best_value: ", best_value)
+# best_index = 1
+# best_value = T[0]
+
+# for i in range(2, N+1):            # i goes 2..N (1-based)
+#     if T[i-1] < best_value:        # T[i-1] is the i-th person's hits
+#         best_value = T[i-1]
+#         print("best_value: ", best_value)
+#         best_index = i
+#         print("best_index: ", best_index)
+
+# print(best_index)
