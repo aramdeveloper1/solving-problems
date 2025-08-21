@@ -3114,3 +3114,127 @@
 #         print("best_index: ", best_index)
 
 # print(best_index)
+
+
+# beecrowd | 1864
+# Our Days Are Never Coming Back
+# T = int(input("how many letters do you want to add"))
+# message = "So, have you liked the Winter School this year? In order to make this School happen, many have worked, whether in writing the problems, in configuring the Portal, in making the arrengements for the event or in raising the funds. Our special acknowledgement this year goes to Professor Ricardo Oliveira, who has not only accepted our invitation to come and teach the workshops but has also been participating on the organisation of this School. We are sure that his experience and his career at ICPC as contestant and as coach have motived and inspired us all."
+# letter = ""
+# for i in range(T):
+#     letter += message[i] 
+# print(letter)
+
+# beecrowd | 1865
+# Mjölnir
+# N = int(input("Enter the value of N: "))
+# for i in range(N):
+#     # print(" " * (N - i - 1) + "*" * (2 * i + 1))
+#     name, power = input().split()
+#     print(f"{name} {power}")
+#     if name == "Thor":
+#         print("Mjölnir")
+#     else:
+#         print("No")
+# C = int(input().strip())
+
+# for _ in range(C):
+#     name, force = input().split()
+#     force = int(force)  # not actually used, but read anyway
+#     if name == "Thor":
+#         print("Y")
+#     else:
+#         print("N")
+
+
+
+
+# beecrowd | 1866
+# Bill
+# n = int(input())
+# sum = 0
+# for i in range(n):
+#     test = int(input())
+#     if test % 2 == 0:
+#         test = 0
+#     else:
+#         test = 1
+#     sum += test
+# print(sum)
+
+# C = int(input().strip())
+
+# for _ in range(C):
+#     N = int(input().strip())
+#     if N % 2 == 0:
+#         print(0)
+#     else:
+#         print(1)
+
+
+
+
+
+
+# # beecrowd 1914
+# # Read the number of test cases
+# try:
+#     QT = int(input("Enter the number of test cases: "))
+# except (ValueError, EOFError):
+#     QT = 0
+
+# for _ in range(QT):
+#     try:
+#         # Read the first line for the current test case
+#         player_info = input("Enter the player information: ").split()
+#         player1_name = player_info[0]
+#         player1_choice = player_info[1]
+#         player2_name = player_info[2]
+#         player2_choice = player_info[3]
+        
+#         # Read the second line for the current test case
+#         numbers_chosen = input("number chosen").split()
+#         N = int(numbers_chosen[0])
+#         M = int(numbers_chosen[1])
+#     except (ValueError, EOFError, IndexError):
+#         # Skip malformed test cases
+#         continue
+
+#     # Calculate the sum
+#     total_sum = N + M
+#     print("total sum:", total_sum)
+#     # Determine the outcome (even or odd)
+#     if total_sum % 2 == 0:
+#         # Sum is EVEN, the player who chose "PAR" wins
+#         if player1_choice == "PAR":
+#             print(player1_name)
+#         else: # Player 2 must have chosen "PAR"
+#             print(player2_name)
+#     else: # total_sum % 2 != 0
+#         # Sum is ODD, the player who chose "IMPAR" wins
+#         if player1_choice == "IMPAR":
+#             print(player1_name)
+#         else: # Player 2 must have chosen "IMPAR"
+#             print(player2_name)
+
+
+# Read the four integers from a single line
+# input().split() creates a list of strings
+# map(int, ...) converts each string to an integer
+# try:
+#     T1, T2, T3, T4 = map(int, input().split())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # The total number of outlets provided by all strips
+# total_outlets = T1 + T2 + T3 + T4
+
+# # To connect the 4 strips in a chain, we use up 3 outlets.
+# # (Strip 1 uses the wall socket. Strip 2 uses an outlet on Strip 1.
+# # Strip 3 uses an outlet on Strip 2. Strip 4 uses an outlet on Strip 3).
+# # The net result is the sum of all outlets minus 3.
+# sockets_for_devices = total_outlets - 3
+
+# # Print the final result
+# print(sockets_for_devices)
