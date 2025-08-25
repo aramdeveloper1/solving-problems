@@ -3238,3 +3238,75 @@
 
 # # Print the final result
 # print(sockets_for_devices)
+
+# beecrowd | 1957
+# Converting to Hexadecimal
+# hexa = {
+#     0: "0",
+#     1: "1",
+#     2: "2",
+#     3: "3",
+#     4: "4",
+#     5: "5",
+#     6: "6",
+#     7: "7",
+#     8: "8",
+#     9: "9",
+#     10: "A",
+#     11: "B",
+#     12: "C",
+#     13: "D",
+#     14: "E",
+#     15: "F"
+# }
+# def decimal_to_hexa(n):
+#     new_n = n.split(".")
+#     for i in range(len(new_n)):
+#         new_n[i] = hexa[int(new_n[i])]
+#     return "".join(new_n)
+# print(decimal_to_hexa("14.12.13.11"))
+
+# digits = "0123456789ABCDEF"
+# V = int(input().strip())
+# print("V: ", V)
+# if V == 0:
+#     print("0")
+# else:
+#     out = []
+#     while V > 0:
+#         r = V % 16
+#         print("r: ", r)
+#         out.append(digits[r])
+#         print("out: ", out)
+#         V //= 16
+#         print("V after //= 16: ", V)
+#     print("".join(reversed(out)))
+
+# finding polygon
+# Read input
+# N, L = map(int, input().split())
+
+# # Calculate perimeter
+# P = N * L
+
+# # Print result
+# print(P)
+# beecrowd | 1960
+# Roman Numerals for Page Numbers
+# roman_numbers = {
+#     1: "I",
+#     5: "V",
+#     10: "X",
+#     50: "L",
+#     100: "C",
+#     500: "D",
+#     1000: "M",
+# }
+# num = int(input("Enter a number: "))
+# print(num)
+# roman = ""
+# for value in [1000,500,100,50,10,5,1]:
+#     while num >= value:
+#         num -= value
+#         roman += roman_numbers[value]
+# print(roman)
