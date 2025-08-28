@@ -3310,3 +3310,79 @@
 #         num -= value
 #         roman += roman_numbers[value]
 # print(roman)
+
+
+
+# P, N = map(int, input().split())
+# print("P ",P, " N ", N)
+# pipes = list(map(int, input().split()))
+# print("pipes: ", pipes)
+# win = True
+# for i in range(1, N):
+#     if abs(pipes[i] - pipes[i-1]) > P:
+#         print("abs: ", abs(pipes[i] - pipes[i-1]))
+#         win = False
+#         break
+
+# if win:
+#     print("YOU WIN")
+# else:
+#     print("GAME OVER")
+
+
+
+# 1963		The Motion Picture
+# Read N, the number of test cases
+# try:
+#     N = int(input())
+# except (ValueError, EOFError):
+#     N = 0
+
+# REFERENCE_YEAR = 2015
+
+# for _ in range(N):
+#     try:
+#         T = int(input()) # Years that have passed
+#     except (ValueError, EOFError):
+#         continue # Skip this test case if input is bad
+
+#     # Calculate the difference from the reference year
+#     year_diff = REFERENCE_YEAR - T
+    
+#     if year_diff > 0:
+#         # If the result is positive, it's an A.D. year
+#         print(f"{year_diff} D.C.")
+#     else: # year_diff is 0 or negative, so it's a B.C. year
+#         # The year before 1 A.D. is 1 B.C.
+#         # year_diff = 0 corresponds to 1 B.C.
+#         # year_diff = -1 corresponds to 2 B.C.
+#         # So the formula is abs(year_diff) + 1
+#         bc_year = abs(year_diff) + 1
+#         print(f"{bc_year} A.C.")
+# reference = 2025
+# n = int(input())
+# for i in range(n):
+#     test = input()
+#     year_diff = reference - int(test)
+#     if year_diff > 0:
+#         print(f"{year_diff} D.C.")
+#     else:
+#         bc_year = abs(year_diff) + 1
+#         print(f"{bc_year} A.C.")
+
+
+# try:
+#     # Read A (old price) and B (new price) from a single line
+#     # map(float, ...) converts the split strings to floats
+#     A, B = map(float, input().split())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # Formula for percentage increase: ((New - Old) / Old) * 100
+# increase_amount = B - A
+# percentage_increase = (increase_amount / A) * 100
+
+# # Print the result formatted to two decimal places, followed by the '%' symbol
+# print(f"{percentage_increase:.2f}%")
+
