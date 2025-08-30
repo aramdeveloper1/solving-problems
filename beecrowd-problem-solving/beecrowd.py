@@ -3386,3 +3386,91 @@
 # # Print the result formatted to two decimal places, followed by the '%' symbol
 # print(f"{percentage_increase:.2f}%")
 
+
+# beecrowd | 1983
+# The Chosen
+# Read the number of students
+# n = int(input())
+
+# # Initialize variables to track the best student and their grade
+# max_note = -1.0
+# best_student_reg = -1
+
+# # Loop through each student to find the one with the highest grade
+# for _ in range(n):
+#     # Read the registration number and grade as a single line
+#     reg, note = input().split()
+    
+#     # Convert reg to an integer and note to a float
+#     reg = int(reg)
+#     note = float(note)
+    
+#     # Check if the current student's grade is the highest found so far
+#     if note > max_note:
+#         max_note = note
+#         best_student_reg = reg
+
+# # Check if the highest grade meets the minimum requirement
+# if max_note >= 8.0:
+#     print(best_student_reg)
+# else:
+#     print("Minimum note not reached")
+
+
+
+# beecrowd | 1984
+# The Pronalância Puzzle
+
+# n = input()
+# for _ in range(len(n)):
+#     new_n = n[::-1]
+# print(new_n)
+# n = input().strip()  # read as string
+# print(n[::-1])       # reverse using slicing
+
+
+# MacPRONALTS ={
+#     1001 :1.50,
+#     1002 : 2.50,
+#     1003 : 3.50,
+#     1004 : 4.50,
+#     1005 : 5.50
+# }
+# n = int(input())
+# for i in range(n):
+#     details,num = input().split()
+#     num = int(num)
+#     details = int(details)
+#     price = MacPRONALTS[num]
+#     new_price = price * details
+#     print(f"Total: R$ {new_price:.2f}")
+
+# Create a dictionary to store the menu prices
+# menu = {
+#     1001: 1.50,
+#     1002: 2.50,
+#     1003: 3.50,
+#     1004: 4.50,
+#     1005: 5.50
+# }
+
+# # Read the number of purchased products
+# num_products = int(input())
+
+# # Initialize the total cost
+# total_cost = 0.0
+
+# # Loop through each purchased product
+# for _ in range(num_products):
+#     # Read the product code and quantity from a single line
+#     product_code, quantity = map(int, input().split())
+    
+#     # Get the price from the menu and calculate the item's cost
+#     price = menu[product_code]
+#     item_cost = price * quantity
+    
+#     # Add the item's cost to the total
+#     total_cost += item_cost
+
+# # Print the final total cost, formatted to two decimal places
+# print(f"{total_cost:.2f}")
