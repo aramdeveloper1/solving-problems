@@ -3474,3 +3474,195 @@
 
 # # Print the final total cost, formatted to two decimal places
 # print(f"{total_cost:.2f}")
+
+# time delay if there was late on time
+
+# import sys
+
+# for line in sys.stdin:
+#     time_str = line.strip()
+#     if not time_str:
+#         continue
+    
+#     hour, minute = map(int, time_str.split(':'))
+
+#     if hour < 7 or (hour == 7 and minute == 0):
+#         delay = 0
+#     else:
+#         delay = (hour - 7) * 60 + minute
+    
+#     print(f"Atraso maximo: {delay}")
+
+# counting number beecrowed problem
+# import sys
+
+# case = 1
+# for line in sys.stdin:
+#     N = int(line.strip())
+#     print("N ", N)
+
+#     # total numbers
+#     total = 1 + (N * (N + 1)) // 2
+#     print("total ", total)
+
+#     # singular/plural
+#     if total == 1:
+#         print(f"Caso {case}: {total} numero")
+#     else:
+#         print(f"Caso {case}: {total} numeros")
+
+#     # print sequence
+#     for i in range(N + 1):      # from 0 to N
+#         for j in range(i if i > 0 else 1):   # repeat i times, but 0 once
+#             print(i, end=" ")
+#     print("\n")   # new line + blank line
+
+#     case += 1
+
+# beecrowed proble build the sequence like this 0122333444455555666666
+# import sys
+
+# case_num = 1
+
+# # Loop through each line of input until EOF
+# for line in sys.stdin:
+#     try:
+#         n = int(line.strip())
+#     except (ValueError, IndexError):
+#         # Skip empty lines or malformed input
+#         continue
+
+#     # Build the sequence
+#     sequence = [0]
+#     for i in range(1, n + 1):
+#         for _ in range(i):
+#             sequence.append(i)
+#     print('sequence ',sequence)
+#     # Determine the count of numbers in the sequence
+#     count = len(sequence)
+
+#     # Format the header based on the number of elements
+#     if count == 1:
+#         header = f"Caso {case_num}: 1 numero"
+#     else:
+#         header = f"Caso {case_num}: {count} numeros"
+    
+#     print(header)
+
+#     # Print the sequence elements separated by spaces
+#     print(*sequence)
+
+#     # Print a blank line after each case
+#     print()
+
+#     # Increment the case number
+#     case_num += 1
+
+
+# Read correct tea type
+# T = int(input().strip())
+# print("T ", T)
+# # Read contestants' answers
+# answers = list(map(int, input().split()))
+# print("answers ", answers)
+# # Counter for correct guesses
+# correct = 0
+
+# # Loop through each contestant's answer
+# for ans in answers:
+#     if ans == T:   # If the guess matches the correct tea
+#         correct += 1
+
+# print(correct)
+
+
+
+# beecrowd | 2029
+# Honey Reservoir
+
+# import sys
+
+# PI = 3.14
+
+# for line in sys.stdin:
+#     if not line.strip():
+#         continue
+#     V, D = map(float, line.split())
+
+#     r = D / 2
+#     area = PI * r * r
+#     altura = V / area
+
+#     print(f"ALTURA = {altura:.2f}")
+#     print(f"AREA = {area:.2f}")
+
+# beecrowd | 2057 Time Zone
+# a, b, c = map(int,input().split())
+# take = (a+b+c) % 24
+# print(take)
+
+# S, T, F = map(int, input().split())
+# arrival = (S + T + F) % 24
+# print(arrival)
+
+
+# beecrowd 2059 - Odd, Even or Cheating
+
+# Read inputs
+# beecrowd 2059 - Odd, Even or Cheating
+
+# Read inputs
+# p, j1, j2, r, a = map(int, input().split())
+
+# # Step 1: If player 1 cheated
+# if r == 1:
+#     if a == 1:  # cheated and accused correctly
+#         print("Jogador 2 ganha!")
+#     else:       # cheated and not accused
+#         print("Jogador 1 ganha!")
+
+# # Step 2: If player 1 did not cheat
+# else:
+#     if a == 1:  # accused wrongly
+#         print("Jogador 1 ganha!")
+#     else:       # normal odd/even game
+#         total = j1 + j2
+#         if total % 2 == 0:   # even sum
+#             if p == 1:  # Player 1 chose even
+#                 print("Jogador 1 ganha!")
+#             else:
+#                 print("Jogador 2 ganha!")
+#         else:               # odd sum
+#             if p == 0:  # Player 1 chose odd
+#                 print("Jogador 1 ganha!")
+#             else:
+#                 print("Jogador 2 ganha!")
+
+
+
+# beecrowd 2060 - Bino's Challenge
+
+numbers = list(map(int, input().split()))
+print("numbers ", numbers)
+# Initialize counters
+count2 = count3 = count4 = count5 = count6 = 0
+
+# Check multiples
+for num in numbers:
+    if num % 2 == 0:
+        count2 += 1
+    if num % 3 == 0:
+        count3 += 1
+    if num % 4 == 0:
+        count4 += 1
+    if num % 5 == 0:
+        count5 += 1
+    if num % 6 == 0:
+        count6 +=1
+
+# Print results
+print(f"{count2} Multiplo(s) de 2")
+print(f"{count3} Multiplo(s) de 3")
+print(f"{count4} Multiplo(s) de 4")
+print(f"{count5} Multiplo(s) de 5")
+print(f"{count6} Multiplo(s) de 6")
