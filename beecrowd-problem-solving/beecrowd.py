@@ -3642,27 +3642,185 @@
 
 # beecrowd 2060 - Bino's Challenge
 
-numbers = list(map(int, input().split()))
-print("numbers ", numbers)
-# Initialize counters
-count2 = count3 = count4 = count5 = count6 = 0
+# numbers = list(map(int, input().split()))
+# print("numbers ", numbers)
+# # Initialize counters
+# count2 = count3 = count4 = count5 = count6 = 0
 
-# Check multiples
-for num in numbers:
-    if num % 2 == 0:
-        count2 += 1
-    if num % 3 == 0:
-        count3 += 1
-    if num % 4 == 0:
-        count4 += 1
-    if num % 5 == 0:
-        count5 += 1
-    if num % 6 == 0:
-        count6 +=1
+# # Check multiples
+# for num in numbers:
+#     if num % 2 == 0:
+#         count2 += 1
+#     if num % 3 == 0:
+#         count3 += 1
+#     if num % 4 == 0:
+#         count4 += 1
+#     if num % 5 == 0:
+#         count5 += 1
+#     if num % 6 == 0:
+#         count6 +=1
 
-# Print results
-print(f"{count2} Multiplo(s) de 2")
-print(f"{count3} Multiplo(s) de 3")
-print(f"{count4} Multiplo(s) de 4")
-print(f"{count5} Multiplo(s) de 5")
-print(f"{count6} Multiplo(s) de 6")
+# # Print results
+# print(f"{count2} Multiplo(s) de 2")
+# print(f"{count3} Multiplo(s) de 3")
+# print(f"{count4} Multiplo(s) de 4")
+# print(f"{count5} Multiplo(s) de 5")
+# print(f"{count6} Multiplo(s) de 6")
+
+
+
+
+# beecrowd 2061 - Closing Tabs
+
+# N, M = map(int, input().split())
+# tabs = N
+
+# for _ in range(M):
+#     action = input().strip()
+#     if action == "fechou":
+#         tabs += 1
+#     else:  # "clicou"
+#         tabs -= 1
+
+# print(tabs)
+
+
+
+
+
+# beecrowd | 2126
+# Searching Subsequences
+
+# s1, s2 = input().split()
+# print(s1,s2)
+# while True:
+#     account = s2.count(s1)
+#     print(account)
+#     if account > 0:
+
+
+# beecrowd 2126 - Searching Subsequences
+
+# case = 1
+# while True:
+#     try:
+#         N1 = input("N1 ").strip()
+#         N2 = input("N2 ").strip()
+#     except EOFError:
+#         break
+
+#     count = 0
+#     last_pos = -1
+
+#     # search for all occurrences
+#     for i in range(len(N2) - len(N1) + 1):
+#         if N2[i:i+len(N1)] == N1:
+#             print("N2[] ",N2[i:i+len(N1)])
+#             count += 1
+#             print("i , count ",i , count)
+#             last_pos = i + 1  # 1-based index
+            
+#     print(f"Caso #{case}:")
+#     if count == 0:
+#         print("Nao existe subsequencia\n")
+#     else:
+#         print(f"Qtd.Subsequencias: {count}")
+#         print(f"Pos: {last_pos}\n")
+
+#     case += 1
+
+
+
+
+# Salary cycle length
+# CYCLE = 30
+
+# # Ask how many days passed
+# days = int(input("Enter how many days have passed since last salary: "))
+
+# # Use modulo to normalize within the cycle
+# days_passed = days % CYCLE  
+
+# # Remaining days
+# remaining = CYCLE - days_passed
+
+# if days_passed == 0:
+#     print("It's payday today! 🎉")
+# elif days_passed < CYCLE:
+#     print(f"Warning: {remaining} days left until payday.")
+
+
+# days_in_month = [31, 29, 31, 30, 31, 30, 
+#                  31, 31, 30, 31, 30, 31]
+# while True:
+#     try:
+#         m,d= map(int,input().split())
+#     except EOFError:
+#         break
+#     target_month,target_day = 12,31
+#     days_of_year =sum(days_in_month[:m-1]) + d
+#     print("days_of_year ", days_of_year)
+#     days_of_christmas = sum(days_in_month[:target_month-1]) + target_day
+#     print("days of christmas ", days_of_christmas)
+#     remaining = days_of_year - days_of_christmas
+#     print(remaining)
+
+# beecrowd 2139 - Pedrinho's Christmas
+
+# Days in each month for leap year 2016
+# days_in_month = [31, 29, 31, 30, 31, 30, 
+#                  31, 31, 30, 31, 30, 31]
+
+# while True:
+#     try:
+#         m, d = map(int, input().split())
+#     except EOFError:
+#         break
+
+#     # Target date: December 25
+#     target_month, target_day = 12, 25
+
+#     # Convert current date to "day of year"
+#     day_of_year = sum(days_in_month[:m-1]) + d
+#     christmas_day = sum(days_in_month[:target_month-1]) + target_day
+
+#     remaining = christmas_day - day_of_year
+
+#     if remaining == 0:
+#         print("E natal!")
+#     elif remaining == 1:
+#         print("E vespera de natal!")
+#     elif remaining < 0:
+#         print("Ja passou!")
+#     else:
+#         print(f"Faltam {remaining} dias para o natal!")
+
+
+bills = [2, 5, 10, 20, 50, 100]
+
+while True:
+    N, M = map(int, input().split())
+    print("N ",N,"M ",M)
+    if N == 0 and M == 0:
+        break
+
+    change = M - N
+    print("change")
+    possible = False
+    new_change = []
+    # Check all pairs of bills
+    for i in range(len(bills)):
+        for j in range(i + 1, len(bills)):  # ensures different bills
+            if bills[i] + bills[j] == change:
+                new_change.append(bills[i])
+                new_change.append(bills[j])
+                print(f"bills[i]: {bills[i]}, bills[j]: {bills[j]}")
+                possible = True
+                break
+        if possible:
+            break
+    print(new_change)
+    if possible:
+        print("possible")
+    else:
+        print("impossible")
