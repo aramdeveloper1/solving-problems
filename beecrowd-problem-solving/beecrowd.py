@@ -3796,31 +3796,322 @@
 #         print(f"Faltam {remaining} dias para o natal!")
 
 
-bills = [2, 5, 10, 20, 50, 100]
+# bills = [2, 5, 10, 20, 50, 100]
 
-while True:
-    N, M = map(int, input().split())
-    print("N ",N,"M ",M)
-    if N == 0 and M == 0:
+# while True:
+#     N, M = map(int, input().split())
+#     print("N ",N,"M ",M)
+#     if N == 0 and M == 0:
+#         break
+
+#     change = M - N
+#     print("change")
+#     possible = False
+#     new_change = []
+#     # Check all pairs of bills
+#     for i in range(len(bills)):
+#         for j in range(i + 1, len(bills)):  # ensures different bills
+#             if bills[i] + bills[j] == change:
+#                 new_change.append(bills[i])
+#                 new_change.append(bills[j])
+#                 print(f"bills[i]: {bills[i]}, bills[j]: {bills[j]}")
+#                 possible = True
+#                 break
+#         if possible:
+#             break
+#     print(new_change)
+#     if possible:
+#         print("possible")
+#     else:
+#         print("impossible")
+
+
+# beecrowd | 2143
+# The Return of Radar
+
+# while True:
+#     T = int(input())
+#     if T == 0:
+#         break
+
+#     for _ in range(T):
+#         N = int(input())
+#         if N % 2 == 0:  # even → both ends
+#             print(2 * N - 2)
+#         else:           # odd → one end
+#             print(2 * N - 1)
+
+
+
+# # beecrowd | 2146
+# # Password
+# while True:
+#     n = int(input("enter a password "))
+#     new_pasword = n - 1
+#     print(new_pasword)
+
+
+
+# beecrowd | 2147
+# Galopeira
+# import time 
+
+# sec = 0
+# T = int(input())
+
+# for i in range(T):
+#     start_time = time.time()
+#     taken_glop = input()
+#     end_time = time.time()
+#     elapsed_time = end_time - start_time
+#     print(f"Elapsed time: {elapsed_time:.2f} seconds")
+
+# C = int(input())
+
+# for _ in range(C):
+#     word = input().strip()
+#     time = len(word) * 0.01
+#     print(f"{time:.2f}")
+# beecrowd | 2152
+# Pepe, I Already Took the Candle!
+# N = int(input())
+
+# for _ in range(N):
+#     H, M, O = map(int, input().split())
+    
+#     # Format time with leading zeros
+#     time_str = f"{H:02d}:{M:02d}"
+    
+#     if O == 1:
+#         print(f"{time_str} - A porta abriu!")
+#     else:
+#         print(f"{time_str} - A porta fechou!")
+
+
+
+
+# beecrowd | 2159
+# Approximate Number of Primes
+# import math # Import the math module for math.log()
+
+# try:
+#     # Read the integer n
+#     n = int(input())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # The natural logarithm of n
+# ln_n = math.log(n)
+
+# # Calculate the minimum approximate value (P)
+# # P = n / ln(n)
+# P = n / ln_n
+
+# # Calculate the maximum approximate value (M)
+# # M = 1.25506 * (n / ln(n))
+# M = 1.25506 * P
+
+# # Print the results, each formatted to one decimal place, separated by a space
+# print(f"{P:.1f} {M:.1f}")
+
+
+
+# beecrowd | 2160
+# Name at Form
+# Read the entire line of text from the input
+# try:
+#     L = input()
+# except EOFError:
+#     # Handle case where input is empty
+#     exit()
+
+# # Get the length of the string using the built-in len() function
+# length_of_L = len(L)
+
+# # Check if the length is within the 80-character limit
+# if length_of_L <= 80:
+#     print("YES")
+# else:
+#     print("NO")
+
+
+
+# try:
+#     # Read N, the number of repetitions
+#     N = int(input())
+# except (ValueError, EOFError):
+#     # Handle bad input
+#     exit()
+
+# # This will store the result of the nested fractional part (1 / (6 + ...))
+# # We start from the innermost part and build outwards.
+# # For N=0, this loop doesn't run, and fraction_part remains 0.
+# fraction_part = 0.0
+
+# for i in range(N):
+#     # Each iteration adds one more layer of (6 + ...) to the denominator
+#     fraction_part = 1.0 / (6.0 + fraction_part)
+#     print(f"Iteration {i}: fraction_part = {fraction_part}")
+# # The final result is 3 + the entire fractional part
+# final_result = 3.0 + fraction_part
+
+# # Print the result formatted to 10 decimal places
+# print(f"{final_result:.10f}")
+
+
+
+
+# high and peak
+# N = int(input().strip())
+# H = list(map(int, input().split()))
+
+# valid = True
+# directions = []
+
+# for i in range(1, N):
+#     if H[i] > H[i-1]:
+#         directions.append(1)   # peak
+#     elif H[i] < H[i-1]:
+#         directions.append(-1)  # valley
+#     else:
+#         valid = False          # equal → invalid
+#         break
+# print("direction ", directions)
+# if valid:
+#     for i in range(1, len(directions)):
+#         if directions[i] == directions[i-1]:  # not alternating
+#             print(f"in teration of {i} happend {directions[i], directions[i-1]}")
+#             valid = False
+#             break
+
+# print("last ",1 if valid else 0)
+
+
+
+# find number in matrix
+# matrix = []
+
+# for i in range(5):
+#     row = []
+#     for j in range(5):
+#         row.append(j)   # add values to row
+#     matrix.append(row)  # add row to matrix
+
+# print(matrix)
+# try:
+#     N, M = map(int, input("Enter N and M: ").split())
+# except (ValueError, EOFError):
+#     exit()
+
+# # Read the entire terrain into a 2D list (list of lists)
+# terrain = []
+# for _ in range(N):
+#     try:
+#         row = list(map(int, input("Enter row values: ").split()))
+#         terrain.append(row)
+#     except (ValueError, EOFError):
+#         # Handle case where input might not be complete
+#         break
+
+# # Initialize found coordinates to (0, 0)
+# found_x = 0
+# found_y = 0
+
+# # Loop through the inner cells of the terrain, which are potential centers of the pattern
+# # range(1, N-1) goes from 1 to N-2
+# for row in range(1, N - 1):
+#     for col in range(1, M - 1):
+#         # Check if the current cell is the center of the lightsaber pattern (42)
+#         if terrain[row][col] == 42:
+#             # If it's 42, check all 8 surrounding cells for 7
+#             if (terrain[row-1][col-1] == 1 and
+#                 terrain[row-1][col]   == 1 and
+#                 terrain[row-1][col+1] == 1 and
+#                 terrain[row][col-1]   == 1 and
+#                 terrain[row][col+1]   == 1 and
+#                 terrain[row+1][col-1] == 1 and
+#                 terrain[row+1][col]   == 1 and
+#                 terrain[row+1][col+1] == 1):
+                
+#                 # Pattern found! Store the 1-indexed coordinates.
+#                 found_x = row + 1
+#                 found_y = col + 1
+#                 # Since there's at most one pattern, we can stop searching.
+#                 break # Exit the inner (column) loop
+    
+#     # If we found the pattern in the inner loop, also exit the outer (row) loop
+#     if found_x != 0:
+#         break
+
+# # Print the final coordinates
+# print(f"{found_x} {found_y}")
+
+
+# import math # Import the math module for sqrt and pow
+
+# try:
+#     # Read the integer n
+#     n = int(input())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # Pre-calculate the constant values from the formula
+# sqrt_5 = math.sqrt(5)
+# phi = (1 + sqrt_5) / 2
+# psi = (1 - sqrt_5) / 2
+
+# # Apply Binet's formula
+# # math.pow(base, exp) is used for exponentiation
+# fib_n = (math.pow(phi, n) - math.pow(psi, n)) / sqrt_5
+
+# # Print the result formatted to one decimal place
+# print(f"{fib_n:.1f}")
+
+# # An alternative for exponentiation is the ** operator
+# # fib_n = ( (phi**n) - (psi**n) ) / sqrt_5
+# # print(f"{fib_n:.1f}")
+
+
+# # This will store the result of the nested fractional part (1 / (2 + ...))
+# # We start from the innermost part and build outwards.
+# # For N=0, this loop doesn't run, and fraction_part remains 0.
+# fraction_part = 0.0
+
+# for _ in range(N):
+#     # Each iteration adds one more layer of (2 + ...) to the denominator
+#     fraction_part = 1.0 / (2.0 + fraction_part)
+
+# # The final result is 1 + the entire fractional part
+# final_result = 1.0 + fraction_part
+
+# # Print the result formatted to 10 decimal places
+# print(f"{final_result:.10f}")
+try:
+    # Read N, the number of measurements
+    N = int(input())
+    
+    # Read the N RPM values into a list of integers
+    rpms = list(map(int, input().split()))
+except (ValueError, EOFError, IndexError):
+    # Handle bad input
+    exit()
+
+# Initialize the result to 0. This will be the output if no fall is found.
+fall_position = 0
+
+# Loop from the second measurement (index 1) to the end of the list
+# range(1, N) will give indices 1, 2, ..., N-1
+for i in range(1, N):
+    # Check if the current measurement is less than the previous one
+    if rpms[i] < rpms[i-1]:
+        # If a fall is detected, store its 1-indexed position
+        fall_position = i + 1
+        # Since we only need the *first* fall, we can stop searching.
         break
 
-    change = M - N
-    print("change")
-    possible = False
-    new_change = []
-    # Check all pairs of bills
-    for i in range(len(bills)):
-        for j in range(i + 1, len(bills)):  # ensures different bills
-            if bills[i] + bills[j] == change:
-                new_change.append(bills[i])
-                new_change.append(bills[j])
-                print(f"bills[i]: {bills[i]}, bills[j]: {bills[j]}")
-                possible = True
-                break
-        if possible:
-            break
-    print(new_change)
-    if possible:
-        print("possible")
-    else:
-        print("impossible")
+# Print the final result
+print(fall_position)
+
+
