@@ -4088,30 +4088,411 @@
 
 # # Print the result formatted to 10 decimal places
 # print(f"{final_result:.10f}")
-try:
-    # Read N, the number of measurements
-    N = int(input())
+# try:
+#     # Read N, the number of measurements
+#     N = int(input())
     
-    # Read the N RPM values into a list of integers
-    rpms = list(map(int, input().split()))
-except (ValueError, EOFError, IndexError):
-    # Handle bad input
-    exit()
+#     # Read the N RPM values into a list of integers
+#     rpms = list(map(int, input().split()))
+# except (ValueError, EOFError, IndexError):
+#     # Handle bad input
+#     exit()
 
-# Initialize the result to 0. This will be the output if no fall is found.
-fall_position = 0
+# # Initialize the result to 0. This will be the output if no fall is found.
+# fall_position = 0
 
-# Loop from the second measurement (index 1) to the end of the list
-# range(1, N) will give indices 1, 2, ..., N-1
-for i in range(1, N):
-    # Check if the current measurement is less than the previous one
-    if rpms[i] < rpms[i-1]:
-        # If a fall is detected, store its 1-indexed position
-        fall_position = i + 1
-        # Since we only need the *first* fall, we can stop searching.
-        break
+# # Loop from the second measurement (index 1) to the end of the list
+# # range(1, N) will give indices 1, 2, ..., N-1
+# for i in range(1, N):
+#     # Check if the current measurement is less than the previous one
+#     if rpms[i] < rpms[i-1]:
+#         # If a fall is detected, store its 1-indexed position
+#         fall_position = i + 1
+#         # Since we only need the *first* fall, we can stop searching.
+#         break
 
-# Print the final result
-print(fall_position)
+# # Print the final result
+# print(fall_position)
 
 
+# try:
+#     N = int(input("Enter N: "))
+# except (ValueError, EOFError):
+#     # Handle bad input
+#     exit()
+
+# # Read the (N+1) x (N+1) camera grid
+# camera_grid = []
+# for _ in range(N + 1):
+#     try:
+#         row = list(map(int, input("Enter row: ").split()))
+#         camera_grid.append(row)
+#     except (ValueError, EOFError, IndexError):
+#         # Handle bad input during grid reading
+#         break
+# print("camera_grid ", camera_grid)
+# # Iterate through each of the N x N blocks
+# for i in range(N): # i is the block row
+#     output_row = ""
+#     for j in range(N): # j is the block column
+#         print("i, j ", i, j)
+#         print("camera_grid[i][j] ", camera_grid[i][j])
+#         print("camera_grid[i][j+1] ", camera_grid[i][j+1])
+#         print("camera_grid[i+1][j] ", camera_grid[i+1][j])
+#         print("camera_grid[i+1][j+1] ", camera_grid[i+1][j+1])
+#         print("----")
+#         # Sum the cameras at the four corners of the block (i, j)
+#         num_cameras = (camera_grid[i][j] + camera_grid[i][j+1] +
+#                        camera_grid[i+1][j] + camera_grid[i+1][j+1])
+        
+#         # Determine if the block is safe or unsafe
+#         if num_cameras >= 2:
+#             output_row += "S"
+#         else:
+#             output_row += "U"
+            
+#     # Print the resulting string for the current row of blocks
+#     print(" output_row ",output_row)
+
+
+
+
+# beecrowd | 2172
+# Event
+
+# n = int(input())
+# exp = int(input())
+# for i in range(n):
+#     if exp == 0 and i == 0:
+#         break
+#     else:
+#         new_exp = i * exp
+#     print(new_exp)
+
+
+
+# The program needs to read inputs until a specific terminator (0 0) is found.
+# A while True loop with a try-except and an if-break is a robust way to handle this.
+# while True:
+#     try:
+#         # Read X and M from a single line, space-separated
+#         X, M = map(int, input().split())
+#     except EOFError:
+#         # Stop if the input stream ends before the terminator
+#         break
+#     except ValueError:
+#         # Stop if the input line is not two valid integers
+#         break
+
+#     # Check for the termination condition
+#     if X == 0 and M == 0:
+#         break
+
+#     # Calculate the new experience value by multiplication
+#     new_xp = X * M
+    
+#     # Print the result
+#     print(new_xp)
+
+
+
+# while True:
+#     x, m = map(int, input().split())
+#     if x == 0 and m == 0:
+#         break
+#     new_xp = x * m
+#     print(new_xp)
+
+
+# beecrowd | 2176
+# Parity
+# while True:
+#     m = map(str, input().split())
+#     if m == "0 0":
+#         break
+#     else:
+# m = input("Enter m: ").split()
+# for i in m:
+#     print("int(i)  ",int(i))
+#     if int(i) % 2 == 0:
+#         print("0", end=" ")
+#     else:
+#         print("1", end=" ")
+# print()
+
+# try:
+#     # Read the binary message S as a string
+#     S = input("Enter binary message S: ")
+# except EOFError:
+#     # Handle case where input is empty
+#     exit()
+
+# # Use the built-in string.count() method to find the number of '1's
+# ones_count = S.count('1')
+# print("ones_count ", ones_count)
+# # Check if the count of '1's is even or odd
+# if ones_count % 2 == 0:
+#     # If the count is even, append a '0'
+#     new_S = S + '0'
+#     print("new_S ", new_S)
+# else: # The count is odd
+#     # If the count is odd, append a '1'
+#     new_S = S + '1'
+
+# # Print the resulting message
+# print(new_S)
+
+
+
+# s = input().strip()
+# ones_count = s.count('1')
+# if ones_count % 2 == 0:
+#     print(s + '0')
+# else:
+#     print(s + '1')
+
+
+# beecrowd | 2203
+# Crowstorm
+
+# try:
+#     Xf, Xi, Yf, Yi, R1, V1 = map(int, input().split())
+#     Xs, Ys, R2, V2 = map(int, input().split())
+# except EOFError:
+#     exit()
+# # Calculate the distance between the centers of the two circles
+# dx = Xf - Xi
+# dy = Yf - Yi
+# distance = (dx**2 + dy**2)**0.5
+
+# # Check if the distance is less than the sum of the radii
+# if distance < (R1 + R2):
+#     print("RICO")
+# else:
+#     print("MORTO")
+# import math
+
+# while True:
+#     try:
+#         # Read the line of input. map() is good for mixed types if we
+#         # specify the type for each, but split() and manual conversion is clearer.
+#         line = input().split()
+#         if not line: # Handle empty lines at the end of file
+#             break
+            
+#         Xf = int(line[0])
+#         Yf = int(line[1])
+#         Xi = int(line[2])
+#         Yi = int(line[3])
+#         Vi = int(line[4])
+#         R1 = int(line[5])
+#         R2 = int(line[6])
+        
+#     except EOFError:
+#         break
+#     except (ValueError, IndexError):
+#         # Handle malformed lines
+#         break
+
+#     # Step 1: Calculate the initial distance between Fiddlesticks and the invader
+#     # This is the distance Fiddlesticks's teleport must cover.
+#     initial_distance = math.sqrt( ((Xi - Xf)**2) + ((Yi - Yf)**2) )
+    
+#     # Step 2: Calculate the total distance the invader flees during the 1.5s channel time
+#     distance_fled = Vi * 1.5
+    
+#     # Step 3: The total distance the ultimate must effectively cover is the initial
+#     # distance plus the distance the invader flees.
+#     total_distance_needed = initial_distance + distance_fled
+    
+#     # Step 4: The total reach of the ultimate is the teleport radius plus the damage radius.
+#     total_reach = R1 + R2
+    
+#     # Step 5: Check if the reach is sufficient.
+#     if total_reach >= total_distance_needed:
+#         print("Y")
+#     else:
+#         print("N")
+
+
+
+# beecrowd | 2221
+# Pomekons Battle
+
+
+# def calculate_pomekon_value(attack, defense, level, bonus):
+#     """Calculates the final battle value for a Pomekon."""
+#     value = (attack + defense) / 2.0
+    
+#     # Add bonus only if the level is even
+#     if level % 2 == 0:
+#         value += bonus
+        
+#     return value
+
+# # Read the number of test cases
+# try:
+#     T = int(input())
+# except (ValueError, EOFError):
+#     T = 0
+
+# for _ in range(T):
+#     try:
+#         # Read the bonus value for this test case
+#         bonus = int(input())
+        
+#         # Read Dabriel's stats
+#         d_attack, d_defense, d_level = map(int, input().split())
+        
+#         # Read Guarte's stats
+#         g_attack, g_defense, g_level = map(int, input().split())
+
+#     except (ValueError, EOFError, IndexError):
+#         # Skip this test case if input is malformed
+#         continue
+
+#     # Calculate the final value for each player
+#     dabriel_value = calculate_pomekon_value(d_attack, d_defense, d_level, bonus)
+#     guarte_value = calculate_pomekon_value(g_attack, g_defense, g_level, bonus)
+
+#     # Compare the values and print the winner
+#     if dabriel_value > guarte_value:
+#         print("Dabriel")
+#     elif guarte_value > dabriel_value:
+#         print("Guarte")
+#     else: # The values are equal
+#         print("Empate")
+
+# becrowd | 2234
+# try:
+#     # Read H (total hot dogs) and P (total participants) from a single line
+#     # map(int, ...) will convert the split strings to integers
+#     H, P = map(int, input().split())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # Calculate the average. In Python 3, dividing two integers with /
+# # automatically results in a float.
+# average = H / P
+
+# # Print the result formatted to exactly two decimal places
+# # The f-string format specifier '{value:.2f}' does this.
+# print(f"{average:.2f}")
+
+
+
+
+#  let's solve "Walking in Time" (Beecrowrowd 2235)
+
+
+# try:
+#     # Read the three credits from a single line
+#     A, B, C = map(int, input().split())
+# except (ValueError, EOFError):
+#     # Handle bad input
+#     exit()
+
+# # Set a flag to track if a solution is found
+# possible = False
+
+# # --- Check all conditions for a possible return to the present ---
+
+# # Condition 1: Two credits are equal.
+# # This means you can make two trips that cancel each other out.
+# # e.g., if A==B, travel +A and -B. Total = A - B = 0.
+# if A == B or A == C or B == C:
+#     possible = True
+
+# # Condition 2: One credit is the sum of the other two.
+# # This means you can make three trips that cancel out.
+# # e.g., if A+B == C, travel +A, +B, and -C. Total = A + B - C = 0.
+# if A + B == C or A + C == B or B + C == A:
+#     possible = True
+    
+# # Print the final result based on the flag
+# if possible:
+#     print('S')
+# else:
+#     print('N')
+
+
+# n = int(input())    
+# for i in range(n):
+#     try:
+#         # Read the three credits from a single line
+#          name = input("Enter name: ")
+#          A, B, C = map(int, input().split())
+#     except (ValueError, EOFError):
+#         # Handle bad input
+#         exit()
+#     total = A + B + C
+#     print(name, total)
+# try:
+#     N = int(input()) # Read the number of players
+# except (ValueError, EOFError):
+#     N = 0
+# # initialize team-wide totals
+# total_s, total_b, total_a = 0, 0, 0
+# total_s1, total_b1, total_a1 = 0, 0, 0
+# # loop for each player
+# # for _ in range(N):
+# #     name = input() # read and discard the name
+# #     S, B, A = map(int, input().split())
+# #     total_s += S
+# #     total_b += B
+# #     total_a += A
+# #     S1, B1, A1 = map(int, input().split())
+# #     total_s1 += S1
+# #     total_b1 += B1
+# #     total_a1 += A1
+# #     result_s = (total_s1 / total_s) * 100 if total_s > 0 else 0.0
+# #     result_b = (total_b1 / total_b) * 100 if total_b > 0 else 0.0
+# #     result_a = (total_a1 / total_a) * 100 if total_a > 0 else 0.0
+# # # print the final results
+# # print(f"Pontos de Saque: {result_s:.2f} %.")
+# # print(f"Pontos de Bloqueio: {result_b:.2f} %.")
+# # print(f"Pontos de Ataque: {result_a:.2f} %.")
+
+
+
+# # beecrowd | 2240
+# try:
+#     N = int(input()) # Read the number of players
+# except (ValueError, EOFError):
+#     N = 0
+
+# # Initialize team-wide totals
+# total_S, total_B, total_A = 0, 0, 0
+# total_S1, total_B1, total_A1 = 0, 0, 0
+
+# # Loop for each player
+# for _ in range(N):
+#     try:
+#         name = input() # Read and discard the name
+        
+#         # Read attempts and add to totals
+#         S, B, A = map(int, input().split())
+#         total_S += S
+#         total_B += B
+#         total_A += A
+        
+#         # Read successes and add to totals
+#         S1, B1, A1 = map(int, input().split())
+#         total_S1 += S1
+#         total_B1 += B1
+#         total_A1 += A1
+
+#     except (ValueError, EOFError, IndexError):
+#         # Skip this player if input is bad
+#         continue
+
+# # Calculate percentages, checking for division by zero
+# percent_saque = (total_S1 / total_S) * 100 if total_S > 0 else 0.0
+# percent_bloqueio = (total_B1 / total_B) * 100 if total_B > 0 else 0.0
+# percent_ataque = (total_A1 / total_A) * 100 if total_A > 0 else 0.0
+
+# # Print the final results
+# print(f"Pontos de Saque: {percent_saque:.2f} %.")
+# print(f"Pontos de Bloqueio: {percent_bloqueio:.2f} %.")
+# print(f"Pontos de Ataque: {percent_ataque:.2f} %.")
