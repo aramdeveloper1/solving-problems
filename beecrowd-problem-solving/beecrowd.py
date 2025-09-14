@@ -4496,3 +4496,89 @@
 # print(f"Pontos de Saque: {percent_saque:.2f} %.")
 # print(f"Pontos de Bloqueio: {percent_bloqueio:.2f} %.")
 # print(f"Pontos de Ataque: {percent_ataque:.2f} %.")
+
+
+
+
+
+# beecrowd | 2483
+# Merry Christmaaas!
+
+# n = int(input())
+# name = "aram"
+# counts = name[1]
+# counts = counts * n
+# print(name[0] + str(counts) + name[2:])
+# try:
+#     # Read the happiness index I
+#     I = int(input())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # In Python, the '*' operator can be used to repeat a string
+# # 'a' * 5 will result in the string 'aaaaa'
+# repeated_a = 'a' * I
+
+# # Construct the final greeting using an f-string
+# final_greeting = f"Feliz nat{repeated_a}l!"
+
+# # Print the result
+# print(final_greeting)
+
+
+# Create a dictionary to map food names to their Vitamin C content
+vitamin_c_map = {
+    "suco de laranja": 120,
+    "morango fresco": 85,
+    "mamao": 85,
+    "goiaba vermelha": 70,
+    "manga": 56,
+    "laranja": 50,
+    "brocolis": 34
+}
+
+while True:
+    try:
+        T = int(input())
+    except (ValueError, EOFError):
+        # Handle bad input or end of file
+        break
+
+    # Termination condition
+    if T == 0:
+        break
+
+    total_vitamin_c = 0
+    # Loop T times to read T food items
+    for _ in range(T):
+        try:
+            # Read the line, e.g., "2 suco de laranja"
+            line = input().split()
+            print("line ", line)
+            # The first part is the quantity
+            quantity = int(line[0])
+            print("quantity ", quantity)
+            # The rest of the parts make up the food name
+            # " ".join(line[1:]) re-joins them with spaces
+            food_name = " ".join(line[1:])
+            print("food_name ", food_name)
+            # Get the vitamin C per serving from our map
+            mg_per_serving = vitamin_c_map[food_name]
+            print("mg_per_serving ", mg_per_serving)
+            # Add to the total
+            total_vitamin_c += quantity * mg_per_serving
+            print("total_vitamin_c ", total_vitamin_c)
+        except (ValueError, EOFError, IndexError, KeyError):
+            # Skip this line if input is malformed
+            continue
+            
+    # After processing all foods for this test case, check the total
+    if total_vitamin_c < 110:
+        needed = 110 - total_vitamin_c
+        print(f"Mais {needed} mg")
+    elif total_vitamin_c > 130:
+        excess = total_vitamin_c - 130
+        print(f"Menos {excess} mg")
+    else: # 110 <= total_vitamin_c <= 130
+        print(f"{total_vitamin_c} mg")
