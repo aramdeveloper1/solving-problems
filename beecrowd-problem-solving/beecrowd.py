@@ -4527,58 +4527,237 @@
 # print(final_greeting)
 
 
-# Create a dictionary to map food names to their Vitamin C content
-vitamin_c_map = {
-    "suco de laranja": 120,
-    "morango fresco": 85,
-    "mamao": 85,
-    "goiaba vermelha": 70,
-    "manga": 56,
-    "laranja": 50,
-    "brocolis": 34
-}
+# # Create a dictionary to map food names to their Vitamin C content
+# vitamin_c_map = {
+#     "suco de laranja": 120,
+#     "morango fresco": 85,
+#     "mamao": 85,
+#     "goiaba vermelha": 70,
+#     "manga": 56,
+#     "laranja": 50,
+#     "brocolis": 34
+# }
 
+# while True:
+#     try:
+#         T = int(input())
+#     except (ValueError, EOFError):
+#         # Handle bad input or end of file
+#         break
+
+#     # Termination condition
+#     if T == 0:
+#         break
+
+#     total_vitamin_c = 0
+#     # Loop T times to read T food items
+#     for _ in range(T):
+#         try:
+#             # Read the line, e.g., "2 suco de laranja"
+#             line = input().split()
+#             print("line ", line)
+#             # The first part is the quantity
+#             quantity = int(line[0])
+#             print("quantity ", quantity)
+#             # The rest of the parts make up the food name
+#             # " ".join(line[1:]) re-joins them with spaces
+#             food_name = " ".join(line[1:])
+#             print("food_name ", food_name)
+#             # Get the vitamin C per serving from our map
+#             mg_per_serving = vitamin_c_map[food_name]
+#             print("mg_per_serving ", mg_per_serving)
+#             # Add to the total
+#             total_vitamin_c += quantity * mg_per_serving
+#             print("total_vitamin_c ", total_vitamin_c)
+#         except (ValueError, EOFError, IndexError, KeyError):
+#             # Skip this line if input is malformed
+#             continue
+            
+#     # After processing all foods for this test case, check the total
+#     if total_vitamin_c < 110:
+#         needed = 110 - total_vitamin_c
+#         print(f"Mais {needed} mg")
+#     elif total_vitamin_c > 130:
+#         excess = total_vitamin_c - 130
+#         print(f"Menos {excess} mg")
+#     else: # 110 <= total_vitamin_c <= 130
+#         print(f"{total_vitamin_c} mg")
+
+# Problem:
+# 2510 - Batmain
+
+# try:
+#     # Read T, the number of test cases
+#     T = int(input())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     T = 0
+
+# # Loop T times
+# for _ in range(T):
+#     try:
+#         # Read the villain's name from the input line.
+#         # We don't need to do anything with this name, but we must read the line
+#         # to advance the input stream for the next test case.
+#         villain_name = input()
+#     except EOFError:
+#         # Stop if input ends unexpectedly
+#         break
+    
+#     # According to the problem statement, all villains have been captured.
+#     # Therefore, the answer is always 'Y'.
+#     print('Y')
+# while True:
+#     t = int(input())
+#     for i in range(t):
+#         name = input()
+#     print('Y')
+
+
+
+# beecrowd | 2523
+# Will's Message
+
+# while True:
+#     leters = "abcdefghijklmnopqrstuvwxyz"
+#     text = ""
+#     try:
+#         # Print the corresponding letter
+#         number_of_letters = int(input("Enter number of letters: "))
+#     except EOFError:
+#         # Stop if input ends
+#         break
+#     except ValueError:
+#         # Handle bad input
+#         continue
+#     for i in range(number_of_letters):
+#         line = int(input("Enter line: "))
+#         text += letters[line - 1] + ""
+#     print("the text is:", text)
+
+# while True:
+#     letters = "abcdefghijklmnopqrstuvwxyz"
+#     text = ""
+#     try:
+#         # Ask for number of letters
+#         number_of_letters = int(input("Enter number of letters: "))
+#     except EOFError:
+#         # Stop if input ends
+#         break
+#     except ValueError:
+#         # Handle bad input
+#         continue
+
+#     for i in range(number_of_letters):
+#         try:
+#             line = int(input("Enter line: "))
+#             if 1 <= line <= len(letters):
+#                 text += letters[line - 1]
+#             else:
+#                 print("Invalid number, must be between 1 and 26")
+#         except ValueError:
+#             print("Please enter a valid number")
+
+#     print("The text is:", text)
+
+
+# The program needs to read inputs until there are no more (End-of-File).
+# A while True loop with a try-except block is a standard way to handle this.
+
+
+
+
+# while True:
+#     try:
+#         # Read M, the number of subjects for this test case.
+#         # If the input stream is empty, input() will raise EOFError.
+#         M_str = input()
+#         if not M_str: break # Handle empty lines at the end of some inputs
+#         M = int(M_str)
+        
+#     except EOFError:
+#         break
+#     except ValueError:
+#         continue # Skip if M is not a valid int
+
+#     # Initialize the sums for the numerator and the C part of the denominator
+#     numerator_sum = 0
+#     denominator_c_sum = 0
+    
+#     # Loop M times to read the data for each subject
+#     for _ in range(M):
+#         try:
+#             # Read Ni (grade) and Ci (workload) from a single line
+#             Ni, Ci = map(int, input().split())
+            
+#             # Add to the respective sums
+#             numerator_sum += Ni * Ci
+#             denominator_c_sum += Ci
+
+#         except (EOFError, ValueError):
+#             # In case input ends mid-test-case
+#             break
+            
+#     # Calculate the final denominator
+#     final_denominator = denominator_c_sum * 100
+    
+#     # Calculate the API.
+#     # Check for division by zero as good practice, though constraints prevent it.
+#     if final_denominator > 0:
+#         api = numerator_sum / final_denominator
+#     else:
+#         api = 0.0
+        
+#     # Print the result formatted to four decimal places
+#     print(f"{api:.4f}")
+
+# "General Exam" (Beecrowd 2534)
+
+# while True:
+#     n, m = map(int, input().split())
+#     grade = []
+#     for  i in range(n):
+#         g = int(input())
+#         grade.append(g)
+#     grade.sort(reverse=True)
+#     print("grade ", grade)
+    
+#     for _ in range(m):
+#         q = int(input())
+#         index = q - 1
+#         print(grade[index])
+
+# The program needs to read inputs until there are no more (End-of-File).
+# A while True loop with a try-except block is a standard way to handle this.
 while True:
     try:
-        T = int(input())
-    except (ValueError, EOFError):
-        # Handle bad input or end of file
-        break
-
-    # Termination condition
-    if T == 0:
-        break
-
-    total_vitamin_c = 0
-    # Loop T times to read T food items
-    for _ in range(T):
-        try:
-            # Read the line, e.g., "2 suco de laranja"
-            line = input().split()
-            print("line ", line)
-            # The first part is the quantity
-            quantity = int(line[0])
-            print("quantity ", quantity)
-            # The rest of the parts make up the food name
-            # " ".join(line[1:]) re-joins them with spaces
-            food_name = " ".join(line[1:])
-            print("food_name ", food_name)
-            # Get the vitamin C per serving from our map
-            mg_per_serving = vitamin_c_map[food_name]
-            print("mg_per_serving ", mg_per_serving)
-            # Add to the total
-            total_vitamin_c += quantity * mg_per_serving
-            print("total_vitamin_c ", total_vitamin_c)
-        except (ValueError, EOFError, IndexError, KeyError):
-            # Skip this line if input is malformed
-            continue
+        # Read N and Q. If the line is empty at EOF, this will raise an error.
+        line1 = input("Enter N and Q: ")
+        if not line1: break
+        N, Q = map(int, line1.split())
+        
+        # Read all N grades into a list
+        grades = []
+        for _ in range(N):
+            grades.append(int(input()))
             
-    # After processing all foods for this test case, check the total
-    if total_vitamin_c < 110:
-        needed = 110 - total_vitamin_c
-        print(f"Mais {needed} mg")
-    elif total_vitamin_c > 130:
-        excess = total_vitamin_c - 130
-        print(f"Menos {excess} mg")
-    else: # 110 <= total_vitamin_c <= 130
-        print(f"{total_vitamin_c} mg")
+        # Sort the list of grades in descending (reverse) order
+        grades.sort(reverse=True)
+        print("grades ", grades)
+        # Process the Q queries
+        for _ in range(Q):
+            # Read the position query (pi)
+            pi = int(input("Enter query position: "))
+            
+            # Convert the 1-based position to a 0-based index
+            index = pi - 1
+            
+            # Print the grade at that index
+            print("grade index", index, "is", grades[index])
+        print()
+        
+    except EOFError:
+        break
+    except (ValueError, IndexError):
+        # Handle cases where input might be malformed or incomplete
+        break
