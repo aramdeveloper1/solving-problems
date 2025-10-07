@@ -4729,35 +4729,333 @@
 
 # The program needs to read inputs until there are no more (End-of-File).
 # A while True loop with a try-except block is a standard way to handle this.
-while True:
-    try:
-        # Read N and Q. If the line is empty at EOF, this will raise an error.
-        line1 = input("Enter N and Q: ")
-        if not line1: break
-        N, Q = map(int, line1.split())
+# while True:
+#     try:
+#         # Read N and Q. If the line is empty at EOF, this will raise an error.
+#         line1 = input("Enter N and Q: ")
+#         if not line1: break
+#         N, Q = map(int, line1.split())
         
-        # Read all N grades into a list
-        grades = []
-        for _ in range(N):
-            grades.append(int(input()))
+#         # Read all N grades into a list
+#         grades = []
+#         for _ in range(N):
+#             grades.append(int(input()))
             
-        # Sort the list of grades in descending (reverse) order
-        grades.sort(reverse=True)
-        print("grades ", grades)
-        # Process the Q queries
-        for _ in range(Q):
-            # Read the position query (pi)
-            pi = int(input("Enter query position: "))
+#         # Sort the list of grades in descending (reverse) order
+#         grades.sort(reverse=True)
+#         print("grades ", grades)
+#         # Process the Q queries
+#         for _ in range(Q):
+#             # Read the position query (pi)
+#             pi = int(input("Enter query position: "))
             
-            # Convert the 1-based position to a 0-based index
-            index = pi - 1
+#             # Convert the 1-based position to a 0-based index
+#             index = pi - 1
             
-            # Print the grade at that index
-            print("grade index", index, "is", grades[index])
-        print()
+#             # Print the grade at that index
+#             print("grade index", index, "is", grades[index])
+#         print()
         
-    except EOFError:
-        break
-    except (ValueError, IndexError):
-        # Handle cases where input might be malformed or incomplete
-        break
+#     except EOFError:
+#         break
+#     except (ValueError, IndexError):
+#         # Handle cases where input might be malformed or incomplete
+#         break
+
+
+# while True:
+#     try:
+#         n = int(input())
+#         if n == 0:
+#             break
+
+#         M , L = map(int, input("Enter M and L").split())
+#         marcos_deck = []
+#         for _ in range(M):
+#             attributes = list(map(int, input("Enter attributes").split()))
+#             marcos_deck.append(attributes)
+#         print("marcos_deck ", marcos_deck)
+#         lucas_deck = []
+#         for _ in range(L):
+#             attributes = list(map(int, input("Enter attributes").split()))
+#             lucas_deck.append(attributes)
+#         print("lucas_deck ", lucas_deck)
+
+
+#         CM , CL = map(int, input("Enter CM and CL").split())
+#         print("CM, CL ", CM, CL)
+#         A = int(input("Enter A: "))
+
+#     except EOFError:
+#         break
+#     except (ValueError, IndexError):
+#         # Handle cases where input might be malformed or incomplete
+#         break
+#     marcos_attr_value = marcos_deck[CM - 1][A - 1]
+#     lucas_attr_value = lucas_deck[CL - 1][A - 1]
+#     print("marcos_attr_value ", marcos_attr_value)
+#     print("lucas_attr_value ", lucas_attr_value)
+#     if marcos_attr_value > lucas_attr_value:
+#         print("Marcos")
+#     elif lucas_attr_value > marcos_attr_value:
+#         print("Lucas")
+#     else: # The values are equal
+#         print("Empate")
+
+
+# 2630 Greyscale
+# try :
+#     # Read the integer n
+#     T = int(input())
+# except (ValueError, EOFError):
+#     # Handle bad input if necessary
+#     T = 0
+
+# # Read the n lines of input
+# for _ in range(T):
+#     try:
+#         conversation_type = int(input())
+#         r, g, b = map(int, input().split())
+#     except (ValueError, EOFError):
+#         # Handle bad input if necessary
+#         continue
+#     if conversation_type == "min":
+#         p = min(r,g,b)
+#     elif conversation_type == "max":
+#         p = max(r,g,b)
+#     elif conversation_type == "mean":
+#         p = (r + g + b) / 3
+#     elif conversation_type == "eye":
+#         p = 0.3 * r + 0.59 * g + 0.11 * b
+#     else: # conversation_type == "lum"
+#         p = 0.2126 * r + 0.7152 * g + 0.0722 * b
+#     print(int(p))
+
+# 2632 Magic and Sword
+# import math
+
+# # --- Setup: Store spell data in a nested dictionary ---
+# # Format: spell_data[name][level] = (damage, radius)
+# spell_data = {
+#     "fire": {
+#         1: (200, 20),
+#         2: (300, 30),
+#         3: (400, 50)
+#     },
+#     "water": {
+#         1: (300, 10),
+#         2: (400, 25),
+#         3: (500, 40)
+#     },
+#     "earth": {
+#         1: (400, 25),
+#         2: (550, 55),
+#         3: (700, 70)
+#     },
+#     "air": {
+#         1: (100, 18),
+#         2: (250, 38),
+#         3: (400, 60)
+#     }
+# }
+
+# try:
+#     T = int(input())
+# except (ValueError, EOFError):
+#     T = 0
+
+# for _ in range(T):
+#     try:
+#         w, h, x0, y0 = map(int, input().split())
+#         spell_line = input().split()
+#         spell_name = spell_line[0]
+#         level = int(spell_line[1])
+#         cx = int(spell_line[2])
+#         cy = int(spell_line[3])
+#     except (ValueError, EOFError, IndexError):
+#         continue
+
+#     # Get damage and radius from the lookup table
+#     damage, radius = spell_data[spell_name][level]
+#     print("damage, radius ", damage, radius)
+#     # Define the rectangle's boundaries
+#     rect_x_min = x0
+#     print("rect_x_min ", rect_x_min)
+#     rect_x_max = x0 + w
+#     print("rect_x_max ", rect_x_max)
+#     rect_y_min = y0
+#     print("rect_y_min ", rect_y_min)
+#     rect_y_max = y0 + h
+#     print("rect_y_max ", rect_y_max)
+
+#     # Find the closest point on the rectangle to the circle's center
+#     # This is done by "clamping" the circle's center coordinates to the rectangle's bounds.
+#     closest_x = max(rect_x_min, min(cx, rect_x_max))
+#     print("closest_x ", closest_x)
+#     closest_y = max(rect_y_min, min(cy, rect_y_max))
+#     print("closest_y ", closest_y)
+
+#     # Calculate the squared distance from the circle center to this closest point
+#     dist_x = cx - closest_x
+#     print("dist_x ", dist_x)
+#     dist_y = cy - closest_y
+#     print("dist_y ", dist_y)
+#     distance_squared = dist_x**2 + dist_y**2
+#     print("distance_squared ", distance_squared)
+#     # Compare the squared distance to the squared radius
+#     if distance_squared <= radius**2:
+#         print("damage ", damage)
+#     else:
+#         print(0)
+
+# beecrowd | 2635
+# while True:
+#     try:
+#         N_str = int(input())
+#     except (ValueError, EOFError):
+#         N_str = 0
+#     history_words = []
+#     for _ in range(N_str):
+#         history_words.append(input().strip().lower())
+#     print("history_words ", history_words)
+#     Q_str = int(input("Enter the number of queries: "))
+#     for _ in range(Q_str):
+#         query_prefix = input().strip().lower()
+#         for word in history_words:
+#             if word.startswith(query_prefix):
+#                 print("words that start with the query prefix",word)
+                
+#     if not match_found:
+#         print("No match found")
+#     else:
+#         count = len("matching words",matching_words)
+#         print(f"{count} matches found")
+#         max_length = max(len(word) for word in matching_words)
+#         print(f"{count} {max_length}")
+
+# The program needs to read inputs until there are no more (End-of-File).
+# while True:
+#     try:
+#         # Read N, the number of history words.
+#         # If the input stream is empty, input() will raise an error.
+#         N_str = input("Enter N: ")
+#         if not N_str: break
+#         N = int(N_str)
+        
+#         # Read the N history words into a list
+#         history_words = []
+#         for _ in range(N):
+#             history_words.append(input("Enter history word: "))
+            
+#         # Read Q, the number of queries
+#         Q = int(input("Enter Q: " ))
+        
+#         # Loop Q times to process each query
+#         for _ in range(Q):
+#             query_prefix = input("Enter query prefix: ")
+            
+#             # Find all words in the history that start with the prefix
+#             matching_words = []
+#             for word in history_words:
+#                 if word.startswith(query_prefix):
+#                     matching_words.append(word)
+#             print("matching_words ", matching_words)
+#             # Check the result and print accordingly
+#             if not matching_words: # An empty list is "falsy"
+#                 print(-1)
+#             else:
+#                 count = len(matching_words)
+#                 # Find the length of the longest word among the matches
+#                 # We can do this by mapping len() to each word and finding the max
+#                 max_length = max(len(word) for word in matching_words)
+#                 print(f"********* {count} {max_length}")
+
+#     except EOFError:
+#         break
+#     except (ValueError, IndexError):
+#         # Handle cases where input might be malformed
+#         break
+
+
+
+
+
+
+# beecrowd | 2653
+# Dijkstra
+# n = int(input())
+# new_set = set()
+# for i in range(n):
+#     name = input()
+#     new_set.add(name)
+# print(new_set)
+
+# A set is the ideal data structure to store unique items.
+# unique_jewels = set()
+
+# # The program needs to read inputs until there are no more (End-of-File).
+# # A while True loop with a try-except block is a standard way to handle this.
+# while True:
+#     try:
+#         # Read a line, which represents one jewel.
+#         jewel_type = input()
+        
+#         # Add the jewel type to our set.
+#         # If this type is already in the set, the set remains unchanged.
+#         unique_jewels.add(jewel_type)
+        
+#     except EOFError:
+#         # This error is raised when input() reaches the end of the file.
+#         # We simply break the loop to stop reading.
+#         break
+
+# # After reading all lines, the number of different types of jewelry
+# # is the number of items in our set.
+# # The built-in len() function gives the size of the set.
+# print(len(unique_jewels))
+
+
+# 2663		Phase
+# n = int(input())
+# minimum = 3
+# count = 0
+# for i in range(n):
+#     num = int(input())
+#     if num < minimum:
+#         count += 1
+# print(minimum)
+# try:
+#     N = int(input("number of contestants")) # Number of contestants
+#     K = int(input("minimum number to qualify")) # Minimum number to qualify
+
+#     scores = []
+#     # Read all N scores
+#     for _ in range(N):
+#         scores.append(int(input("Enter score: ")))
+
+# except (ValueError, EOFError, IndexError):
+#     exit()
+
+# # Sort the scores in descending order (highest first)
+# scores.sort(reverse=True)
+# print("scores reverse", scores)
+# # The score of the K-th person is our cutoff score.
+# # In a 0-indexed list, this is at index K-1.
+# cutoff_score = scores[K-1]
+# print("cutoff_score ", cutoff_score)
+
+# # We know at least K people qualified.
+# qualified_count = K
+# print("qualified_count ", qualified_count)
+
+# # Now, we check for people who tied with the K-th person.
+# # We start checking from the (K+1)-th position, which is index K.
+# for i in range(K, N):
+#     if scores[i] == cutoff_score:
+#         qualified_count += 1
+#     else:
+#         # Since the list is sorted, if we find a score lower than the cutoff,
+#         # we can stop checking immediately.
+#         break
+
+# print("qualified_count **", qualified_count)
