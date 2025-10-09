@@ -5059,3 +5059,73 @@
 #         break
 
 # print("qualified_count **", qualified_count)
+
+
+# 2702
+# 
+# try:
+#     # Read the available meal counts
+#     Ca, Ba, Pa = map(int, input().split())
+    
+#     # Read the requested meal counts
+#     Cr, Br, Pr = map(int, input().split())
+# except (ValueError, EOFError, IndexError):
+#     # Handle bad input if necessary
+#     exit()
+
+# # Initialize the total number of passengers who won't get their meal
+# total_shortage = 0
+
+# # Calculate the shortage for chicken
+# # If requested is more than available, add the difference to the shortage.
+# if Cr > Ca:
+#     total_shortage += (Cr - Ca)
+
+# # Calculate the shortage for beef
+# if Br > Ba:
+#     total_shortage += (Br - Ba)
+
+# # Calculate the shortage for pasta
+# if Pr > Pa:
+#     total_shortage += (Pr - Pa)
+    
+# # Print the final total
+# print(total_shortage)
+# Initialize counters for jeeps and tourists in the park
+jeeps_in_park = 0
+tourists_in_park = 0
+
+# Loop to read actions until "ABEND" is encountered
+while True:
+    try:
+        # Read the line and split it into parts
+        line = input().split()
+        
+        # The first part is the action
+        action = line[0]
+    except (EOFError, IndexError):
+        # Stop if input ends unexpectedly or line is empty
+        break
+
+    # Check for the termination command
+    if action == "ABEND":
+        break
+        
+    # If not "ABEND", the second part is the number of tourists
+    try:
+        num_tourists = int(line[1])
+    except (ValueError, IndexError):
+        # Skip if the second part is not a valid number
+        continue
+
+    # Update counts based on the action
+    if action == "SALIDA":
+        jeeps_in_park += 1
+        tourists_in_park += num_tourists
+    elif action == "VUELTA":
+        jeeps_in_park -= 1
+        tourists_in_park -= num_tourists
+
+# After the loop finishes, print the final counts
+print(tourists_in_park)
+print(jeeps_in_park)
