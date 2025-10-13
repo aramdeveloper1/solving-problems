@@ -5092,40 +5092,160 @@
 # # Print the final total
 # print(total_shortage)
 # Initialize counters for jeeps and tourists in the park
-jeeps_in_park = 0
-tourists_in_park = 0
+# jeeps_in_park = 0
+# tourists_in_park = 0
 
-# Loop to read actions until "ABEND" is encountered
-while True:
-    try:
-        # Read the line and split it into parts
-        line = input().split()
+# # Loop to read actions until "ABEND" is encountered
+# while True:
+#     try:
+#         # Read the line and split it into parts
+#         line = input().split()
         
-        # The first part is the action
-        action = line[0]
-    except (EOFError, IndexError):
-        # Stop if input ends unexpectedly or line is empty
+#         # The first part is the action
+#         action = line[0]
+#     except (EOFError, IndexError):
+#         # Stop if input ends unexpectedly or line is empty
+#         break
+
+#     # Check for the termination command
+#     if action == "ABEND":
+#         break
+        
+#     # If not "ABEND", the second part is the number of tourists
+#     try:
+#         num_tourists = int(line[1])
+#     except (ValueError, IndexError):
+#         # Skip if the second part is not a valid number
+#         continue
+
+#     # Update counts based on the action
+#     if action == "SALIDA":
+#         jeeps_in_park += 1
+#         tourists_in_park += num_tourists
+#     elif action == "VUELTA":
+#         jeeps_in_park -= 1
+#         tourists_in_park -= num_tourists
+#     print("tourists_in_park", tourists_in_park)
+#     print("jeeps_in_park", jeeps_in_park)
+# # After the loop finishes, print the final counts
+# print("*****", tourists_in_park)
+# print("*****", jeeps_in_park)
+
+
+
+
+# 2709		The Coins of Robbie
+# import math
+
+# def is_prime(num):
+#     """Checks if a number is prime."""
+#     if num <= 1:
+#         return False
+#     # Check for divisors from 2 up to the square root of the number
+#     limit = int(math.sqrt(num))
+#     for i in range(2, limit + 1):
+#         if num % i == 0:
+#             return False # It has a divisor, so not prime
+#     return True # No divisors found, it is prime
+
+# while True:
+#     M_str = input("Enter M: ")
+#     if not M_str:
+#         break
+#     M = int(M_str)
+#     coins = []
+#     for _ in range(M):
+#         coins.append(int(input("Enter coin value: ")))
+#     print("coins ", coins)
+
+#     N = int(input("Enter N: "))
+
+#     total_sum = 0
+
+#     for i in range(M-1, -1, -N):
+#         print("coins[i] ", coins[i])
+#         total_sum += coins[i]
+#         print("total_sum ", total_sum)
+
+#     if is_prime(total_sum):
+#         print("You’re a coastal aircraft, Robbie, a large silver aircraft.")
+#     else:
+#         print("Bad boy! I’ll hit you.")
+    
+# beecrowd | 2712
+# Vehicular Restriction
+# while True:
+
+#     try:
+#         # Read the line and split it into parts
+#         n = int(input())
+#         if n == 0:
+#             break
+#     except (ValueError, IndexError):
+#         # Stop if input ends unexpectedly or line is empty
+#         break
+#     for i in range(n):
+#         name, num = input().split()
+#         num = list(map(int, num))
+#         if num[-1] == 1 or num[-1] == 2:
+#             print("monday")
+#         elif num[-1] == 3 or num[-1] == 4:
+#             print("tuesday")
+#         elif num[-1] == 5 or  num[-1] == 6:
+#             print("wednesday")
+#         elif num[-1] == 7 or num[-1] == 8:
+#             print("thursday")
+#         elif num[-1] == 9 or num[-1] == 0:
+#             print("friday")
+#         else:
+#             print("saturday")
+    
+# Read the number of test cases
+try:
+    N = int(input())
+except (ValueError, EOFError):
+    N = 0
+
+for _ in range(N):
+    try:
+        plate = input()
+    except EOFError:
         break
 
-    # Check for the termination command
-    if action == "ABEND":
-        break
+    # --- Validation ---
+    is_valid = True
+    
+    # 1. Check length
+    if len(plate) != 8:
+        is_valid = False
+    
+    # 2. Check first three characters (letters and uppercase) and hyphen
+    # and last four characters (digits)
+    # This block only runs if length is correct.
+    if is_valid:
+        letters = plate[0:3]
+        hyphen = plate[3]
+        digits = plate[4:8]
         
-    # If not "ABEND", the second part is the number of tourists
-    try:
-        num_tourists = int(line[1])
-    except (ValueError, IndexError):
-        # Skip if the second part is not a valid number
-        continue
+        if not (letters.isalpha() and letters.isupper() and 
+                hyphen == '-' and 
+                digits.isdigit()):
+            is_valid = False
 
-    # Update counts based on the action
-    if action == "SALIDA":
-        jeeps_in_park += 1
-        tourists_in_park += num_tourists
-    elif action == "VUELTA":
-        jeeps_in_park -= 1
-        tourists_in_park -= num_tourists
-
-# After the loop finishes, print the final counts
-print(tourists_in_park)
-print(jeeps_in_park)
+    # --- Output ---
+    if not is_valid:
+        print("FAILURE")
+    else:
+        # Plate is valid, check the last digit
+        last_digit = plate[-1] # -1 index gets the last character
+        
+        if last_digit in '12':
+            print("MONDAY")
+        elif last_digit in '34':
+            print("TUESDAY")
+        elif last_digit in '56':
+            print("WEDNESDAY")
+        elif last_digit in '78':
+            print("THURSDAY")
+        elif last_digit in '90':
+            print("FRIDAY")
