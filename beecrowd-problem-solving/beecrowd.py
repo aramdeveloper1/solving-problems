@@ -5201,51 +5201,198 @@
 #             print("saturday")
     
 # Read the number of test cases
-try:
-    N = int(input())
-except (ValueError, EOFError):
-    N = 0
+# try:
+#     N = int(input())
+# except (ValueError, EOFError):
+#     N = 0
 
-for _ in range(N):
-    try:
-        plate = input()
-    except EOFError:
-        break
+# for _ in range(N):
+#     try:
+#         plate = input()
+#     except EOFError:
+#         break
 
-    # --- Validation ---
-    is_valid = True
+#     # --- Validation ---
+#     is_valid = True
     
-    # 1. Check length
-    if len(plate) != 8:
-        is_valid = False
+#     # 1. Check length
+#     if len(plate) != 8:
+#         is_valid = False
     
-    # 2. Check first three characters (letters and uppercase) and hyphen
-    # and last four characters (digits)
-    # This block only runs if length is correct.
-    if is_valid:
-        letters = plate[0:3]
-        hyphen = plate[3]
-        digits = plate[4:8]
+#     # 2. Check first three characters (letters and uppercase) and hyphen
+#     # and last four characters (digits)
+#     # This block only runs if length is correct.
+#     if is_valid:
+#         letters = plate[0:3]
+#         hyphen = plate[3]
+#         digits = plate[4:8]
         
-        if not (letters.isalpha() and letters.isupper() and 
-                hyphen == '-' and 
-                digits.isdigit()):
-            is_valid = False
+#         if not (letters.isalpha() and letters.isupper() and 
+#                 hyphen == '-' and 
+#                 digits.isdigit()):
+#             is_valid = False
 
-    # --- Output ---
-    if not is_valid:
-        print("FAILURE")
-    else:
-        # Plate is valid, check the last digit
-        last_digit = plate[-1] # -1 index gets the last character
+#     # --- Output ---
+#     if not is_valid:
+#         print("FAILURE")
+#     else:
+#         # Plate is valid, check the last digit
+#         last_digit = plate[-1] # -1 index gets the last character
         
-        if last_digit in '12':
-            print("MONDAY")
-        elif last_digit in '34':
-            print("TUESDAY")
-        elif last_digit in '56':
-            print("WEDNESDAY")
-        elif last_digit in '78':
-            print("THURSDAY")
-        elif last_digit in '90':
-            print("FRIDAY")
+#         if last_digit in '12':
+#             print("MONDAY")
+#         elif last_digit in '34':
+#             print("TUESDAY")
+#         elif last_digit in '56':
+#             print("WEDNESDAY")
+#         elif last_digit in '78':
+#             print("THURSDAY")
+#         elif last_digit in '90':
+#             print("FRIDAY")
+
+
+# new_arr = ['Dasher', 'Dancer', 'Prancer', 'Vixen', 'Comet', 'Cupid', 'Donner', 'Blitzen', 'Rudolph']
+# n = map(int, input().split())
+# sumation_n = sum(n)
+# index = (sumation_n % 9) - 1
+# print(new_arr[index])
+
+
+
+
+
+# 2724 - Help Patatatitu
+# try:
+#     n = int(input())
+# except (ValueError, EOFError):
+#     n = 0
+# for case_index in range(n):
+#     try:
+#         T = int(input())
+#         dangerous_compounds = []
+#         for _ in range(T):
+#             dangerous_compounds.append(input().strip().lower())
+#         U = int(input())
+#         for _ in range(U):
+#             experiment = input().strip().lower()
+#             is_dangerous = False
+#             for compound in  dangerous_compounds:
+#                 if compound in experiment:
+#                     is_dangerous = True
+#                     break
+#             if is_dangerous:
+#                 print("Abortar")
+#             else:
+#                 print("Prossiga")
+#     except (ValueError, EOFError):
+#         continue
+# "Secret Code" for Beecrowd 2727.
+
+
+# while True:
+#     try:
+#         # Read the line and split it into parts
+#         n = int(input())
+#     except (ValueError, IndexError):
+#         # Stop if input ends unexpectedly or line is empty
+#         break
+#     alpha = "abcdefghijklmnopqrstuvwxyz"
+
+#     for _ in range(n):
+#         code = input()
+#         dot_group = code.split(" ")
+#         print("dot_group ", dot_group)
+#         num_groups = len(dot_group)
+#         dots_per_group = len(dot_group[0])
+#         print("num_groups ", num_groups)
+#         print("dots_per_group ", dots_per_group)
+
+#         index = (num_groups - 1) * 3 + (dots_per_group - 1)
+#         print("index ", index)
+#         print(alpha[index])
+
+
+# n = int(input())
+# name = input()
+# doshes = "-"*37
+# print(doshes)
+
+
+# for i in range(n):
+#     # print("|", " " * 35, "|")
+#     print("|")
+#     for i in range(35):
+#         print(" ",name, end="")
+#     print("|")
+# print(doshes)    
+# The top and bottom borders are 39 dash characters.
+# We can create this string by multiplying the dash character by 39.
+
+
+
+# # beecrowd | 2747
+# # Output 1
+# border_line = '-' * 39
+
+# # The middle lines consist of a pipe, 37 spaces, and another pipe.
+# middle_line = '|' + (' ' * 37) + '|'
+
+# # Print the top border
+# print(border_line)
+
+# # Loop 5 times to print the middle section
+# for _ in range(5):
+#     print(middle_line)
+
+# # Print the bottom border
+# print(border_line)
+
+
+# beecrowd | 2748
+# Output 2
+
+# print('-' * 39)  # Top border
+
+# # Line 1: "Roberto"
+# print('|' + ' ' * 8 + 'Roberto' + ' ' * (37 - 8 - len('Roberto')) + '|')
+
+# # Line 2: blank
+# print('|' + ' ' * 37 + '|')
+
+# # Line 3: "5786"
+# print('|' + ' ' * 8 + '5786' + ' ' * (37 - 8 - len('5786')) + '|')
+
+# # Line 4: blank
+# print('|' + ' ' * 37 + '|')
+
+# # Line 5: "UNIFEI"
+# print('|' + ' ' * 8 + 'UNIFEI' + ' ' * (37 - 8 - len('UNIFEI')) + '|')
+
+# print('-' * 39)  # Bottom border
+# Define the text and the content width for clarity
+text = "x = 35"
+width = 37
+
+# --- Print the 7 lines ---
+
+# Line 1
+print('-' * 39)
+
+# Line 2: Left-aligned text
+# The f-string formats the text to fill 37 characters, padding with spaces on the right.
+print(f"|{text:<{width}}|")
+
+# Line 3: Empty line
+print(f"|{' ' * width}|")
+
+# Line 4: Center-aligned text
+print(f"|{text:^{width}}|")
+
+# Line 5: Empty line
+print(f"|{' ' * width}|")
+
+# Line 6: Right-aligned text
+print(f"|{text:>{width}}|")
+
+# Line 7
+print('-' * 39)
