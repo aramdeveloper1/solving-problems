@@ -5370,29 +5370,409 @@
 
 # print('-' * 39)  # Bottom border
 # Define the text and the content width for clarity
-text = "x = 35"
-width = 37
+# text = "x = 35"
+# width = 37
 
-# --- Print the 7 lines ---
+# # --- Print the 7 lines ---
 
-# Line 1
-print('-' * 39)
+# # Line 1
+# print('-' * 39)
 
-# Line 2: Left-aligned text
-# The f-string formats the text to fill 37 characters, padding with spaces on the right.
-print(f"|{text:<{width}}|")
+# # Line 2: Left-aligned text
+# # The f-string formats the text to fill 37 characters, padding with spaces on the right.
+# print(f"|{text:<{width}}|")
 
-# Line 3: Empty line
-print(f"|{' ' * width}|")
+# # Line 3: Empty line
+# print(f"|{' ' * width}|")
 
-# Line 4: Center-aligned text
-print(f"|{text:^{width}}|")
+# # Line 4: Center-aligned text
+# print(f"|{text:^{width}}|")
 
-# Line 5: Empty line
-print(f"|{' ' * width}|")
+# # Line 5: Empty line
+# print(f"|{' ' * width}|")
 
-# Line 6: Right-aligned text
-print(f"|{text:>{width}}|")
+# # Line 6: Right-aligned text
+# print(f"|{text:>{width}}|")
 
-# Line 7
-print('-' * 39)
+# # Line 7
+# print('-' * 39)
+
+
+# beecrowd | 2750 - Output 4
+
+# Step 1: print the top line
+# print("---------------------------------------")
+
+# # Step 2: print the header
+# print("| decimal   |  octal  |  Hexadecimal  |")
+
+# # Step 3: print the separator line
+# print("---------------------------------------")
+
+# # Step 4: print the 16 rows (0 to 15)
+# for i in range(16):
+#     dec = i
+#     octal = oct(i)[2:]           # remove '0o' prefix
+#     hexa = hex(i)[2:].upper()    # remove '0x' and make uppercase
+    
+#     # Format each line with correct spacing
+#     print(f"|{dec:7d}    |{octal:6s}   |{hexa:8s}      |")
+
+# # Step 5: print the bottom line
+# print("---------------------------------------")
+
+# ---------------------------------------
+# | decimal   |  octal  |  Hexadecimal  |
+# ---------------------------------------
+# |      0    |0        |0             |
+# |      1    |1        |1             |
+# |      2    |2        |2             |
+# |      3    |3        |3             |
+# |      4    |4        |4             |
+# |      5    |5        |5             |
+# |      6    |6        |6             |
+# |      7    |7        |7             |
+# |      8    |10       |8             |
+# |      9    |11       |9             |
+# |     10    |12       |A             |
+# |     11    |13       |B             |
+# |     12    |14       |C             |
+# |     13    |15       |D             |
+# |     14    |16       |E             |
+# |     15    |17       |F             |
+# ---------------------------------------
+
+
+
+
+# beecrowd | 2774
+# Sensor Accuracy
+
+
+
+# import math
+# import sys
+
+# The program needs to read inputs until there are no more (End-of-File).
+# while True:
+#     try:
+#         # Read the H, M line. We don't use these values.
+#         # sys.stdin.readline() is good for EOF handling
+#         line1 = sys.stdin.readline()
+#         print("line1 ", line1)
+#         if not line1:
+#             break
+        
+#         # Read the line of measurements
+#         measurements_str = sys.stdin.readline()
+#         print("measurements_str ", measurements_str)
+#         if not measurements_str:
+#             break
+        
+#         # Convert the space-separated strings to a list of floats
+#         measurements = list(map(float, measurements_str.split()))
+#         print("measurements ", measurements)
+
+#     except (EOFError, ValueError, IndexError):
+#         break
+
+#     # Get the number of measurements
+#     QT = len(measurements)
+#     print("QT ", QT)
+    
+#     # Handle the case where there's only one measurement (or none)
+#     # to avoid division by zero in (QT - 1)
+#     if QT < 2:
+#         print("0.00000")
+#         continue
+
+#     # --- Calculate Standard Deviation ---
+    
+#     # 1. Calculate the mean (average)
+#     mean = sum(measurements) / QT
+#     print("mean ", mean)
+#     # 2. Calculate the sum of the squared differences from the mean
+#     sum_of_squared_diffs = 0
+#     for x_i in measurements:
+#         sum_of_squared_diffs += (x_i - mean) ** 2
+#         print("sum_of_squared_diffs ", sum_of_squared_diffs)
+#     # 3. Calculate the sample variance
+#     variance = sum_of_squared_diffs / (QT - 1)
+#     print("variance ", variance)
+#     # 4. The standard deviation is the square root of the variance
+#     std_dev = math.sqrt(variance)
+    
+#     # Print the result formatted to 5 decimal places
+#     print(f"{std_dev:.5f}")
+
+# "Board Size" (Beecrowd 2770)
+# import sys
+# while True:
+#     try:
+#         line = sys.stdin.readline()
+#         if not line:
+#             break
+#         X,Y,M = map(int, line.split())
+#     except (EOFError, ValueError):
+#         break
+    
+#     board_long = max(X, Y)
+#     board_short = min(X, Y)
+
+#     for _ in range(M):
+#         Xi, Yi = map(int, sys.stdin.readline().split())
+#         piece_long = max(Xi, Yi)
+#         piece_short = min(Xi, Yi)
+#         if piece_long <= board_long and piece_short <= board_short:
+#             print("Sim")
+#         else:
+#             print("Nao")
+
+# beecrowd 2826 - Lexical
+
+# A = input().strip()
+# B = input().strip()
+
+# if A < B:
+#     print(A)
+#     print(B)
+# else:
+#     print(B)
+#     print(A)
+
+
+# beecrowd | 2823 — Earliest Deadline First (EDF)
+# Step 1: Read number of processes
+# N = int(input())
+
+# # Step 2: Initialize total utilization
+# utilization = 0
+
+# # Step 3: Read each task
+# for _ in range(N):
+#     C, P = map(int, input().split())
+#     utilization += C / P
+
+# # Step 4: Check EDF condition
+# if utilization <= 1:
+#     print("OK")
+# else:
+#     print("FAIL")
+
+
+
+# try:
+#     N = int(input())
+# except (ValueError, EOFError):
+#     N = 0
+
+# # Track umbrellas currently at each location
+# umbrellas_at_home = 0
+# umbrellas_at_office = 0
+
+# # Track total umbrellas purchased when leaving each location
+# umbrellas_bought_for_home = 0
+# umbrellas_bought_for_office = 0
+
+# # Loop for N days
+# for _ in range(N):
+#     try:
+#         # Read the forecasts for the day
+#         to_work_forecast, to_home_forecast = input("working, home: ").split()
+#     except (ValueError, EOFError):
+#         break
+
+#     # --- Morning Trip: Home to Office ---
+#     if to_work_forecast == "chuva":
+#         if umbrellas_at_home > 0:
+#             # Use an existing umbrella from home
+#             umbrellas_at_home -= 1
+#             umbrellas_at_office += 1
+#         else:
+#             # No umbrella at home, must buy one
+#             umbrellas_bought_for_home += 1
+#             # The new umbrella is used and ends up at the office
+#             umbrellas_at_office += 1
+#         print("umbrellas_at_office ", umbrellas_at_office)
+#         print("umbrellas_at_home ", umbrellas_at_home)
+#         print("umbrellas_bought_for_home ", umbrellas_bought_for_home)
+#         print("umbrellas_bought_for_office ", umbrellas_bought_for_office)
+#     # --- Evening Trip: Office to Home ---
+#     if to_home_forecast == "chuva":
+#         if umbrellas_at_office > 0:
+#             # Use an existing umbrella from the office
+#             umbrellas_at_office -= 1
+#             umbrellas_at_home += 1
+#         else:
+#             # No umbrella at the office, must buy one
+#             umbrellas_bought_for_office += 1
+#             # The new umbrella is used and ends up at home
+#             umbrellas_at_home += 1
+#         print("** umbrellas_at_office ", umbrellas_at_office)
+#         print("** umbrellas_at_home ", umbrellas_at_home)
+#         print("** umbrellas_bought_for_home ", umbrellas_bought_for_home)
+#         print("** umbrellas_bought_for_office ", umbrellas_bought_for_office)
+# # Print the final counts of purchased umbrellas
+# print(f"{umbrellas_bought_for_home} {umbrellas_bought_for_office}")
+
+# beecrowd 2813 - Avoiding Rain
+
+# import sys
+
+# def main():
+#     data = sys.stdin.read().strip().split()
+#     if not data:
+#         return
+#     it = iter(data)
+#     N = int(next(it))
+#     home = 0
+#     office = 0
+#     buy_home = 0
+#     buy_office = 0
+
+#     for _ in range(N):
+#         sd = next(it)  # morning
+#         sn = next(it)  # evening
+
+#         # morning
+#         if sd == "chuva":
+#             if home > 0:
+#                 home -= 1
+#             else:
+#                 buy_home += 1
+#             office += 1  # umbrella arrives at office after trip
+
+#         # evening
+#         if sn == "chuva":
+#             if office > 0:
+#                 office -= 1
+#             else:
+#                 buy_office += 1
+#             home += 1  # umbrella arrives at home after trip
+
+#     print(buy_home, buy_office)
+
+# if __name__ == "__main__":
+#     main()
+# n = int(input())
+# arr = []
+# for i in range(n):
+#     arr.append(input().strip())
+# int_arr = list(map(int, arr))
+# print("INT ARR", int_arr)
+# arr_odd = []
+# for i in int_arr:
+#     if i % 2 == 0:
+#         print("EVEN")
+#     else:
+#         print("ODD")
+#         arr_odd.append(i)
+
+# print("ODD LIST:", arr_odd)
+# sorted_odd = sorted(arr_odd)
+# print("ODD LIST: sorted", sorted_odd)
+
+# new_arr_odd = []
+# while arr_odd:
+#     new_arr_odd.append(arr_odd.pop())
+#     print("ODD LIST after pop:", arr_odd)
+#     if arr_odd:
+#         new_arr_odd.append(arr_odd.pop(0))
+#         print("ODD LIST after pop(0):", arr_odd)
+
+# print("FINAL ODD LIST:", new_arr_odd)
+
+
+# # "Laércio" (Beecrowd 2812)
+# # Read the number of test cases
+# try:
+#     N = int(input())
+# except (ValueError, EOFError):
+#     N = 0
+
+# for _ in range(N):
+#     try:
+#         M = int(input())
+#         numbers = list(map(int, input().split()))
+#     except (ValueError, EOFError, IndexError):
+#         continue
+
+#     # Step 1: Filter to get only the odd numbers
+#     odd_numbers = []
+#     for num in numbers:
+#         if num % 2 != 0:
+#             odd_numbers.append(num)
+            
+#     # A more Pythonic way to filter:
+#     # odd_numbers = [num for num in numbers if num % 2 != 0]
+
+#     # Step 2: Sort the odd numbers. Sorting ascending is easiest.
+#     odd_numbers.sort()
+    
+#     # Step 3: Arrange into the new pattern
+#     result = []
+    
+#     # Continue as long as there are numbers to process
+#     while odd_numbers: # An empty list evaluates to False
+#         # Take the largest (last element) and remove it from the list
+#         result.append(odd_numbers.pop())
+        
+#         # If the list is not empty after popping the largest,
+#         # take the smallest (first element)
+#         if odd_numbers:
+#             result.append(odd_numbers.pop(0))
+            
+#     # Step 4: Print the result
+#     # Convert all numbers in the result list to strings before joining
+#     result_str_list = [str(num) for num in result]
+#     print(" ".join(result_str_list))
+
+# beecrowd 2808 - Knights Again
+
+# def main():
+#     start, end = input().split()
+
+#     # Convert letters to numbers
+#     print("ord('a')", ord('a') + 1, ord(start[0]), ord(end[0]))
+#     x1 = ord(start[0]) - ord('a') + 1
+#     print("x1 ", x1)
+#     y1 = int(start[1])
+#     print("y1 ", y1)
+#     x2 = ord(end[0]) - ord('a') + 1
+#     print("x2 ", x2)
+#     y2 = int(end[1])
+#     print("y2 ", y2)
+
+#     # Compute absolute differences
+#     dx = abs(x2 - x1)
+#     print("dx ", dx)
+#     dy = abs(y2 - y1)
+#     print("dy ", dy)
+
+#     # Check knight move
+#     if (dx == 2 and dy == 1) or (dx == 1 and dy == 2):
+#         print("VALIDO")
+#     else:
+#         print("INVALIDO")
+
+# if __name__ == "__main__":
+#     main()
+
+
+
+# # Step 1: Read N
+# N = int(input())
+
+# # Step 2: Start the sequence with [1, 1]
+# seq = [1, 1]
+
+# # Step 3: Build sequence backwards (reverse Fibonacci)
+# for i in range(2, N):
+#     seq.append(seq[i - 1] + seq[i - 2])
+
+# # Step 4: Reverse and print
+# seq.reverse()
+# print(" ".join(map(str, seq)))
+
+
+
