@@ -5776,3 +5776,107 @@
 
 
 
+# beecrowd | 2863
+# Umil Bolt
+# while True:
+#     n = int(input())
+#     arr = []
+#     for i in range(n):
+#         num = int(input())
+#         arr.append(num)
+#     print("ARRAY:", arr)
+#     min_num = min(arr)
+#     print("MIN:", min_num)
+
+
+
+# # The program needs to read inputs until there are no more (End-of-File).
+# # A while True loop with a try-except block is a standard way to handle this.
+# while True:
+#     try:
+#         # Read the three ages from a single line.
+#         # If the input stream is empty, input() will raise an EOFError.
+#         line = input()
+#         if not line: break
+#         H, Z, L = map(int, line.split())
+#         print("READ AGES:", H, Z, L)
+#     except EOFError:
+#         break
+#     except (ValueError, IndexError):
+#         # Handle cases where input might be malformed
+#         break
+
+#     # Put the ages into a list
+#     ages = [H, Z, L]
+    
+#     # Sort the list to easily find the middle value
+#     ages.sort()
+#     print("SORTED AGES:", ages)
+#     # The middle age is the element at index 1 of the sorted list
+#     middle_age = ages[1]
+#     print("MIDDLE AGE:", middle_age)
+#     # Check which original variable corresponds to the middle age
+#     if H == middle_age:
+#         print("huguinho")
+#     elif Z == middle_age:
+#         print("zezinho")
+#     else: # L must be the middle age
+#         print("luisinho")
+
+
+
+
+# beecrowd 3342 - Keanu
+
+# n = int(input())
+
+# total = n * n
+
+# if n % 2 == 0:
+#     white = black = total // 2
+# else:
+#     white = total // 2 + 1
+#     black = total // 2
+
+# print(f"{white} casas brancas e {black} casas pretas")
+try:
+    # Read N and X
+    N, X = map(int, input().split())
+    
+    # Read the sequence of titan sizes
+    titan_sizes = input() # The string of letters, e.g., "MPG"
+    
+    # Read the sizes of the titans: p, m, g.
+    p, m, g = map(int, input().split())
+except (ValueError, EOFError, IndexError):
+    exit()
+
+# Build a lookup table for converting titan types to sizes
+size_map = {
+    'P': p,
+    'M': m,
+    'G': g
+}
+
+# Initialize the number of walls
+walls_needed = 0
+current_wall_height = X
+
+# Iterate through each titan
+for titan_type in titan_sizes:
+    titan_size = size_map[titan_type]
+
+    # Check if the current wall can stop the titan.
+    if titan_size <= current_wall_height:
+        # Wall blocks the titan, reduce the wall's height
+        current_wall_height -= titan_size
+    else:
+        # Titan is too big. Build a new wall of maximum size (X).
+        walls_needed += 1
+        # and reduces the remaining value
+        current_wall_height = X - titan_size
+        
+# Print the total number of walls needed
+print(walls_needed)
+
+
