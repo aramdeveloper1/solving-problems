@@ -5839,44 +5839,256 @@
 #     black = total // 2
 
 # print(f"{white} casas brancas e {black} casas pretas")
-try:
-    # Read N and X
-    N, X = map(int, input().split())
+# try:
+#     # Read N and X
+#     N, X = map(int, input().split())
     
-    # Read the sequence of titan sizes
-    titan_sizes = input() # The string of letters, e.g., "MPG"
+#     # Read the sequence of titan sizes
+#     titan_sizes = input() # The string of letters, e.g., "MPG"
     
-    # Read the sizes of the titans: p, m, g.
-    p, m, g = map(int, input().split())
-except (ValueError, EOFError, IndexError):
-    exit()
+#     # Read the sizes of the titans: p, m, g.
+#     p, m, g = map(int, input().split())
+# except (ValueError, EOFError, IndexError):
+#     exit()
 
-# Build a lookup table for converting titan types to sizes
-size_map = {
-    'P': p,
-    'M': m,
-    'G': g
-}
+# # Build a lookup table for converting titan types to sizes
+# size_map = {
+#     'P': p,
+#     'M': m,
+#     'G': g
+# }
 
-# Initialize the number of walls
-walls_needed = 0
-current_wall_height = X
+# # Initialize the number of walls
+# walls_needed = 0
+# current_wall_height = X
 
-# Iterate through each titan
-for titan_type in titan_sizes:
-    titan_size = size_map[titan_type]
+# # Iterate through each titan
+# for titan_type in titan_sizes:
+#     titan_size = size_map[titan_type]
 
-    # Check if the current wall can stop the titan.
-    if titan_size <= current_wall_height:
-        # Wall blocks the titan, reduce the wall's height
-        current_wall_height -= titan_size
-    else:
-        # Titan is too big. Build a new wall of maximum size (X).
-        walls_needed += 1
-        # and reduces the remaining value
-        current_wall_height = X - titan_size
+#     # Check if the current wall can stop the titan.
+#     if titan_size <= current_wall_height:
+#         # Wall blocks the titan, reduce the wall's height
+#         current_wall_height -= titan_size
+#     else:
+#         # Titan is too big. Build a new wall of maximum size (X).
+#         walls_needed += 1
+#         # and reduces the remaining value
+#         current_wall_height = X - titan_size
         
-# Print the total number of walls needed
-print(walls_needed)
+# # Print the total number of walls needed
+# print(walls_needed)
 
 
+# beecrowd | 3037
+# Playing Darts by Distance
+
+# n = int(input())
+# while n > 0:
+#     n -= 1
+#     john_score = 0
+#     for _ in range(3):
+#         john_target, john_attempt = map(int, input().split())
+#         print("john_target ", john_target)
+#         print("john_attempt ", john_attempt)
+#         john_score += john_target
+#     print("john_score ", john_score)
+#     mary_score = 0
+#     for _ in range(3):
+#         mary_target, mary_attempt = map(int, input().split())
+#         print("mary_target ", mary_target)
+#         print("mary_attempt ", mary_attempt)
+#         mary_score += mary_target
+#     print("mary_score ", mary_score)
+#     if john_score < mary_score:
+#         print("JOHN")
+#     elif john_score > mary_score:
+#         print("MARY")
+#     else:
+#         print("TIE")
+
+
+# beecrowd 3037 - Playing Darts by Distance
+
+# T = int(input())  # number of test cases
+
+# for _ in range(T):
+#     joao_score = 0
+#     maria_score = 0
+
+#     # 3 lines for João
+#     for _ in range(3):
+#         X, D = map(int, input().split())
+#         joao_score += X * D
+#     print("joao_score ", joao_score)
+#     # 3 lines for Maria
+#     for _ in range(3):
+#         X, D = map(int, input().split())
+#         maria_score += X * D
+#     print("maria_score ", maria_score)
+
+#     if joao_score > maria_score:
+#         print("JOAO")
+#     else:
+#         print("MARIA")
+
+
+# beecrowd | 3039
+# Santa's Toys
+
+# n = int(input())
+# f = []
+# m = []
+# for _ in range(n):
+#     name,toy = map(str, input().split())
+#     if toy[0] == 'F':
+#         f.append(toy)
+#     else:
+#         m.append(toy)
+# sum_f = len(f)
+# sum_m = len(m)
+# print(" ".join(f))
+# print(" ".join(m))
+# print(sum_f, sum_m)
+
+# N = int(input())
+
+# cars = 0
+# dolls = 0
+
+# for _ in range(N):
+#     name, gender = input().split()
+#     if gender == 'M':
+#         cars += 1
+#     elif gender == 'F':
+#         dolls += 1
+
+# print(f"{cars} carrinhos")
+# print(f"{dolls} bonecas")
+
+
+# beecrowd | 3040
+# The Christmas Tree
+# n = int(input())
+# while n > 0:
+#     n -= 1
+#     h, d, g = map(int, input().split())
+#     if h >= 200 and h<= 300 and d >= 50 and d <= 200 and g >= 150 and g <= 300:
+#         print("Sim")
+#     else:
+#         print("Nao")
+
+
+# Read the number of test cases
+# N = int(input())
+
+# # Loop N times to process each tree
+# for _ in range(N):
+#     # Read the three integers (h, d, g) from a single line
+#     # map(int, input().split()) converts the space-separated string
+#     # into a list of integers
+#     h, d, g = map(int, input().split())
+    
+#     # Check all conditions directly using logical AND
+#     # Height: between 200 and 300 (inclusive)
+#     # Diameter: at least 50
+#     # Branches: at least 150
+#     if (200 <= h <= 300) and (d >= 50) and (g >= 150):
+#         print("Sim")
+#     else:
+#         print("Nao")
+
+# beecrowd | 3042
+# Deflecting from Christmas Trees
+# minimum = []
+# while n > 0:
+#     n -=1
+#     new_min = []
+#     for _ in range(3):
+#         new_min.append(list(map(int, input().split())))
+
+#     minimum.append(min(new_min))
+# print(min(minimum))
+
+# while True:
+#     M = int(input())
+#     if M == 0:
+#         break  # End of input
+
+#     current_lane = 1  # Santa starts in the middle lane (index 1)
+#     total_taps = 0
+
+#     for _ in range(M):
+#         L, C, R = map(int, input().split())
+        
+#         # Represent lanes as a list for easier indexing
+#         lanes = [L, C, R]
+#         print("lanes ", lanes)
+#         next_lane = -1 # Initialize next_lane, will be updated to Santa's next position
+
+#         # Scenario 1: Current lane is free. Santa should stay put to minimize taps.
+#         if lanes[current_lane] == 0:
+#             next_lane = current_lane
+#             print("next_lane ", next_lane)
+#         # Scenario 2: Current lane has an obstacle. Santa must move to the *only* free lane.
+#         else:
+#             if lanes[0] == 0: # Left lane is free
+#                 next_lane = 0
+#             elif lanes[1] == 0: # Center lane is free
+#                 next_lane = 1
+#             elif lanes[2] == 0: # Right lane is free
+#                 next_lane = 2
+        
+#         # Calculate taps needed to move from current_lane to next_lane
+#         # abs(current_lane - next_lane) correctly gives 0, 1, or 2 taps.
+#         taps_needed = abs(current_lane - next_lane)
+#         print("taps_needed ", taps_needed)
+#         total_taps += taps_needed
+#         print("total_taps ", total_taps)
+        
+#         # Update Santa's current position
+#         current_lane = next_lane
+#         print("current_lane ", current_lane)
+            
+#     print(total_taps)
+
+# beecrowd | 3046
+# Dominó
+# Read the input integer N
+# N = int(input())
+
+# Apply the given formula
+# Using integer division (//) to ensure the result is an integer,
+# as the problem implies a natural number output.
+# number_of_pieces = ((N + 1) * (N + 2)) // 2
+
+# # Print the result
+# print(number_of_pieces)
+
+# # beecrowd | 3047
+# # The age of Mrs. Monica
+# # Read Mrs. Monica's age
+# M = int(input())
+
+# # Read the ages of the two known children
+# A = int(input())
+# B = int(input())
+
+# # Calculate the age of the third child
+# # The sum of all three children's ages equals M
+# # So, C = M - (A + B)
+# C = M - (A + B)
+
+# # Find the maximum age among the three children (A, B, C)
+# oldest_child_age = max(A, B, C)
+
+# # Print the age of the oldest child
+# print(oldest_child_age)
+
+n = int(input())
+initial_position = "A"
+
+for _ in range(n):
+    movement_type = input().strip()
+    if movement_type == "A"
+    
